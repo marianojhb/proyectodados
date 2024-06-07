@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1717157917 source:c:\users\jivan\desktop\proyectosdadosprog1\proyectodados\main.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	"funciones.h"
+
+1717158079 c:\users\jivan\desktop\proyectosdadosprog1\proyectodados\funciones.h
+
+1717158093 source:c:\users\jivan\desktop\proyectosdadosprog1\proyectodados\funciones.cpp
+	<iostream>
+	<iostream>
+	<stdlib.h>
+	<time.h>
+
+1717424903 source:c:\users\lazaro\onedrive\documents\utnfrgpprogramacion1\proyectodados\main.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	"funciones.h"
+
+1717424970 c:\users\lazaro\onedrive\documents\utnfrgpprogramacion1\proyectodados\funciones.h
+
+1717424970 source:c:\users\lazaro\onedrive\documents\utnfrgpprogramacion1\proyectodados\funciones.cpp
+	<iostream>
+	<iostream>
+	<stdlib.h>
+	<time.h>
+
+1717772100 source:c:\users\lazaro\onedrive\documents\utnfrgpprogramacion1\proyectodados\masfunciones.cpp
+	<iostream>
+	<stdlib.h>
+
