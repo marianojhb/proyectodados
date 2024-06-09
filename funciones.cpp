@@ -4,15 +4,6 @@
 #include <time.h>
 using namespace std;
 
-void mostrarMenu(){
-    system("cls");
-    cout<<" ---- Escalera o Cien ---- "<<endl;
-    cout<<" 1 - Comenzar 1 JUGADOR "<<endl;
-    cout<<" 2 - Comenzar 2 JUGADORES "<<endl;
-    cout<<" 3 - Mostrar mayores puntuaciones "<<endl;
-    cout<<" 0 - Salir "<<endl;
-    cout<<" Ingrese la opcion deseada: ";
-}
 
 void cargarVectorAleatorio(int vec[], int tam){
     int i;
@@ -68,7 +59,6 @@ void cargarNombre(string &nombre) {
     cout << "Ingrese su nombre: ";
     nombre="Mariano";
     system("cls");
-    cout << endl;    cout << endl;
     cout << endl;
     cout << endl;
     cout << endl;
@@ -78,7 +68,10 @@ void cargarNombre(string &nombre) {
     cout << endl;
     cout << endl;
     cout << endl;
-    cout << endl;    cout << "                          Hola, " << nombre << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << "                          Hola, " << nombre << endl;
     cout << endl;
     cout << endl;
     cout << endl;

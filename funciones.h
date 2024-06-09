@@ -1,6 +1,9 @@
 #ifndef FUNCIONES_H_INCLUDED
 #define FUNCIONES_H_INCLUDED
 
+// menues.cpp
+void mostrarMenu();
+
 void cargarVectorManual(int vec[], int tam);
 void cargarVectorAleatorio(int vec[], int tam);
 void mostrarVector(int vec[], int tam);
@@ -11,7 +14,6 @@ void menuJuegoSolitario(int puntajeTotal, string nombre, int ronda, int lanzamie
 int sumaVector(int vec[], int tam);
 int sumaPuntaje (int puntaje, int &puntajeTotal);
 bool lanzar();
-void mostrarMenu();
 void otraFuncion();
 
 
