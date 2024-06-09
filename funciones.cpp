@@ -86,21 +86,6 @@ void cargarNombre(string &nombre) {
     system("pause");
 }
 
-
-void menuJuegoSolitario(int puntajeTotal, string nombre, int ronda, int lanzamiento, int maximoPorRonda){
-     system("cls");
-    cout << "---------------------------------------------------------------------------------" << endl;
-    cout << "JUGADOR: " << nombre << endl;
-    cout << "JUEGO SOLITARIO | RONDA No "<< ronda <<" | PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS" << endl;
-    cout << "---------------------------------------------------------------------------------" << endl;
-    cout << "MAXIMO PUNTAJE DE LA RONDA: "<< maximoPorRonda <<"  PUNTOS" << endl;
-    cout << "LANZAMIENTO No " << lanzamiento << endl;
-    cout << "---------------------------------------------------------------------------------" << endl;
-//    cout << "1  2  3  4  5  6" << endl;
-//    cout << "ESCALERA, GANASTE LA PARTIDA" << endl;
-//    system("pause");
-}
-
 int sumaPuntaje (int puntaje, int &puntajeTotal) {
     puntajeTotal += puntaje;
     return puntajeTotal;
