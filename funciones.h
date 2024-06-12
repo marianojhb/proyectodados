@@ -22,5 +22,7 @@ int sumaPuntaje (int puntaje, int &puntajeTotal);
 bool lanzar();
 void mostrarPuntaje(int &puntaje);
 
+// condiciones.cpp
+bool esEscalera(int vec[], int tam, int puntaje);
 
 #endif // FUNCIONES_H_INCLUDED
