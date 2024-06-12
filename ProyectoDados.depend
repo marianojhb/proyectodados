@@ -41,11 +41,26 @@
 	<iostream>
 	<stdlib.h>
 
-1717979217 source:c:\users\lazaro\onedrive\documents\proyectodados\main.cpp
+1718028776 source:c:\users\lazaro\onedrive\documents\proyectodados\main.cpp
 	<iostream>
 	<stdlib.h>
 	<time.h>
+	"reglasdeljuego.h"
 	"funciones.h"
 
-1717979217 c:\users\lazaro\onedrive\documents\proyectodados\funciones.h
+1718028073 c:\users\lazaro\onedrive\documents\proyectodados\funciones.h
+
+1718028824 source:c:\users\lazaro\onedrive\documents\proyectodados\menues.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	"reglasdeljuego.h"
+
+1718028073 source:c:\users\lazaro\onedrive\documents\proyectodados\mayorespuntuaciones.cpp
+	<iostream>
+
+1718028513 c:\users\lazaro\onedrive\documents\proyectodados\reglasdeljuego.h
+
+1718028708 source:c:\users\lazaro\onedrive\documents\proyectodados\reglasdeljuego.cpp
+	<iostream>
 
