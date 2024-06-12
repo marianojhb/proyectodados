@@ -57,7 +57,7 @@ void mostrarUltimasPartidas(string ultimaPartida) {
 
 void cargarNombre(string &nombre) {
     cout << "Ingrese su nombre: ";
-    nombre="Mariano";
+    cin >> nombre;
     system("cls");
     cout << endl;
     cout << endl;
