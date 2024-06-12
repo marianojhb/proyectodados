@@ -35,7 +35,8 @@
 		<Unit filename="funciones.cpp" />
 		<Unit filename="funciones.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="masfunciones.cpp" />
+		<Unit filename="menues.cpp" />
+		<Unit filename="modo_solitario.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

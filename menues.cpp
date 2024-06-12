@@ -12,6 +12,7 @@ void mostrarMenu()
   cout<<" 3 - Mostrar mayores puntuaciones "<<endl;
   cout<<" 0 - Salir "<<endl;
   cout<<" Ingrese la opcion deseada: ";
+
 }
 
 void menuJuegoSolitario(int puntajeTotal,
@@ -28,7 +29,4 @@ void menuJuegoSolitario(int puntajeTotal,
   cout << "MAXIMO PUNTAJE DE LA RONDA: "<< maximoPorRonda <<"  PUNTOS" << endl;
   cout << "LANZAMIENTO No " << lanzamiento << endl;
   cout << "---------------------------------------------------------------------------------" << endl;
-//    cout << "1  2  3  4  5  6" << endl;
-//    cout << "ESCALERA, GANASTE LA PARTIDA" << endl;
-//    system("pause");
-}
+ }

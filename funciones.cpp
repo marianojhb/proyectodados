@@ -1,51 +1,8 @@
-#include<iostream>
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
 using namespace std;
 
-
-void cargarVectorAleatorio(int vec[], int tam){
-    int i;
-    for (i=0;i<tam ;i++ ){
-        vec[i]=rand()%6+1;
-    }
-//    cout<<"Vector correctamente cargado con numeros aleatorios..."<<endl;
-}
-
-void cargarVectorManual(int vec[],int tam ){
-    int i;
-    for (i=0;i<tam ;i++ ){
-        cout<<"Ingrese el elemento "<<i+1<<" del vector: ";
-        cin>>vec[i];
-    }
-    cout<<"Vector correctamente cargado..."<<endl;
-}
-
-void ponerVectorEn0(int vec[],int tam ){
-    int i;
-    for (i=0;i<tam ;i++ ){
-        vec[i]=0;
-    }
-//    cout<<"Vector correctamente seteado en 0..."<<endl;
-}
-
-int sumaVector(int vec[], int tam){
-    int i;
-    int suma=0;
-    for (i=0;i<tam;i++) {
-        suma += vec[i];
-    }
-    return suma;
-}
-void mostrarVector(int vec[],int tam ){
-    int i;
-    for (i=0;i<tam ;i++ ){
-        cout << vec[i] <<  " ";
-    }
-    cout << endl;
-//    system("pause");
-}
 
 void mostrarUltimasPartidas(string ultimaPartida) {
 
@@ -101,6 +58,20 @@ bool lanzar(){
         cin >> boton;
     }
     if(boton =='l' && boton =='L')
+    {
+
         l=true;
         return l;
+    }
+    return l;
+}
+
+void mostrarPuntaje(int &puntaje){
+      cout << endl;
+      cout << endl;
+      cout << endl;
+      cout << "                            ";
+      cout << endl;
+      cout << "Sumo " << puntaje << " puntos." << endl;
+      cout << endl;
 }
