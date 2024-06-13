@@ -103,3 +103,39 @@
 	<time.h>
 	"funciones.h"
 
+1718314845 source:c:\users\charly\desktop\proyectodados\condiciones.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+
+1718314845 source:c:\users\charly\desktop\proyectodados\funciones.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+
+1718314845 source:c:\users\charly\desktop\proyectodados\menues.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	"funciones.h"
+
+1718314845 c:\users\charly\desktop\proyectodados\funciones.h
+
+1718314845 source:c:\users\charly\desktop\proyectodados\modo_solitario.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	"funciones.h"
+
+1718314845 source:c:\users\charly\desktop\proyectodados\vectores.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	"funciones.h"
+
+1718315959 source:c:\users\charly\desktop\proyectodados\main.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	"funciones.h"
+
