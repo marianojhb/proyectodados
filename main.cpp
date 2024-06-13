@@ -12,10 +12,11 @@ int main()
   // const int TAM=6;
   // int dados[TAM]= {1,2,3,4,5,6};
   int opcion;
+  bool simulado = false;
 
   while(true)
   {
-    mostrarMenu();
+    mostrarMenu(simulado);
     cin >> opcion;
 
     switch (opcion)
@@ -23,13 +24,17 @@ int main()
 
     // funcion juegoSol
     case 1:
-      modoSolitario();
+      modoSolitario(simulado);
+      break;
+    case 2:
       break;
 
     case 3:
       // mostrarVector(dados, TAM);
       break;
 
+    case 4:
+      toggleSimulado(simulado);
     case 0:
       cout<<"Saliendo del programa..."<<endl;
       break;

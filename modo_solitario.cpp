@@ -4,7 +4,7 @@
 using namespace std;
 #include "funciones.h"
 
-void modoSolitario()
+void modoSolitario(bool simulado)
 {
     string jugador1;
     cargarNombre(jugador1);
@@ -20,7 +20,7 @@ void modoSolitario()
     puntajeTotal = 0;
     int lanzamiento;
 
-    while(puntajeTotal < 100 || escalera == false )
+    while(puntajeTotal < 100 && escalera == false )
     {
         int puntaje = 0; // por lanzamiento
         maximoPorRonda = 0;
@@ -28,28 +28,42 @@ void modoSolitario()
         // Lanzamientos:
         for ( lanzamiento = 1 ; lanzamiento <= 3; lanzamiento++)
         {
-            menuJuegoSolitario(puntajeTotal, jugador1, ronda, lanzamiento, maximoPorRonda);
-            if(lanzar()) {} // pide lanzar los dados presionando L
-            cargarVectorAleatorio(dados, tam); // carga el vector aleatorio en memoria
+            menuJuegoSolitario(puntajeTotal, jugador1, ronda, lanzamiento, maximoPorRonda, simulado);
+
+            if (simulado==false)
+            {
+                if(lanzar()) {} // pide lanzar los dados presionando L
+
+                cargarVectorAleatorio(dados, tam); // carga el vector aleatorio en memoria
+
+            }
+            else
+            {
+                cargarVectorManual(dados, tam);
+            }
             mostrarVector(dados, tam); // muestra el resultado en pantalla
             puntaje=sumaVector(dados, tam); // suma el los valores del vector en la variable puntaje
-
-            mostrarPuntaje(puntaje);
-            if (puntaje>maximoPorRonda)
-                maximoPorRonda = puntaje;
 
             // ESCALERA
             if (esEscalera(dados,tam,puntaje))
             {
                 escalera=true;
-                lanzamiento=4; // sumo uno para mostrar el lanzamiento correcto
                 cout << "Saco escalera y GANO EL JUEGO!!" << endl;
+                system("pause");
+                break;
             }
-            if (puntaje == 36)
+            else
             {
-                cout << "6 dados 6 reinicia el puntaje total a 0 " << endl;
-                puntajeTotal=0;
+                // Generala de 1-5: multiplica valor del dado x 10
+                generala(dados,tam,puntaje);
+                // Generala de 6: vuelve a 0 el puntaje total
+                seisSeis(puntaje,puntajeTotal,lanzamiento);
+                mostrarPuntaje(puntaje);
+                if (puntaje>maximoPorRonda)
+                    maximoPorRonda = puntaje;
             }
+
+
             system("pause");
         }
 
@@ -60,8 +74,8 @@ void modoSolitario()
         }
         else
         {
-            menuJuegoSolitario(puntajeTotal, jugador1, ronda, lanzamiento-1, maximoPorRonda);
-            system("pause");
+            menuJuegoSolitario(puntajeTotal, jugador1, ronda, lanzamiento-1, maximoPorRonda, simulado);
+
             cout << "Fin de la ronda. Sumo " << maximoPorRonda << " puntos." << endl;
             sumaPuntaje(maximoPorRonda, puntajeTotal);
             system("pause");
@@ -73,11 +87,13 @@ void modoSolitario()
     if (escalera == true)
     {
         system("cls");
-        cout << "Gano por obtenter escalera" << endl;
+        cout << "Gano por obtener escalera" << endl;
     }
     else
     {
-        menuJuegoSolitario(puntajeTotal, jugador1, ronda-1, lanzamiento-1, maximoPorRonda);
+        menuJuegoSolitario(puntajeTotal, jugador1, ronda-1, lanzamiento-1, maximoPorRonda, simulado);
+        cout << "Termino la partida con " << puntajeTotal << " en la ronda " << ronda-1 << endl ;
+
     }
     system("pause");
 };

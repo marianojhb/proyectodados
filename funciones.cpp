@@ -4,7 +4,8 @@
 using namespace std;
 
 
-void mostrarUltimasPartidas(string ultimaPartida) {
+void mostrarUltimasPartidas(string ultimaPartida)
+{
 
     cout << "Partidas anteriores: " << endl;
     string partidasAnteriores = "";
@@ -12,7 +13,8 @@ void mostrarUltimasPartidas(string ultimaPartida) {
 //    system("pause");
 }
 
-void cargarNombre(string &nombre) {
+void cargarNombre(string &nombre)
+{
     cout << "Ingrese su nombre: ";
     cin >> nombre;
     system("cls");
@@ -43,18 +45,21 @@ void cargarNombre(string &nombre) {
     system("pause");
 }
 
-int sumaPuntaje (int puntaje, int &puntajeTotal) {
+int sumaPuntaje (int puntaje, int &puntajeTotal)
+{
     puntajeTotal += puntaje;
     return puntajeTotal;
 }
 
-bool lanzar(){
+bool lanzar()
+{
     bool l=false;
     char boton;
-    cout << "Apriete L para lanzar los dados: ";
+    cout << "Apriete (L) para lanzar los dados: ";
     cin >> boton;
-    while (boton !='l' && boton !='L') {
-        cout << "Apriete L para lanzar los dados: ";
+    while (boton !='l' && boton !='L')
+    {
+        cout << "Apriete (L) para lanzar los dados: ";
         cin >> boton;
     }
     if(boton =='l' && boton =='L')
@@ -66,12 +71,30 @@ bool lanzar(){
     return l;
 }
 
-void mostrarPuntaje(int &puntaje){
-      cout << endl;
-      cout << endl;
-      cout << endl;
-      cout << "                            ";
-      cout << endl;
-      cout << "Sumo " << puntaje << " puntos." << endl;
-      cout << endl;
+void mostrarPuntaje(int puntaje)
+{
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << "                            ";
+    cout << endl;
+    cout << "Sumo " << puntaje << " puntos." << endl;
+    cout << endl;
+}
+
+void toggleSimulado(bool &simulado)
+{
+    simulado = !simulado;
+}
+
+string labelSimulado(bool simulado)
+{
+  if (simulado)
+  {
+    return "ON";
+  }
+  else
+  {
+    return "OFF";
+  }
 }

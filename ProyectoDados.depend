@@ -31,7 +31,7 @@
 	<iostream>
 	<stdlib.h>
 
-1718216185 source:c:\users\lazaro\onedrive\documents\proyectodados\funciones.cpp
+1718253312 source:c:\users\lazaro\onedrive\documents\proyectodados\funciones.cpp
 	<iostream>
 	<stdlib.h>
 	<time.h>
@@ -40,18 +40,19 @@
 	<iostream>
 	<stdlib.h>
 
-1718216185 source:c:\users\lazaro\onedrive\documents\proyectodados\main.cpp
+1718248084 source:c:\users\lazaro\onedrive\documents\proyectodados\main.cpp
 	<iostream>
 	<stdlib.h>
 	<time.h>
 	"funciones.h"
 
-1718225082 c:\users\lazaro\onedrive\documents\proyectodados\funciones.h
+1718249036 c:\users\lazaro\onedrive\documents\proyectodados\funciones.h
 
-1718216834 source:c:\users\lazaro\onedrive\documents\proyectodados\menues.cpp
+1718248286 source:c:\users\lazaro\onedrive\documents\proyectodados\menues.cpp
 	<iostream>
 	<stdlib.h>
 	<time.h>
+	"funciones.h"
 
 1718028073 source:c:\users\lazaro\onedrive\documents\proyectodados\mayorespuntuaciones.cpp
 	<iostream>
@@ -76,7 +77,7 @@
 	<stdlib.h>
 	<time.h>
 
-1718228460 source:c:\users\lazaro\onedrive\documents\proyectodados\modo_solitario.cpp
+1718253298 source:c:\users\lazaro\onedrive\documents\proyectodados\modo_solitario.cpp
 	<iostream>
 	<stdlib.h>
 	<time.h>
@@ -88,7 +89,7 @@
 	<time.h>
 	"funciones.h"
 
-1718224991 source:c:\users\lazaro\onedrive\documents\proyectodados\condiciones.cpp
+1718250803 source:c:\users\lazaro\onedrive\documents\proyectodados\condiciones.cpp
 	<iostream>
 	<stdlib.h>
 	<time.h>

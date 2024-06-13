@@ -2,11 +2,11 @@
 #define FUNCIONES_H_INCLUDED
 
 // menues.cpp
-void mostrarMenu();
-void menuJuegoSolitario(int puntajeTotal, string nombre, int ronda, int lanzamiento, int maximoPorRonda);
+void mostrarMenu(bool simulado);
+void menuJuegoSolitario(int puntajeTotal, string nombre, int ronda, int lanzamiento, int maximoPorRonda, bool simulado);
 
 // modo_solitario.cpp
-void modoSolitario();
+void modoSolitario(bool simulado);
 
 // vectores.cpp
 void mostrarVector(int vec[], int tam);
@@ -20,9 +20,14 @@ void mostrarUltimasPartidas(string ultimaPartida);
 void cargarNombre(string &nombre);
 int sumaPuntaje (int puntaje, int &puntajeTotal);
 bool lanzar();
-void mostrarPuntaje(int &puntaje);
+void mostrarPuntaje(int puntaje);
+void toggleSimulado(bool &simulado);
+string labelSimulado(bool simulado);
 
 // condiciones.cpp
 bool esEscalera(int vec[], int tam, int puntaje);
+void seisSeis(int &puntaje, int &puntajeTotal, int &lanzamiento);
+void generala(int vec[], int tam, int &puntaje);
+
 
 #endif // FUNCIONES_H_INCLUDED
