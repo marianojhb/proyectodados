@@ -4,9 +4,15 @@
 // menues.cpp
 void mostrarMenu(bool simulado);
 void menuJuegoSolitario(int puntajeTotal, string nombre, int ronda, int lanzamiento, int maximoPorRonda, bool simulado);
+void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal);
+void interfas_parteUP ( int ronda, string nombre , int puntajeTotal);
+void interfas_parteMiD(int lanzamiento, int maxPuntajeRonda);
 
 // modo_solitario.cpp
 void modoSolitario(bool simulado);
+
+// multijugador.cpp
+void multijugador();
 
 // vectores.cpp
 void mostrarVector(int vec[], int tam);
@@ -14,6 +20,7 @@ void cargarVectorManual(int vec[], int tam);
 void cargarVectorAleatorio(int vec[], int tam);
 void ponerVectorEn0(int vec[], int tam);
 int sumaVector(int vec[], int tam);
+
 
 // funciones.cpp
 void mostrarUltimasPartidas(string ultimaPartida);
@@ -23,6 +30,9 @@ bool lanzar();
 void mostrarPuntaje(int puntaje);
 void toggleSimulado(bool &simulado);
 string labelSimulado(bool simulado);
+int tirar_sumar_mostrar_dados ( int v[], int tam);
+//int sumaLanzamiento(int v[], int tam);
+//int devolverMax_porRonda (int v[], int tam ,int puntaje);
 
 // condiciones.cpp
 bool esEscalera(int vec[], int tam, int puntaje);

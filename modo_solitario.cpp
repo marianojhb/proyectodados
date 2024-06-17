@@ -60,7 +60,9 @@ void modoSolitario(bool simulado)
                 seisSeis(puntaje,puntajeTotal,lanzamiento);
                 mostrarPuntaje(puntaje);
                 if (puntaje>maximoPorRonda)
+                {
                     maximoPorRonda = puntaje;
+                }
             }
 
 

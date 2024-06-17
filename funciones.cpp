@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 using namespace std;
-
+#include "funciones.h"
 
 void mostrarUltimasPartidas(string ultimaPartida)
 {
@@ -15,9 +15,10 @@ void mostrarUltimasPartidas(string ultimaPartida)
 
 void cargarNombre(string &nombre)
 {
+
+    system("cls");
     cout << "Ingrese su nombre: ";
     cin >> nombre;
-    system("cls");
     cout << endl;
     cout << endl;
     cout << endl;
@@ -43,6 +44,7 @@ void cargarNombre(string &nombre)
     cout << endl;
     cout << endl;
     system("pause");
+    system("cls");
 }
 
 int sumaPuntaje (int puntaje, int &puntajeTotal)
@@ -98,3 +100,61 @@ string labelSimulado(bool simulado)
     return "OFF";
   }
 }
+
+int tirar_sumar_mostrar_dados ( int v[], int tam)
+{
+  int TAM = 6;
+  int sumar;
+  int vec[TAM];
+  cargarVectorAleatorio(vec,TAM);
+  mostrarVector(vec,TAM);
+  sumar = sumaVector (vec,TAM);
+  cout << endl;
+  cout << "SUMASTE: " << sumar << endl;
+
+  system("pause");
+  system ("cls");
+  return sumar;
+}
+//
+//int sumaLanzamiento(int v[], int tam)
+//{
+//
+//  cargarVectorAleatorio(vec,tam);
+//  mostrarVector(vec,tam);
+//  int sumaVector = sumaVector(vec,tam);
+//  // ANTES DE RETORNAR, HACER UNA FX, CON UNA SERIE DE REGLAS, PARA SI: EL LANZAMIENTO ES ESCALERA, SEXTERO6, SEXTETO.
+//  return sumaVector;
+//
+//}
+//}
+//
+//int devolverMax_porRonda (int v[], int tam ,int puntaje)
+//{
+//  int puntaje;
+//  int maxPuntaje;
+//  for ( int i = 0 ; i < 3 ; i++)
+//  {
+//    puntaje = sumaLanzamiento(vec, tam);
+//      if ( i == 0)
+//      {
+//        maxPuntaje = puntaje;
+//      }
+//      else
+//      {
+//        if ( puntaje > maxPuntaje)
+//        {
+//          maxPuntaje = puntaje;
+//        }
+//      }
+//  }
+//  return maxPuntaje;
+//}
+
+
+
+
+
+
+
+

@@ -66,7 +66,6 @@ void seisSeis(int &puntaje, int &puntajeTotal, int &lanzamiento)
 // 6 dados iguales (que no sean 6), multiplica por 10 el valor
 void generala(int vec[], int tam, int &puntaje)
 {
-
     if (vec[0]!=6)
     {
         bool generala = true;
@@ -76,10 +75,11 @@ void generala(int vec[], int tam, int &puntaje)
             {
                 generala = false;
             }
-
-        if (generala)
-            puntaje = vec[0]*10;
-
+        // SI LA LINEA 79 SE CUMPLE, ESTE CODIGO NO SE EJECUTA:
+            if (generala)
+            {
+              puntaje = vec[0]*10;
+            }
         }
     }
 }

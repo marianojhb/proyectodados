@@ -38,6 +38,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="menues.cpp" />
 		<Unit filename="modo_solitario.cpp" />
+		<Unit filename="multijugador.cpp" />
 		<Unit filename="vectores.cpp" />
 		<Extensions />
 	</Project>

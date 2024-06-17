@@ -34,3 +34,40 @@ void menuJuegoSolitario(int puntajeTotal,
   cout << "LANZAMIENTO No " << lanzamiento << endl;
   cout << "---------------------------------------------------------------------------------" << endl;
  }
+
+// INTERFAS_FIN_RONDA.
+void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal)
+{
+  cout << endl;
+  cout << "FIN DE DE LA RONDA " << ronda << endl;
+  cout << "SUMASTE: " << maxPuntajeRonda << " PUNTOS." << endl;
+  cout << "PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS." << endl;
+  system("pause");
+  system("cls");
+}
+// INTERFAS_FIN_PARTIDA.
+
+void interfas_parteUP ( int ronda, string nombre , int puntajeTotal)
+{
+  cout << "TURNO DE " << nombre << " | RONDA N° " << ronda << " | PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS" << endl;
+}
+
+void interfas_parteMiD(int lanzamiento, int maxPuntajeRonda)
+{
+  cout << "---------------------------------------------------------------------------------" << endl;
+  cout << "MAXIMO PUNTAJE DE LA RONDA: " << maxPuntajeRonda << " PUNTOS" << endl;
+  cout << "LAMZAMIENTO N° " << lanzamiento << endl;
+  cout << "---------------------------------------------------------------------------------" << endl;
+  system("pause");
+  //BORRA LO QUE VENGA POR DEBAJO:
+  // system("cls");
+}
+
+
+
+
+
+
+
+
+

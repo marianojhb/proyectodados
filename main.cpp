@@ -1,7 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
-
 using namespace std;
 #include "funciones.h"
 
@@ -25,6 +24,7 @@ int main()
             modoSolitario(simulado);
             break;
         case 2:
+            multijugador();
             break;
 
         case 3:
