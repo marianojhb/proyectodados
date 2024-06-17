@@ -16,7 +16,7 @@ void multijugador(){
   int puntaje;
   int maximoPorRonda ;
   string nombre_1, nombre_2;
-
+  bool rtaEscalera = false;
   cargarNombre(nombre_1);
   cargarNombre(nombre_2);
 
@@ -34,6 +34,13 @@ void multijugador(){
           interfas_parteMiD( lanzamiento, maximoPorRonda);
           // TIRAMOS LOS DADOS
           puntaje = tirar_sumar_mostrar_dados (vec1,tam);
+          rtaEscalera = esEscalera( vec1, tam);
+            if(rtaEscalera)
+            {
+              cout << "ESCALERA, GANASTE LA PARTIDA!" << endl;
+              return ;
+            }
+
           if ( puntaje > maximoPorRonda)
           {
             maximoPorRonda = puntaje;
@@ -41,7 +48,8 @@ void multijugador(){
           if ( i == 2 )
           {
             puntajeTotal_1 += maximoPorRonda;
-            interfas_fin_ronda(ronda,maximoPorRonda,puntajeTotal_1);
+            //interfas_fin_ronda( ronda, maximoPorRonda, puntajeTotal_1);
+            interfas_entre_turnos ( ronda, nombre_2, nombre_1, puntajeTotal_1, puntajeTotal_2 );
             //REINICIMOS LAS VARIABLES PARA LA PROXIMA RONDA.
             lanzamiento = 0;
             maximoPorRonda = 0;
@@ -53,6 +61,12 @@ void multijugador(){
           interfas_parteUP ( ronda, nombre_2, puntajeTotal_2);
           interfas_parteMiD (lanzamiento, maximoPorRonda);
           puntaje = tirar_sumar_mostrar_dados (vec2,tam);
+          rtaEscalera = esEscalera( vec2, tam);
+            if(rtaEscalera)
+            {
+              cout << "ESCALERA, GANASTE LA PARTIDA!" << endl;
+              return ;
+            }
           if ( puntaje > maximoPorRonda)
           {
             maximoPorRonda = puntaje;
@@ -60,7 +74,8 @@ void multijugador(){
           if ( j == 2)
           {
             puntajeTotal_2 += maximoPorRonda;
-            interfas_fin_ronda(ronda, maximoPorRonda, puntajeTotal_2);
+            //interfas_fin_ronda(ronda, maximoPorRonda, puntajeTotal_2);
+            interfas_entre_turnos ( ronda, nombre_1, nombre_2, puntajeTotal_2, puntajeTotal_1);
             //REINICIMOS LAS VARIABLES PARA LA PROXIMA RONDA.
             lanzamiento = 0;
             maximoPorRonda = 0;
@@ -72,12 +87,13 @@ void multijugador(){
   {
     cout << "GANADOR: " << nombre_1 << endl;
     cout << "CON: " << puntajeTotal_1 << endl;
+
+
   }
   else
   {
     cout << "GANADOR: " << nombre_2 << endl;
     cout << "CON: " << puntajeTotal_2 << endl;
-
   }
   system("pause");
 //

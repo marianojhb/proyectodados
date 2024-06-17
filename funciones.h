@@ -5,6 +5,7 @@
 void mostrarMenu(bool simulado);
 void menuJuegoSolitario(int puntajeTotal, string nombre, int ronda, int lanzamiento, int maximoPorRonda, bool simulado);
 void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal);
+void interfas_entre_turnos( int ronda, string proxTurno, string antTurno, int puntajeTotal_ant, int puntajeTotal_prox);
 void interfas_parteUP ( int ronda, string nombre , int puntajeTotal);
 void interfas_parteMiD(int lanzamiento, int maxPuntajeRonda);
 
@@ -35,7 +36,7 @@ int tirar_sumar_mostrar_dados ( int v[], int tam);
 //int devolverMax_porRonda (int v[], int tam ,int puntaje);
 
 // condiciones.cpp
-bool esEscalera(int vec[], int tam, int puntaje);
+bool esEscalera(int vec[], int tam);
 void seisSeis(int &puntaje, int &puntajeTotal, int &lanzamiento);
 void generala(int vec[], int tam, int &puntaje);
 

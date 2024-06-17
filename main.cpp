@@ -8,6 +8,8 @@ int main()
 {
     // variables generales del juego
     srand(time(NULL));
+    int maxPuntaje_ranking = 0;
+    string nombre_maxPuntaje;
     int opcion;
     bool simulado = false;
 
@@ -33,8 +35,10 @@ int main()
 
         case 4:
             toggleSimulado(simulado);
+            break;
         case 0:
             cout<<"Saliendo del programa..."<<endl;
+            return 0;
             break;
 
         default:

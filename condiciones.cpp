@@ -5,11 +5,13 @@ using namespace std;
 
 
 // ESCALERA 613632
-bool esEscalera(int vec[], int tam, int puntaje)
+// ELIMINAMOS EL ARGUMENTO PUNTAJE ;
+bool esEscalera(int vec[], int tam)
 {
     bool resultado;
     int uno=0,dos=0,tres=0,cuatro=0,cinco=0,seis=0;
-    if (puntaje !=21)
+    /*
+    if (puntaje != 21)
     {
         resultado = false;
     }
@@ -19,37 +21,79 @@ bool esEscalera(int vec[], int tam, int puntaje)
         {
             switch(vec[i])
             {
-            case 1:
-                uno++;
-                break;
-            case 2:
-                dos++;
-                break;
-            case 3:
-                tres++;
-                break;
-            case 4:
-                cuatro++;
-                break;
-            case 5:
-                cinco++;
-                break;
-            case 6:
-                seis++;
-                break;
+              case 1:
+                  uno++;
+                  break;
+              case 2:
+                  dos++;
+                  break;
+              case 3:
+                  tres++;
+                  break;
+              case 4:
+                  cuatro++;
+                  break;
+              case 5:
+                  cinco++;
+                  break;
+              case 6:
+                  seis++;
+                  break;
             }
         }
-        if (uno == dos == tres == cuatro == cinco == seis == 1)
-        {
-            resultado = true;
-        }
-        else
-        {
-          resultado = false;
-        }
+      if (uno == dos == tres == cuatro == cinco == seis == 1)
+      {
+          resultado = true;
+      }
+      else
+      {
+        resultado = false;
+      }
 
     }
-    return resultado;
+
+    if (uno == dos == tres == cuatro == cinco == seis == 1)
+      {
+          resultado = true;
+      }
+    else
+      {
+        resultado = false;
+      }
+     return resultado;
+    */
+
+    // RECORREMOS CADA POSICION DEL VECTOR.
+    for ( int j = 0; j < tam ; j++ )
+    {
+      switch(vec[j])
+          {
+            case 1: uno++;
+              break;
+            case 2: dos++
+              ;break;
+            case 3: tres++;
+                break;
+            case 4: cuatro++;
+                break;
+            case 5: cinco++;
+                break;
+            case 6: seis++;
+                break;
+          }
+    }
+
+    // DETERMINAMOS SI ES ESCALERA.
+    if ( (uno == 1) && (dos == 1) && (tres == 1) && (cuatro == 1) && (cinco == 1) && (seis == 1))
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+
+
 }
 
 // 6 dados 6 reincia el puntaje total

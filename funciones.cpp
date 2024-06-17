@@ -103,18 +103,20 @@ string labelSimulado(bool simulado)
 
 int tirar_sumar_mostrar_dados ( int v[], int tam)
 {
-  int TAM = 6;
-  int sumar;
+  int const TAM = 6;
+  int puntaje;
   int vec[TAM];
   cargarVectorAleatorio(vec,TAM);
   mostrarVector(vec,TAM);
-  sumar = sumaVector (vec,TAM);
+  puntaje = sumaVector (vec,TAM);
   cout << endl;
-  cout << "SUMASTE: " << sumar << endl;
-
+  cout << "SUMASTE: " << puntaje << endl;
+  cout << endl;
   system("pause");
   system ("cls");
-  return sumar;
+  return puntaje;
+
+  //
 }
 //
 //int sumaLanzamiento(int v[], int tam)

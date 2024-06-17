@@ -35,6 +35,18 @@ void menuJuegoSolitario(int puntajeTotal,
   cout << "---------------------------------------------------------------------------------" << endl;
  }
 
+// INTERFAS_FIN_PARTIDA.
+void interfas_entre_turnos( int ronda, string proxTurno, string antTurno, int puntajeTotal_ant, int puntajeTotal_prox )
+{
+  cout << "RODNA N° " << ronda << endl;
+  cout << "PROXIMO TURNO: " << proxTurno << endl;
+  cout << endl;
+  cout << "PUNTAJE " << antTurno << ": "<< puntajeTotal_ant << endl;
+  cout << "PUNTAJE " << proxTurno << ": "<< puntajeTotal_prox << endl;
+  cout << endl;
+  system("pause");
+  system("cls");
+}
 // INTERFAS_FIN_RONDA.
 void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal)
 {
@@ -45,7 +57,6 @@ void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal)
   system("pause");
   system("cls");
 }
-// INTERFAS_FIN_PARTIDA.
 
 void interfas_parteUP ( int ronda, string nombre , int puntajeTotal)
 {

@@ -103,24 +103,24 @@
 	<time.h>
 	"funciones.h"
 
-1718415881 source:c:\users\charly\desktop\proyectodados\condiciones.cpp
+1718663256 source:c:\users\charly\desktop\proyectodados\condiciones.cpp
 	<iostream>
 	<stdlib.h>
 	<time.h>
 
-1718598488 source:c:\users\charly\desktop\proyectodados\funciones.cpp
-	<iostream>
-	<stdlib.h>
-	<time.h>
-	"funciones.h"
-
-1718598339 source:c:\users\charly\desktop\proyectodados\menues.cpp
+1718648762 source:c:\users\charly\desktop\proyectodados\funciones.cpp
 	<iostream>
 	<stdlib.h>
 	<time.h>
 	"funciones.h"
 
-1718602669 c:\users\charly\desktop\proyectodados\funciones.h
+1718647674 source:c:\users\charly\desktop\proyectodados\menues.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	"funciones.h"
+
+1718664657 c:\users\charly\desktop\proyectodados\funciones.h
 
 1718599398 source:c:\users\charly\desktop\proyectodados\modo_solitario.cpp
 	<iostream>
@@ -134,13 +134,13 @@
 	<time.h>
 	"funciones.h"
 
-1718417246 source:c:\users\charly\desktop\proyectodados\main.cpp
+1718663948 source:c:\users\charly\desktop\proyectodados\main.cpp
 	<iostream>
 	<stdlib.h>
 	<time.h>
 	"funciones.h"
 
-1718602511 source:c:\users\charly\desktop\proyectodados\multijugador.cpp
+1718663942 source:c:\users\charly\desktop\proyectodados\multijugador.cpp
 	<iostream>
 	<stdlib.h>
 	<time.h>
