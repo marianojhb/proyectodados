@@ -46,3 +46,21 @@ void mostrarVector(int vec[],int tam ){
 //    system("pause");
 }
 
+
+void ponerVectorEnVacio(string vec[], int n)
+{
+    for (int i=0;i<n;i++)
+    {
+        vec[i]="000 Vacio";
+    }
+}
+
+void mostrarVectorString(string vec[],int tam ){
+    int i;
+    cout << endl;
+    for (i=0;i<tam ;i++ ){
+        cout << "           " <<  vec[i] <<  " " << endl;
+    }
+    cout << endl;
+    system("pause");
+}
