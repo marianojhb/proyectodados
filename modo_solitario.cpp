@@ -45,7 +45,7 @@ void modoSolitario(bool simulado)
             puntaje=sumaVector(dados, tam); // suma el los valores del vector en la variable puntaje
 
             // ESCALERA
-            if (esEscalera(dados,tam))
+            if (esEscalera(dados,tam, puntaje))
             {
                 escalera=true;
                 cout << "Saco escalera y GANO EL JUEGO!!" << endl;

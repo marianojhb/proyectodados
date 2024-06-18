@@ -34,7 +34,7 @@ void multijugador(){
           interfas_parteMiD( lanzamiento, maximoPorRonda);
           // TIRAMOS LOS DADOS
           puntaje = tirar_sumar_mostrar_dados (vec1,tam);
-          rtaEscalera = esEscalera( vec1, tam);
+          rtaEscalera = esEscalera( vec1, tam, puntaje);
             if(rtaEscalera)
             {
               cout << "ESCALERA, GANASTE LA PARTIDA!" << endl;
@@ -61,7 +61,7 @@ void multijugador(){
           interfas_parteUP ( ronda, nombre_2, puntajeTotal_2);
           interfas_parteMiD (lanzamiento, maximoPorRonda);
           puntaje = tirar_sumar_mostrar_dados (vec2,tam);
-          rtaEscalera = esEscalera( vec2, tam);
+          rtaEscalera = esEscalera( vec2, tam, puntaje);
             if(rtaEscalera)
             {
               cout << "ESCALERA, GANASTE LA PARTIDA!" << endl;

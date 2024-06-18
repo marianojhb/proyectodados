@@ -36,7 +36,7 @@ int tirar_sumar_mostrar_dados ( int v[], int tam);
 //int devolverMax_porRonda (int v[], int tam ,int puntaje);
 
 // condiciones.cpp
-bool esEscalera(int vec[], int tam);
+bool esEscalera(int vec[], int tam, int puntaje);
 void seisSeis(int &puntaje, int &puntajeTotal, int &lanzamiento);
 void generala(int vec[], int tam, int &puntaje);
 
