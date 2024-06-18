@@ -50,6 +50,7 @@ void interfas_entre_turnos( int ronda, string proxTurno, string antTurno, int pu
 // INTERFAS_FIN_RONDA.
 void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal)
 {
+  system("cls");
   cout << endl;
   cout << "FIN DE DE LA RONDA " << ronda << endl;
   cout << "SUMASTE: " << maxPuntajeRonda << " PUNTOS." << endl;

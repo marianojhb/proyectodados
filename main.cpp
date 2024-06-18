@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
     // variables generales del juego
-    srand(time(NULL));
+
     int opcion;
     bool simulado = false;
 

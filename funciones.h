@@ -29,7 +29,7 @@ void mostrarVectorString(string vec[],int tam );
 void mostrarUltimasPartidas(string ultimaPartida);
 void cargarNombre(string &nombre);
 int sumaPuntaje (int puntaje, int &puntajeTotal);
-bool lanzar();
+void lanzar();
 void mostrarPuntaje(int puntaje);
 void toggleSimulado(bool &simulado);
 string labelSimulado(bool simulado);

@@ -53,24 +53,30 @@ int sumaPuntaje (int puntaje, int &puntajeTotal)
     return puntajeTotal;
 }
 
-bool lanzar()
-{
-    bool l=false;
-    char boton;
-    cout << "Apriete (L) para lanzar los dados: ";
-    cin >> boton;
-    while (boton !='l' && boton !='L')
-    {
-        cout << "Apriete (L) para lanzar los dados: ";
-        cin >> boton;
-    }
-    if(boton =='l' && boton =='L')
-    {
+//bool lanzar()
+//{
+//    bool l=false;
+//    char boton;
+//    cout << "Apriete (L) para lanzar los dados: ";
+//    cin >> boton;
+//    while (boton !='l' && boton !='L')
+//    {
+//        cout << "Apriete (L) para lanzar los dados: ";
+//        cin >> boton;
+//    }
+//    if(boton =='l' && boton =='L')
+//    {
+//
+//        l=true;
+//        return l;
+//    }
+//    return l;
+//}
 
-        l=true;
-        return l;
-    }
-    return l;
+void lanzar()
+{
+    cout << endl << endl << "                         LANZAR LOS DADOS" << endl << endl;
+    system("pause");
 }
 
 void mostrarPuntaje(int puntaje)

@@ -32,7 +32,7 @@ void modoSolitario(bool simulado, string r[])
 
             if (simulado==false)
             {
-                if(lanzar()) {} // pide lanzar los dados presionando L
+                lanzar();
 
                 cargarVectorAleatorio(dados, tam); // carga el vector aleatorio en memoria
 
@@ -41,6 +41,8 @@ void modoSolitario(bool simulado, string r[])
             {
                 cargarVectorManual(dados, tam);
             }
+            cout << endl << endl << endl;
+            cout << "                           ";
             mostrarVector(dados, tam); // muestra el resultado en pantalla
             puntaje=sumaVector(dados, tam); // suma el los valores del vector en la variable puntaje
 
@@ -76,11 +78,8 @@ void modoSolitario(bool simulado, string r[])
         }
         else
         {
-            menuJuegoSolitario(puntajeTotal, jugador1, ronda, lanzamiento-1, maximoPorRonda, simulado);
-
-            cout << "Fin de la ronda. Sumo " << maximoPorRonda << " puntos." << endl;
+            interfas_fin_ronda(ronda, maximoPorRonda, puntajeTotal+puntaje);
             sumaPuntaje(maximoPorRonda, puntajeTotal);
-            system("pause");
             ronda++;
         }
 

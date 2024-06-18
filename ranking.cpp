@@ -39,7 +39,6 @@ int charToInt(char c)
 
 string intToString(int n)
 {
-    cout << "Numero a convertir=" << n << endl;
     string respuesta = "xxx";
     int centenas = (int)(n/100);
     int decenas = (int)(n-centenas*100)/10;
