@@ -10,7 +10,7 @@ void interfas_parteUP ( int ronda, string nombre , int puntajeTotal);
 void interfas_parteMiD(int lanzamiento, int maxPuntajeRonda);
 
 // modo_solitario.cpp
-void modoSolitario(bool simulado);
+void modoSolitario(bool simulado, string r[]);
 
 // multijugador.cpp
 void multijugador();
@@ -21,6 +21,8 @@ void cargarVectorManual(int vec[], int tam);
 void cargarVectorAleatorio(int vec[], int tam);
 void ponerVectorEn0(int vec[], int tam);
 int sumaVector(int vec[], int tam);
+void ponerVectorEnVacio(string vec[], int n);
+void mostrarVectorString(string vec[],int tam );
 
 
 // funciones.cpp
@@ -40,5 +42,10 @@ bool esEscalera(int vec[], int tam, int puntaje);
 void seisSeis(int &puntaje, int &puntajeTotal, int &lanzamiento);
 void generala(int vec[], int tam, int &puntaje);
 
-
+// ranking.cpp
+void actualizaRanking(string r[], string n, int p); // graba el ranking y advierte record
+void mostrarRanking(); // muestra el ranking
+int stringToInt(string s);
+int charToInt(char c);
+string intToString(int n);
 #endif // FUNCIONES_H_INCLUDED

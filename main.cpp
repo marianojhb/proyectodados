@@ -8,10 +8,13 @@ int main()
 {
     // variables generales del juego
     srand(time(NULL));
-    int maxPuntaje_ranking = 0;
-    string nombre_maxPuntaje;
     int opcion;
     bool simulado = false;
+
+    // Ranking
+    int ranking_len=10; // extensión del ranking
+    string ranking_lista[ranking_len]; // la lista de ranking
+    ponerVectorEnVacio(ranking_lista,ranking_len); // inicializo el ranking
 
     while(true)
     {
@@ -23,14 +26,14 @@ int main()
 
         // funcion juegoSol
         case 1:
-            modoSolitario(simulado);
+            modoSolitario(simulado, ranking_lista);
             break;
         case 2:
             multijugador();
             break;
 
         case 3:
-            // mostrarVector(dados, TAM);
+            mostrarVectorString(ranking_lista, ranking_len);
             break;
 
         case 4:

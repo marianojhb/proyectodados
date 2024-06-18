@@ -4,7 +4,7 @@
 using namespace std;
 #include "funciones.h"
 
-void modoSolitario(bool simulado)
+void modoSolitario(bool simulado, string r[])
 {
     string jugador1;
     cargarNombre(jugador1);
@@ -95,7 +95,7 @@ void modoSolitario(bool simulado)
     {
         menuJuegoSolitario(puntajeTotal, jugador1, ronda-1, lanzamiento-1, maximoPorRonda, simulado);
         cout << "Termino la partida con " << puntajeTotal << " en la ronda " << ronda-1 << endl ;
-
+    actualizaRanking(r, jugador1, puntajeTotal);
     }
     system("pause");
 };
