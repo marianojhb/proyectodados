@@ -35,7 +35,8 @@ void multijugador(){
           // TIRAMOS LOS DADOS
           puntaje = tirar_sumar_mostrar_dados (vec1,tam);
           //VERIFICAMOS SI ES ESCALERA:
-          rtaEscalera = esEscalera( vec1, tam);
+          rtaEscalera = esEscalera( vec1, tam, puntaje);
+
             if(rtaEscalera)
             {
               cout << "ESCALERA, GANASTE LA PARTIDA!" << endl;
@@ -57,11 +58,10 @@ void multijugador(){
               maximoPorRonda = puntaje;
             }
           }
-
+          // SI J ES 2 ES EL FINAL DE LA RONDA.
           if ( i == 2 )
           {
             puntajeTotal_1 += maximoPorRonda;
-            //interfas_fin_ronda( ronda, maximoPorRonda, puntajeTotal_1);
             interfas_entre_turnos ( ronda, nombre_2, nombre_1, puntajeTotal_1, puntajeTotal_2 );
             //REINICIMOS LAS VARIABLES PARA LA PROXIMA RONDA.
             lanzamiento = 0;
@@ -77,7 +77,7 @@ void multijugador(){
           // TIRAMOS LOS DADOS
           puntaje = tirar_sumar_mostrar_dados (vec2,tam);
           //VERIFICAMOS SI ES ESCALERA:
-          rtaEscalera = esEscalera( vec2, tam);
+          rtaEscalera = esEscalera( vec2, tam, puntaje);
             if(rtaEscalera)
             {
               cout << "ESCALERA, GANASTE LA PARTIDA!" << endl;
@@ -100,11 +100,10 @@ void multijugador(){
               maximoPorRonda = puntaje;
             }
           }
-
+          // SI J ES 2 ES EL FINAL DE LA RONDA.
           if ( j == 2)
           {
             puntajeTotal_2 += maximoPorRonda;
-            //interfas_fin_ronda(ronda, maximoPorRonda, puntajeTotal_2);
             interfas_entre_turnos ( ronda, nombre_1, nombre_2, puntajeTotal_2, puntajeTotal_1);
             //REINICIMOS LAS VARIABLES PARA LA PROXIMA RONDA.
             lanzamiento = 0;
