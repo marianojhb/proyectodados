@@ -103,7 +103,7 @@
 	<time.h>
 	"funciones.h"
 
-1718663256 source:c:\users\charly\desktop\proyectodados\condiciones.cpp
+1718675000 source:c:\users\charly\desktop\proyectodados\condiciones.cpp
 	<iostream>
 	<stdlib.h>
 	<time.h>
@@ -120,9 +120,9 @@
 	<time.h>
 	"funciones.h"
 
-1718664657 c:\users\charly\desktop\proyectodados\funciones.h
+1718675637 c:\users\charly\desktop\proyectodados\funciones.h
 
-1718599398 source:c:\users\charly\desktop\proyectodados\modo_solitario.cpp
+1718664590 source:c:\users\charly\desktop\proyectodados\modo_solitario.cpp
 	<iostream>
 	<stdlib.h>
 	<time.h>
@@ -140,7 +140,7 @@
 	<time.h>
 	"funciones.h"
 
-1718663942 source:c:\users\charly\desktop\proyectodados\multijugador.cpp
+1718675423 source:c:\users\charly\desktop\proyectodados\multijugador.cpp
 	<iostream>
 	<stdlib.h>
 	<time.h>

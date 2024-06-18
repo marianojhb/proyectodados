@@ -40,5 +40,4 @@ bool esEscalera(int vec[], int tam);
 void seisSeis(int &puntaje, int &puntajeTotal, int &lanzamiento);
 void generala(int vec[], int tam, int &puntaje);
 
-
 #endif // FUNCIONES_H_INCLUDED

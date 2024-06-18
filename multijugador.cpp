@@ -28,23 +28,36 @@ void multijugador(){
       maximoPorRonda = 0;
         for (int i = 0; i < 3 ; i++)
         {
-          // MOSTRAMOS MENUES, TODO ES 0
+          // MOSTRAMOS MENUES
           lanzamiento++;
           interfas_parteUP ( ronda, nombre_1, puntajeTotal_1);
           interfas_parteMiD( lanzamiento, maximoPorRonda);
           // TIRAMOS LOS DADOS
           puntaje = tirar_sumar_mostrar_dados (vec1,tam);
+          //VERIFICAMOS SI ES ESCALERA:
           rtaEscalera = esEscalera( vec1, tam);
             if(rtaEscalera)
             {
               cout << "ESCALERA, GANASTE LA PARTIDA!" << endl;
               return ;
             }
-
-          if ( puntaje > maximoPorRonda)
+          //VERIFICAMOS GENERALA.
+          generala( vec1, tam, puntaje);
+          //VERIFICAMOS SI ES SEXTETO-6
+          if ( puntaje == 36 )
           {
-            maximoPorRonda = puntaje;
+            // SE REINICIA EL PUNTAJE TOTAL, TAMBIEN SE REINICIA EL PUNTAJE Y EL MAXIMO POR RONDA.
+            puntajeTotal_1 = puntaje = maximoPorRonda = 0;
+            cout << "SACO SEXTETO 6 -- SE REINICIA EL PUNTAJE TOTAL" << endl;
           }
+          else
+          {
+            if ( puntaje > maximoPorRonda)
+            {
+              maximoPorRonda = puntaje;
+            }
+          }
+
           if ( i == 2 )
           {
             puntajeTotal_1 += maximoPorRonda;
@@ -58,19 +71,36 @@ void multijugador(){
         for ( int j = 0; j < 3; j++)
         {
           lanzamiento++;
+          // MOSTRAMOS MENUES
           interfas_parteUP ( ronda, nombre_2, puntajeTotal_2);
           interfas_parteMiD (lanzamiento, maximoPorRonda);
+          // TIRAMOS LOS DADOS
           puntaje = tirar_sumar_mostrar_dados (vec2,tam);
+          //VERIFICAMOS SI ES ESCALERA:
           rtaEscalera = esEscalera( vec2, tam);
             if(rtaEscalera)
             {
               cout << "ESCALERA, GANASTE LA PARTIDA!" << endl;
               return ;
             }
-          if ( puntaje > maximoPorRonda)
+          //VERIFICAMOS GENERALA.
+          generala( vec2, tam, puntaje);
+
+          //VERIFICAMOS SI ES SEXTETO-6
+          if ( puntaje == 36 )
           {
-            maximoPorRonda = puntaje;
+            // SE REINICIA EL PUNTAJE TOTAL, TAMBIEN SE REINICIA EL PUNTAJE Y EL MAXIMO POR RONDA.
+            puntajeTotal_2 = puntaje = maximoPorRonda = 0;
+            cout << "SACO SEXTETO 6 -- SE REINICIA EL PUNTAJE TOTAL" << endl;
           }
+          else
+          {
+            if ( puntaje > maximoPorRonda)
+            {
+              maximoPorRonda = puntaje;
+            }
+          }
+
           if ( j == 2)
           {
             puntajeTotal_2 += maximoPorRonda;

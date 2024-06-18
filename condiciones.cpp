@@ -70,8 +70,8 @@ bool esEscalera(int vec[], int tam)
           {
             case 1: uno++;
               break;
-            case 2: dos++
-              ;break;
+            case 2: dos++;
+              break;
             case 3: tres++;
                 break;
             case 4: cuatro++;
@@ -106,24 +106,27 @@ void seisSeis(int &puntaje, int &puntajeTotal, int &lanzamiento)
         cout << "6 dados 6 reinicia el puntaje total a 0 " << endl;
     }
 }
-
 // 6 dados iguales (que no sean 6), multiplica por 10 el valor
 void generala(int vec[], int tam, int &puntaje)
 {
+  // VERIFICAMOS QUE EL PRIMER DADO NO SEA 6.
     if (vec[0]!=6)
     {
+      // INICIALMENTE, ASUMIMOS QUE TODOS LOS DADOS SON IGUALES.
         bool generala = true;
+      //RECORREMOS EL RESTO DE LOS DADOS PARA VERIFICAR.
         for (int i=1; i<tam; i++)
         {
             if (vec[0] != vec[i])
             {
                 generala = false;
+                break; // SALIR DEL BUCLE SI ENCONTRAMOS UN DADO DIFERENTE
             }
-        // SI LA LINEA 79 SE CUMPLE, ESTE CODIGO NO SE EJECUTA:
-            if (generala)
-            {
-              puntaje = vec[0]*10;
-            }
+        }
+        // SI ES "VERDADERO" SIGUE SIENDO GENERALA.
+        if (generala)
+        {
+          puntaje = vec[0]*10;
         }
     }
 }
