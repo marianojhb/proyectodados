@@ -12,7 +12,7 @@ int main()
     bool simulado = false;
 
     // Ranking
-    int ranking_len=10; // extensión del ranking
+    int ranking_len=11; // extensión del ranking
     string ranking_lista[ranking_len]; // la lista de ranking
     ponerVectorEnVacio(ranking_lista,ranking_len); // inicializo el ranking
 
@@ -33,7 +33,7 @@ int main()
             break;
 
         case 3:
-            mostrarVectorString(ranking_lista, ranking_len);
+            mostrarVectorString(ranking_lista, ranking_len-1); // -1 porque el vector es de 11 pero solo muestro los 10 primeros
             break;
 
         case 4:

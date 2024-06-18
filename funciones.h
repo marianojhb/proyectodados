@@ -44,7 +44,6 @@ void generala(int vec[], int tam, int &puntaje);
 
 // ranking.cpp
 void actualizaRanking(string r[], string n, int p); // graba el ranking y advierte record
-void mostrarRanking(); // muestra el ranking
 int stringToInt(string s);
 int charToInt(char c);
 string intToString(int n);
