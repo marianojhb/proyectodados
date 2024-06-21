@@ -3,20 +3,27 @@
 #include <time.h>
 using namespace std;
 #include "funciones.h"
-
+#include "rlutil.h"
 void mostrarMenu(bool simulado)
 {
-  system("cls");
+  //system("cls");
+  //CAMBIAMOS EL COLOR DE TEXTO:
+  rlutil::setColor(rlutil::COLOR::WHITE);
+  //CAMBIAMOS LA POSICION DE LA COLUMNA:
+  rlutil::locate(40,10);
   cout << " ---- Escalera o Cien ---- " << endl;
-  cout << " 1 - Comenzar 1 JUGADOR " << endl;
-  cout << " 2 - Comenzar 2 JUGADORES " << endl;
-  cout << " 3 - Comenzar MULTIJUGADOR " << endl;
-  cout << " 4 - Mostrar mayores puntuaciones " << endl;
-  cout << " 5 - Modo simulado (ON/OFF): " << labelSimulado(simulado) << endl;
-  cout << " 0 - Salir " << endl;
-  cout << endl;
-  cout << " Ingrese la opcion deseada: ";
-
+  rlutil::locate(40,11);
+  cout << "COMENZAR UN JUGADOR" << endl;
+  rlutil::locate(40,12);
+  cout << "COMENZAR DOS JUGADORES" << endl;
+  rlutil::locate(40,13);
+  cout << "COMENZAR MULTIJUGADOR " << endl;
+  rlutil::locate(40,14);
+  cout << "MOSTRAR MAYORES PUNTUACIONES" << endl;
+  rlutil::locate(40,15);
+  cout << "MODO SIMULADO (ON/OFF): " << labelSimulado(simulado) << endl;
+  rlutil::locate(40,16);
+  cout << "SALIR" << endl;
 }
 
 void menuJuegoSolitario(int puntajeTotal,
@@ -80,7 +87,7 @@ void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal)
 
 void interfas_parteUP ( int ronda, string nombre , int puntajeTotal)
 {
-  cout << "TURNO DE " << nombre << " | RONDA No " << ronda << " | PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS" << endl;
+  cout << "TURNO DE " << nombre << " | RONDA N" << (char)248 << ronda << " | PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS" << endl;
 }
 
 void interfas_parteMiD(int lanzamiento, int maxPuntajeRonda)
