@@ -41,6 +41,7 @@ void dosjugadores(bool simulado, string r[])
             if(escalera)
             {
                 cout << "ESCALERA, GANASTE LA PARTIDA!" << endl;
+                actualizaRanking(r,nombre_1,100);
                 return ;
             }
             //VERIFICAMOS GENERALA.
@@ -82,6 +83,7 @@ void dosjugadores(bool simulado, string r[])
             if(escalera)
             {
                 cout << "ESCALERA, GANASTE LA PARTIDA!" << endl;
+                actualizaRanking(r,nombre_2,100);
                 return ;
             }
             //VERIFICAMOS GENERALA.

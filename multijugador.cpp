@@ -8,7 +8,7 @@ void multijugador(bool simulado, string r[])
 {
     // CON VECTORES
 
-    int cantidadJugadores = 2; // cantidad de jugadores
+    int cantidadJugadores; // cantidad de jugadores
     cout << endl << "INGRESE LA CANTIDAD DE JUGADORES ";
     cin >> cantidadJugadores;
 
