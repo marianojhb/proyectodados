@@ -13,7 +13,7 @@ void interfas_parteMiD(int lanzamiento, int maxPuntajeRonda);
 void modoSolitario(bool simulado, string r[]);
 
 // multijugador.cpp
-void multijugador();
+void multijugador(bool simulado, string r[]);
 
 // vectores.cpp
 void mostrarVector(int vec[], int tam);
@@ -39,7 +39,7 @@ int tirar_sumar_mostrar_dados ( int v[], int tam);
 
 // condiciones.cpp
 bool esEscalera(int vec[], int tam, int puntaje);
-void seisSeis(int &puntaje, int &puntajeTotal, int &lanzamiento);
+void seisSeis(int &puntaje, int &puntajeTotal);
 void generala(int vec[], int tam, int &puntaje);
 
 // ranking.cpp

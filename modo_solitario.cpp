@@ -11,18 +11,18 @@ void modoSolitario(bool simulado, string r[])
 
 
     // VARIABLES JUEGO SOLITARIO
-    int tam = 6;
+    int const tam = 6;
     int dados[tam];
+    int lanzamiento;
     int ronda = 1;
     int puntajeTotal = 0; // suma del juego
     int maximoPorRonda = 0;
+    int puntaje;
     bool escalera = false;
-    puntajeTotal = 0;
-    int lanzamiento;
 
     while(puntajeTotal < 100 && escalera == false )
     {
-        int puntaje = 0; // por lanzamiento
+        puntaje = 0; // por lanzamiento
         maximoPorRonda = 0;
 
         // Lanzamientos:
@@ -59,7 +59,7 @@ void modoSolitario(bool simulado, string r[])
                 // Generala de 1-5: multiplica valor del dado x 10
                 generala(dados,tam,puntaje);
                 // Generala de 6: vuelve a 0 el puntaje total
-                seisSeis(puntaje,puntajeTotal,lanzamiento);
+                seisSeis(puntaje,puntajeTotal);
                 mostrarPuntaje(puntaje);
                 if (puntaje>maximoPorRonda)
                 {
@@ -78,7 +78,7 @@ void modoSolitario(bool simulado, string r[])
         }
         else
         {
-            interfas_fin_ronda(ronda, maximoPorRonda, puntajeTotal+puntaje);
+            interfas_fin_ronda(ronda, maximoPorRonda, puntajeTotal);
             sumaPuntaje(maximoPorRonda, puntajeTotal);
             ronda++;
         }
@@ -94,7 +94,7 @@ void modoSolitario(bool simulado, string r[])
     {
         menuJuegoSolitario(puntajeTotal, jugador1, ronda-1, lanzamiento-1, maximoPorRonda, simulado);
         cout << "Termino la partida con " << puntajeTotal << " en la ronda " << ronda-1 << endl ;
-    actualizaRanking(r, jugador1, puntajeTotal);
+        actualizaRanking(r, jugador1, puntajeTotal);
     }
     system("pause");
 };

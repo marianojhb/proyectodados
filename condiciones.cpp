@@ -58,7 +58,7 @@ bool esEscalera(int vec[], int tam, int puntaje)
 }
 
 // 6 dados 6 reincia el puntaje total
-void seisSeis(int &puntaje, int &puntajeTotal, int &lanzamiento)
+void seisSeis(int &puntaje, int &puntajeTotal)
 {
     if (puntaje==36)
     {

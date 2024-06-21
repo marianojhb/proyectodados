@@ -29,7 +29,7 @@ int main()
             modoSolitario(simulado, ranking_lista);
             break;
         case 2:
-            multijugador();
+            multijugador(simulado, ranking_lista);
             break;
 
         case 3:

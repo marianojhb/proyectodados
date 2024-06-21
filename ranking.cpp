@@ -8,6 +8,8 @@ void actualizaRanking (string vec[], string n, int p)
 {
     string ultimaPartida = intToString(p) + " " + n;
     vec[10] = ultimaPartida;
+
+    // ORDENAR UN VECTOR CON METODO BURBUJA
     string aux = "";
     for (int j=0; j<10; j++)
     {
@@ -24,21 +26,22 @@ void actualizaRanking (string vec[], string n, int p)
 }
 
 
-int stringToInt(string s)
-{
-    int num=0;
-    num = charToInt(s[0])*100 + charToInt(s[1])*10 + charToInt(s[2]);
-    return num;
-}
+//int stringToInt(string s)
+//{
+//    int num=0;
+//    num = charToInt(s[0])*100 + charToInt(s[1])*10 + charToInt(s[2]);
+//    return num;
+//}
+//
+//int charToInt(char c)
+//{
+//    int respuesta=c-48;
+//    return respuesta;
+//}
 
-int charToInt(char c)
+string intToString(int n) //182  1+8+2=182
 {
-    int respuesta=c-48;
-    return respuesta;
-}
 
-string intToString(int n)
-{
     string respuesta = "xxx";
     int centenas = (int)(n/100);
     int decenas = (int)(n-centenas*100)/10;
