@@ -65,3 +65,23 @@ void mostrarVectorString(string vec[],int tam ){
     cout << endl;
     system("pause");
 }
+
+int maximoVectorIndice(int vec[], int tam)
+{
+    int maximo;
+    for (int i=0; i<tam;i++)
+    {
+        if (i==0)
+        {
+            maximo = 0;
+        }
+        else
+        {
+            if (vec[i]>vec[i-1])
+            {
+                maximo = i;
+            }
+        }
+    }
+    return maximo;
+}

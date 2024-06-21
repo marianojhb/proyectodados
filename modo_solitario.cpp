@@ -30,17 +30,19 @@ void modoSolitario(bool simulado, string r[])
         {
             menuJuegoSolitario(puntajeTotal, jugador1, ronda, lanzamiento, maximoPorRonda, simulado);
 
-            if (simulado==false)
-            {
-                lanzar();
+//            if (simulado==false)
+//            {
+//                lanzar();
+//
+//                cargarVectorAleatorio(dados, tam); // carga el vector aleatorio en memoria
+//
+//            }
+//            else
+//            {
+//                cargarVectorManual(dados, tam);
+//            }
+            lanzar2(simulado,dados,tam);
 
-                cargarVectorAleatorio(dados, tam); // carga el vector aleatorio en memoria
-
-            }
-            else
-            {
-                cargarVectorManual(dados, tam);
-            }
             cout << endl << endl << endl;
             cout << "                           ";
             mostrarVector(dados, tam); // muestra el resultado en pantalla
@@ -51,6 +53,7 @@ void modoSolitario(bool simulado, string r[])
             {
                 escalera=true;
                 cout << "Saco escalera y GANO EL JUEGO!!" << endl;
+                actualizaRanking(r,jugador1,100);
                 system("pause");
                 break;
             }
@@ -78,23 +81,15 @@ void modoSolitario(bool simulado, string r[])
         }
         else
         {
-            interfas_fin_ronda(ronda, maximoPorRonda, puntajeTotal);
             sumaPuntaje(maximoPorRonda, puntajeTotal);
+            interfas_fin_ronda(ronda, maximoPorRonda, puntajeTotal);
             ronda++;
         }
 
     }
+    cout << "TERMINO LA PARTIDA! " << endl;
+    cout << jugador1 << ", hiciste " << puntajeTotal << " puntos en " << ronda-1<< " rondas" << endl << endl;
+    actualizaRanking(r, jugador1, puntajeTotal);
 
-    if (escalera == true)
-    {
-        system("cls");
-        cout << "Gano por obtener escalera" << endl;
-    }
-    else
-    {
-        menuJuegoSolitario(puntajeTotal, jugador1, ronda-1, lanzamiento-1, maximoPorRonda, simulado);
-        cout << "Termino la partida con " << puntajeTotal << " en la ronda " << ronda-1 << endl ;
-        actualizaRanking(r, jugador1, puntajeTotal);
-    }
     system("pause");
 };

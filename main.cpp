@@ -29,14 +29,17 @@ int main()
             modoSolitario(simulado, ranking_lista);
             break;
         case 2:
+            dosjugadores(simulado, ranking_lista);
+            break;
+        case 3:
             multijugador(simulado, ranking_lista);
             break;
 
-        case 3:
+        case 4:
             mostrarVectorString(ranking_lista, ranking_len-1); // -1 porque el vector es de 11 pero solo muestro los 10 primeros
             break;
 
-        case 4:
+        case 5:
             toggleSimulado(simulado);
             break;
         case 0:

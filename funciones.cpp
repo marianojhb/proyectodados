@@ -16,9 +16,10 @@ void mostrarUltimasPartidas(string ultimaPartida)
 void cargarNombre(string &nombre)
 {
 
-    system("cls");
+    cout << endl;
     cout << "Ingrese su nombre: ";
     cin >> nombre;
+    system("cls");
     cout << endl;
     cout << endl;
     cout << endl;
@@ -53,31 +54,21 @@ int sumaPuntaje (int puntaje, int &puntajeTotal)
     return puntajeTotal;
 }
 
-//bool lanzar()
-//{
-//    bool l=false;
-//    char boton;
-//    cout << "Apriete (L) para lanzar los dados: ";
-//    cin >> boton;
-//    while (boton !='l' && boton !='L')
-//    {
-//        cout << "Apriete (L) para lanzar los dados: ";
-//        cin >> boton;
-//    }
-//    if(boton =='l' && boton =='L')
-//    {
-//
-//        l=true;
-//        return l;
-//    }
-//    return l;
-//}
-
-void lanzar()
+void lanzar2(bool simulado, int dados[], int tam)
 {
-    cout << endl << endl << "                         LANZAR LOS DADOS" << endl << endl;
-    system("pause");
+    if (simulado==false)
+    {
+        cout << endl << endl << "                         LANZAR LOS DADOS" << endl << endl;
+        system("pause");
+        cargarVectorAleatorio(dados, tam); // carga el vector aleatorio en memoria
+    }
+    else
+    {
+        cargarVectorManual(dados, tam);
+    }
 }
+
+
 
 void mostrarPuntaje(int puntaje)
 {
@@ -97,30 +88,30 @@ void toggleSimulado(bool &simulado)
 
 string labelSimulado(bool simulado)
 {
-  if (simulado)
-  {
-    return "ON";
-  }
-  else
-  {
-    return "OFF";
-  }
+    if (simulado)
+    {
+        return "ON";
+    }
+    else
+    {
+        return "OFF";
+    }
 }
 
 int tirar_sumar_mostrar_dados ( int v[], int tam)
 {
-  int puntaje;
-  cargarVectorAleatorio(v,tam);
-  mostrarVector(v,tam);
-  puntaje = sumaVector (v,tam);
-  cout << endl;
-  cout << "SUMASTE: " << puntaje << endl;
-  cout << endl;
-  system("pause");
-  system ("cls");
-  return puntaje;
+    int puntaje;
+    cargarVectorAleatorio(v,tam);
+    mostrarVector(v,tam);
+    puntaje = sumaVector (v,tam);
+    cout << endl;
+    cout << "SUMASTE: " << puntaje << endl;
+    cout << endl;
+    system("pause");
+    system ("cls");
+    return puntaje;
 
-  //
+    //
 }
 //
 //int sumaLanzamiento(int v[], int tam)
