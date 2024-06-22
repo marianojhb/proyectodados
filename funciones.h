@@ -9,7 +9,7 @@ void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal);
 void interfas_entre_turnos( int ronda, string proxTurno, string antTurno, int puntajeTotal_ant, int puntajeTotal_prox);
 void interfas_parteUP ( int ronda, string nombre , int puntajeTotal);
 void interfas_parteMiD(int lanzamiento, int maxPuntajeRonda);
-
+void dibujo_cuadrado();
 // modo_solitario.cpp
 void modoSolitario(bool simulado, string r[]);
 

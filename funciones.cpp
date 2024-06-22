@@ -3,6 +3,7 @@
 #include <time.h>
 using namespace std;
 #include "funciones.h"
+#include "rlutil.h"
 
 void mostrarUltimasPartidas(string ultimaPartida)
 {
@@ -16,8 +17,10 @@ void mostrarUltimasPartidas(string ultimaPartida)
 void cargarNombre(string &nombre)
 {
 
+    system("cls");
+
     cout << endl;
-    cout << "Ingrese su nombre: ";
+    cout << "INGRESE SU NONBRE: ";
     cin >> nombre;
     system("cls");
     cout << endl;
@@ -44,6 +47,7 @@ void cargarNombre(string &nombre)
     cout << endl;
     cout << endl;
     cout << endl;
+
     system("pause");
     system("cls");
 }
@@ -111,42 +115,9 @@ int tirar_sumar_mostrar_dados ( int v[], int tam)
     system ("cls");
     return puntaje;
 
-    //
+
 }
-//
-//int sumaLanzamiento(int v[], int tam)
-//{
-//
-//  cargarVectorAleatorio(vec,tam);
-//  mostrarVector(vec,tam);
-//  int sumaVector = sumaVector(vec,tam);
-//  // ANTES DE RETORNAR, HACER UNA FX, CON UNA SERIE DE REGLAS, PARA SI: EL LANZAMIENTO ES ESCALERA, SEXTERO6, SEXTETO.
-//  return sumaVector;
-//
-//}
-//}
-//
-//int devolverMax_porRonda (int v[], int tam ,int puntaje)
-//{
-//  int puntaje;
-//  int maxPuntaje;
-//  for ( int i = 0 ; i < 3 ; i++)
-//  {
-//    puntaje = sumaLanzamiento(vec, tam);
-//      if ( i == 0)
-//      {
-//        maxPuntaje = puntaje;
-//      }
-//      else
-//      {
-//        if ( puntaje > maxPuntaje)
-//        {
-//          maxPuntaje = puntaje;
-//        }
-//      }
-//  }
-//  return maxPuntaje;
-//}
+
 
 
 
