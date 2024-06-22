@@ -18,6 +18,10 @@ void cargarVectorManual(int vec[],int tam ){
     for (i=0;i<tam ;i++ ){
         cout<<"Ingrese el elemento "<<i+1<<" del vector: ";
         cin>>vec[i];
+        while (vec[i]>6){
+            cout << "Ingrese un nuevo numero: ";
+            cin >> vec[i];
+        }
     }
     cout<<"Vector correctamente cargado..."<<endl;
 }
