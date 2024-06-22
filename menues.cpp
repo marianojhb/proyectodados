@@ -7,25 +7,26 @@ using namespace std;
 
 void mostrarMenu(bool simulado)
 {
-//    rlutil::cls();
-//DIUJAMOS EL CUADRO:
+    //DIUJAMOS EL CUADRO:
     dibujo_cuadrado();
     //CAMBIAMOS EL COLOR DE TEXTO:
     rlutil::setColor(rlutil::COLOR::WHITE);
     //CAMBIAMOS LA POSICION DE LA COLUMNA:
-    rlutil::locate(42,6);
+    rlutil::locate(22,6);
     cout << " ---- ESCALERA O CIEN ---- " << endl;
-    rlutil::locate(42,7);
+    rlutil::locate(22,7);
     cout << "COMENZAR UN JUGADOR" << endl;
-    rlutil::locate(42,8);
+    rlutil::locate(22,8);
     cout << "COMENZAR DOS JUGADORES" << endl;
-    rlutil::locate(42,9);
+    rlutil::locate(22,9);
     cout << "COMENZAR MULTIJUGADOR " << endl;
-    rlutil::locate(42,10);
+    rlutil::locate(22,10);
     cout << "MOSTRAR MAYORES PUNTUACIONES" << endl;
-    rlutil::locate(42,11);
+    rlutil::locate(22,11);
     cout << "MODO SIMULADO " << labelSimulado(simulado) << endl;
-    rlutil::locate(42,12);
+    rlutil::locate(22,12);
+    cout << "CREDITOS" << endl;
+    rlutil::locate(22,13);
     cout << "SALIR" << endl;
 }
 
@@ -69,17 +70,17 @@ void menuJuegoMultijugador(int puntajeTotal,
 void interfas_entre_turnos( int ronda, string proxTurno, string antTurno, int puntajeTotal_ant, int puntajeTotal_prox )
 {
     dibujo_cuadrado();
-    rlutil::locate(50,6);
+    rlutil::locate(30,6);
     cout << "RONDA N" << (char)248 << " " << ronda << endl;
-    rlutil::locate(43,7);
+    rlutil::locate(23,7);
     cout << "PROXIMO TURNO: " << proxTurno << endl;
     cout << endl;
-    rlutil::locate(43,9);
+    rlutil::locate(23,9);
     cout << "PUNTAJE " << antTurno << ": "<< puntajeTotal_ant << endl;
-    rlutil::locate(43,10);
+    rlutil::locate(23,10);
     cout << "PUNTAJE " << proxTurno << ": "<< puntajeTotal_prox << endl;
     cout << endl;
-    rlutil::locate(38,12);
+    rlutil::locate(18,12);
     rlutil::anykey();
     rlutil::cls();
 }
@@ -121,57 +122,79 @@ void dibujo_cuadrado()
 
     //DIBUJANDO EL CUADRADO
     // LINEA SUPERIOR: X1=30  X2=82 | Y1 = 4
-    rlutil::locate(30,4);
+    rlutil::locate(10,4);
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " ";
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " ;
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " ";
-    // LINEA INFERIOS: X1=30  X2=82 | Y = 14
-    rlutil::locate(30,14);
+    // LINEA INFERIOS: X1=30  X2=82 | Y = 15
+    rlutil::locate(10,15);
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " ";
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " ;
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " ";
-    //LINEA VERTICAL DERECHA:
-    rlutil::locate(30,5);
-    cout << (char)223;
-    rlutil::locate(30,6);
-    cout << (char)223;
-    rlutil::locate(30,7);
-    cout << (char)223;
-    rlutil::locate(30,8);
-    cout << (char)223;
-    rlutil::locate(30,9);
-    cout << (char)223;
-    rlutil::locate(30,10);
-    cout << (char)223;
-    rlutil::locate(30,11);
-    cout << (char)223;
-    rlutil::locate(30,12);
-    cout << (char)223;
-    rlutil::locate(30,13);
-    cout << (char)223;
     //LINEA VERTICAL IZQUIERDA:
-    rlutil::locate(82,5);
+    rlutil::locate(10,5);
     cout << (char)223;
-    rlutil::locate(82,6);
+    rlutil::locate(10,6);
     cout << (char)223;
-    rlutil::locate(82,7);
+    rlutil::locate(10,7);
     cout << (char)223;
-    rlutil::locate(82,8);
+    rlutil::locate(10,8);
     cout << (char)223;
-    rlutil::locate(82,9);
+    rlutil::locate(10,9);
     cout << (char)223;
-    rlutil::locate(82,10);
+    rlutil::locate(10,10);
     cout << (char)223;
-    rlutil::locate(82,11);
+    rlutil::locate(10,11);
     cout << (char)223;
-    rlutil::locate(82,12);
+    rlutil::locate(10,12);
     cout << (char)223;
-    rlutil::locate(82,13);
+    rlutil::locate(10,13);
+    cout << (char)223;
+    rlutil::locate(10,14);
+    cout << (char)223;
+    //LINEA VERTICAL DERECHA:
+    rlutil::locate(62,5);
+    cout << (char)223;
+    rlutil::locate(62,6);
+    cout << (char)223;
+    rlutil::locate(62,7);
+    cout << (char)223;
+    rlutil::locate(62,8);
+    cout << (char)223;
+    rlutil::locate(62,9);
+    cout << (char)223;
+    rlutil::locate(62,10);
+    cout << (char)223;
+    rlutil::locate(62,11);
+    cout << (char)223;
+    rlutil::locate(62,12);
+    cout << (char)223;
+    rlutil::locate(62,13);
+    cout << (char)223;
+    rlutil::locate(62,14);
     cout << (char)223;
 }
 
 
+void creditos()
+{
 
-
+    rlutil::cls();
+    dibujo_cuadrado();
+    rlutil::locate(26,7);
+    cout << "CREDITOS" << endl;
+    rlutil::locate(26,8);
+    cout << "********" << endl;
+    rlutil::locate(22,9);
+    cout << "BELGRANO MARIANO" << endl;
+    rlutil::locate(22,10);
+    cout << "PISANO MATEO" << endl;
+    rlutil::locate(22,11);
+    cout << "ZUBILETE CARLOS" << endl;
+    rlutil::locate(22,13);
+    cout << "RUTIL Copyright (C) 2010 Tapio Vierros" << endl;
+    rlutil::anykey();
+    rlutil::cls();
+}
 
 

@@ -62,8 +62,9 @@ void lanzar2(bool simulado, int dados[], int tam)
 {
     if (simulado==false)
     {
-        cout << endl << endl << "                         LANZAR LOS DADOS" << endl << endl;
+        cout << endl << endl << "                        " << (char)175 << (char)175 << " LANZAR LOS DADOS" << endl << endl;
         rlutil::anykey();
+        rlutil::msleep(800);
         cargarVectorAleatorio(dados, tam); // carga el vector aleatorio en memoria
     }
     else

@@ -10,13 +10,14 @@ int main()
     srand(time(NULL));
 
     //CAMBIAMOS EL DE LA CONSOLA:
-    system("color 52");
+    rlutil::setBackgroundColor(rlutil::LIGHTMAGENTA);
+    rlutil::cls();
 
     //OCULTAMOS EL CURSOR
     rlutil::hidecursor();
     // variables generales del juego
     bool simulado = false;
-    // KEY , RETORNA LO QUE VECUELVE KI
+    // KEY , RETORNA LO QUE DEVUELVE Y
     // Y , NOS VA A SERVIR, PARA PODER MOVERNOS EN EL MENU
     int key , y = 0;
     // Ranking
@@ -29,7 +30,7 @@ int main()
         mostrarMenu(simulado);
 
         //COLOCAMOS LA FIGURA " >> " EN LA OPCION 1:
-        rlutil::locate(38,7+y);
+        rlutil::locate(18,7+y);
         //CASTEAMOS EL DATO "(char)175", ES DECIR , LO INTERPRETAMOS COMO SI FUERA UN CARACTER.
         cout << (char)175 << (char)175 << endl;
         key = rlutil::getkey();
@@ -38,7 +39,7 @@ int main()
         {
           case 14: // ARRIBA
             //BORRAMOS EL CURSOS ANTERIOR
-            rlutil::locate(38,7+y);
+            rlutil::locate(18,7+y);
              cout << "  " << endl;;
             y--;
             // PONEMOS LIMITE SUPERIOR A LA FIGURA " << "
@@ -49,13 +50,13 @@ int main()
           break;
           case 15: // ABAJO
             //BORRAMOS EL CURSOS ANTERIOR
-            rlutil::locate(38,7+y);
+            rlutil::locate(18,7+y);
             cout << "  " << endl;
             y++;
             // PONEMOS LIMITE INFERIOR A LA FIGURA " << "
-            if ( y > 5)
+            if ( y > 6)
             {
-              y = 5;
+              y = 6;
             }
           break;
           case 1: //ENTER
@@ -73,7 +74,9 @@ int main()
                 break;
               case 4: toggleSimulado(simulado);
                 break;
-              case 5: return 0;
+              case 5: creditos();
+                break;
+              case 6: return 0;
                 break;
               default:
                 break;
