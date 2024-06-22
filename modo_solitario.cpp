@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
+#include "rlutil.h"
 using namespace std;
 #include "funciones.h"
 
@@ -8,7 +9,6 @@ void modoSolitario(bool simulado, string r[])
 {
     string jugador1;
     cargarNombre(jugador1);
-
 
     // VARIABLES JUEGO SOLITARIO
     int const tam = 6;
@@ -92,4 +92,5 @@ void modoSolitario(bool simulado, string r[])
     actualizaRanking(r, jugador1, puntajeTotal);
 
     rlutil::anykey();
+    rlutil::cls();
 };
