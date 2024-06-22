@@ -52,7 +52,7 @@ void mostrarVector(int vec[],int tam ){
 }
 
 
-void ponerVectorEnVacio(string vec[], int n)
+void ponerVectorEnVacio(std::string vec[], int n)
 {
     for (int i=0;i<n;i++)
     {
@@ -60,7 +60,7 @@ void ponerVectorEnVacio(string vec[], int n)
     }
 }
 
-void mostrarVectorString(string vec[],int tam ){
+void mostrarVectorString(std::string vec[],int tam ){
     int i;
     cout << endl;
     for (i=0;i<tam ;i++ ){
