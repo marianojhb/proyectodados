@@ -1,12 +1,14 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
+#include "rlutil.h"
 using namespace std;
 #include "funciones.h"
-#include "rlutil.h"
 
 int main()
 {
+    srand(time(NULL));
+
     //CAMBIAMOS EL DE LA CONSOLA:
     system("color 52");
 
@@ -18,7 +20,7 @@ int main()
     // Y , NOS VA A SERVIR, PARA PODER MOVERNOS EN EL MENU
     int key , y = 0;
     // Ranking
-    int ranking_len = 11; // extensiÃ³n del ranking
+    int ranking_len = 11; // extensión del ranking
     string ranking_lista[ranking_len]; // la lista de ranking
     ponerVectorEnVacio(ranking_lista,ranking_len); // inicializo el ranking
 
