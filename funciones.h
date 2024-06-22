@@ -1,5 +1,4 @@
-#ifndef FUNCIONES_H_INCLUDED
-#define FUNCIONES_H_INCLUDED
+#pragma once
 
 // menues.cpp
 void mostrarMenu(bool simulado);
@@ -11,6 +10,7 @@ void interfas_parteUP ( int ronda, string nombre , int puntajeTotal);
 void interfas_parteMiD(int lanzamiento, int maxPuntajeRonda);
 void dibujo_cuadrado();
 void creditos();
+void menuRanking(std::string vec[], int tam);
 
 // modo_solitario.cpp
 void modoSolitario(bool simulado, std::string r[]);
@@ -28,7 +28,7 @@ void cargarVectorAleatorio(int vec[], int tam);
 void ponerVectorEn0(int vec[], int tam);
 int sumaVector(int vec[], int tam);
 void ponerVectorEnVacio(std::string vec[], int n);
-void mostrarVectorString(std::string vec[],int tam );
+void mostrarVectorString(std::string vec[],int tam, int cursorx, int cursory);
 int maximoVectorIndice(int vec[], int tam);
 
 // funciones.cpp
@@ -54,5 +54,3 @@ void actualizaRanking(std::string r[], string n, int p); // graba el ranking y a
 int stringToInt(string s);
 int charToInt(char c);
 string intToString(int n);
-
-#endif // FUNCIONES_H_INCLUDED

@@ -17,11 +17,12 @@ void mostrarUltimasPartidas(string ultimaPartida)
 void cargarNombre(string &nombre)
 {
     rlutil::cls();
-//    rlutil::cls();
-
     cout << endl;
+    rlutil::locate(20,10);
     cout << "INGRESE SU NOMBRE: ";
+    rlutil::showcursor();
     cin >> nombre;
+    rlutil::hidecursor();
     rlutil::cls();
     cout << endl;
     cout << endl;
@@ -64,7 +65,7 @@ void lanzar2(bool simulado, int dados[], int tam)
     {
         cout << endl << endl << "                        " << (char)175 << (char)175 << " LANZAR LOS DADOS" << endl << endl;
         rlutil::anykey();
-        rlutil::msleep(800);
+        rlutil::msleep(400);
         cargarVectorAleatorio(dados, tam); // carga el vector aleatorio en memoria
     }
     else

@@ -5,32 +5,35 @@
 using namespace std;
 #include "funciones.h"
 
+
+// MENU PRINCIPAL
 void mostrarMenu(bool simulado)
 {
     //DIUJAMOS EL CUADRO:
     dibujo_cuadrado();
+    int alineacion_menu = 28;
     //CAMBIAMOS EL COLOR DE TEXTO:
     rlutil::setColor(rlutil::COLOR::WHITE);
     //CAMBIAMOS LA POSICION DE LA COLUMNA:
-    rlutil::locate(22,6);
+    rlutil::locate(alineacion_menu,6);
     cout << " ---- ESCALERA O CIEN ---- " << endl;
-    rlutil::locate(22,7);
+    rlutil::locate(alineacion_menu,7);
     cout << "COMENZAR UN JUGADOR" << endl;
-    rlutil::locate(22,8);
+    rlutil::locate(alineacion_menu,8);
     cout << "COMENZAR DOS JUGADORES" << endl;
-    rlutil::locate(22,9);
+    rlutil::locate(alineacion_menu,9);
     cout << "COMENZAR MULTIJUGADOR " << endl;
-    rlutil::locate(22,10);
-    cout << "MOSTRAR MAYORES PUNTUACIONES" << endl;
-    rlutil::locate(22,11);
+    rlutil::locate(alineacion_menu,10);
+    cout << "RANKING" << endl;
+    rlutil::locate(alineacion_menu,11);
     cout << "MODO SIMULADO " << labelSimulado(simulado) << endl;
-    rlutil::locate(22,12);
+    rlutil::locate(alineacion_menu,12);
     cout << "CREDITOS" << endl;
-    rlutil::locate(22,13);
+    rlutil::locate(alineacion_menu,13);
     cout << "SALIR" << endl;
 }
 
-
+// SUBMENU JUEGO SOLITARIO
 void menuJuegoSolitario(int puntajeTotal,
                         string nombre,
                         int ronda,
@@ -48,6 +51,7 @@ void menuJuegoSolitario(int puntajeTotal,
     cout << "---------------------------------------------------------------------------------" << endl;
 }
 
+// SUBMENU JUEGO MULTIJUADOR
 void menuJuegoMultijugador(int puntajeTotal,
                            string jugador,
                            int ronda,
@@ -66,7 +70,7 @@ void menuJuegoMultijugador(int puntajeTotal,
     cout << "---------------------------------------------------------------------------------" << endl;
 }
 
-// INTERFAS_FIN_PARTIDA.
+// PANTALLA ENTRE TURNOS
 void interfas_entre_turnos( int ronda, string proxTurno, string antTurno, int puntajeTotal_ant, int puntajeTotal_prox )
 {
     dibujo_cuadrado();
@@ -84,7 +88,7 @@ void interfas_entre_turnos( int ronda, string proxTurno, string antTurno, int pu
     rlutil::anykey();
     rlutil::cls();
 }
-// INTERFAS_FIN_RONDA.
+// PANTALLA FIN RONDA
 void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal)
 {
     rlutil::cls();
@@ -98,6 +102,7 @@ void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal)
 
 }
 
+// PANTALLA CAMBIO DE TURNO
 void interfas_parteUP ( int ronda, string nombre, int puntajeTotal)
 {
 
@@ -111,90 +116,102 @@ void interfas_parteMiD(int lanzamiento, int maxPuntajeRonda)
     cout << "LAMZAMIENTO N" <<  (char)248 << " " << lanzamiento << endl;
     cout << "---------------------------------------------------------------------------------" << endl;
     rlutil::anykey();
-    //BORRA LO QUE VENGA POR DEBAJO:
-    // rlutil::cls();
 }
 
-
+// FONDO DEL MENU PRINCIPAL
 void dibujo_cuadrado()
 {
     rlutil::setColor(rlutil::COLOR::WHITE);
 
     //DIBUJANDO EL CUADRADO
     // LINEA SUPERIOR: X1=30  X2=82 | Y1 = 4
-    rlutil::locate(10,4);
+    int columna_izquierda = 15;
+    int columna_derecha = 67;
+    rlutil::locate(columna_izquierda,4);
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " ";
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " ;
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " ";
     // LINEA INFERIOS: X1=30  X2=82 | Y = 15
-    rlutil::locate(10,15);
+    rlutil::locate(columna_izquierda,15);
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " ";
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " ;
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " ";
     //LINEA VERTICAL IZQUIERDA:
-    rlutil::locate(10,5);
+    rlutil::locate(columna_izquierda,5);
     cout << (char)223;
-    rlutil::locate(10,6);
+    rlutil::locate(columna_izquierda,6);
     cout << (char)223;
-    rlutil::locate(10,7);
+    rlutil::locate(columna_izquierda,7);
     cout << (char)223;
-    rlutil::locate(10,8);
+    rlutil::locate(columna_izquierda,8);
     cout << (char)223;
-    rlutil::locate(10,9);
+    rlutil::locate(columna_izquierda,9);
     cout << (char)223;
-    rlutil::locate(10,10);
+    rlutil::locate(columna_izquierda,10);
     cout << (char)223;
-    rlutil::locate(10,11);
+    rlutil::locate(columna_izquierda,11);
     cout << (char)223;
-    rlutil::locate(10,12);
+    rlutil::locate(columna_izquierda,12);
     cout << (char)223;
-    rlutil::locate(10,13);
+    rlutil::locate(columna_izquierda,13);
     cout << (char)223;
-    rlutil::locate(10,14);
+    rlutil::locate(columna_izquierda,14);
     cout << (char)223;
     //LINEA VERTICAL DERECHA:
-    rlutil::locate(62,5);
+    rlutil::locate(columna_derecha,5);
     cout << (char)223;
-    rlutil::locate(62,6);
+    rlutil::locate(columna_derecha,6);
     cout << (char)223;
-    rlutil::locate(62,7);
+    rlutil::locate(columna_derecha,7);
     cout << (char)223;
-    rlutil::locate(62,8);
+    rlutil::locate(columna_derecha,8);
     cout << (char)223;
-    rlutil::locate(62,9);
+    rlutil::locate(columna_derecha,9);
     cout << (char)223;
-    rlutil::locate(62,10);
+    rlutil::locate(columna_derecha,10);
     cout << (char)223;
-    rlutil::locate(62,11);
+    rlutil::locate(columna_derecha,11);
     cout << (char)223;
-    rlutil::locate(62,12);
+    rlutil::locate(columna_derecha,12);
     cout << (char)223;
-    rlutil::locate(62,13);
+    rlutil::locate(columna_derecha,13);
     cout << (char)223;
-    rlutil::locate(62,14);
+    rlutil::locate(columna_derecha,14);
     cout << (char)223;
 }
 
-
+// SUBMENU CREDITOS
 void creditos()
 {
 
     rlutil::cls();
     dibujo_cuadrado();
-    rlutil::locate(26,7);
+    rlutil::locate(36,6);
     cout << "CREDITOS" << endl;
-    rlutil::locate(26,8);
+    rlutil::locate(36,7);
     cout << "********" << endl;
-    rlutil::locate(22,9);
+    rlutil::locate(32,8);
     cout << "BELGRANO MARIANO" << endl;
-    rlutil::locate(22,10);
+    rlutil::locate(32,9);
     cout << "PISANO MATEO" << endl;
-    rlutil::locate(22,11);
+    rlutil::locate(32,10);
     cout << "ZUBILETE CARLOS" << endl;
-    rlutil::locate(22,13);
-    cout << "RUTIL Copyright (C) 2010 Tapio Vierros" << endl;
+    rlutil::locate(32,12);
+    cout << "BIBLIOTECA:" << endl;
+    rlutil::locate(32,13);
+    cout << "RUTIL - TAPIO VIERROS" << endl;
     rlutil::anykey();
     rlutil::cls();
 }
 
-
+//SUBMENU RANKING
+void menuRanking(std::string vec[], int tam)
+{
+    rlutil::cls();
+//    dibujo_cuadrado();
+    rlutil::locate(25,6);
+    cout << "RANKING ULTIMAS 10 PARTIDAS" << endl;
+    mostrarVectorString(vec, tam-1,30,8);
+    rlutil::anykey();
+    rlutil::cls();
+}

@@ -7,6 +7,7 @@ using namespace std;
 
 void modoSolitario(bool simulado, std::string r[])
 {
+
     string jugador1;
     cargarNombre(jugador1);
 
@@ -30,17 +31,6 @@ void modoSolitario(bool simulado, std::string r[])
         {
             menuJuegoSolitario(puntajeTotal, jugador1, ronda, lanzamiento, maximoPorRonda, simulado);
 
-//            if (simulado==false)
-//            {
-//                lanzar();
-//
-//                cargarVectorAleatorio(dados, tam); // carga el vector aleatorio en memoria
-//
-//            }
-//            else
-//            {
-//                cargarVectorManual(dados, tam);
-//            }
             lanzar2(simulado,dados,tam);
 
             cout << endl << endl << endl;
@@ -55,7 +45,8 @@ void modoSolitario(bool simulado, std::string r[])
                 cout << "Saco escalera y GANO EL JUEGO!!" << endl;
                 actualizaRanking(r,jugador1,100);
                 rlutil::anykey();
-                break;
+                rlutil::cls();
+                return;
             }
             else
             {
@@ -75,16 +66,10 @@ void modoSolitario(bool simulado, std::string r[])
         }
 
         // Cartel fin de ronda:
-        if(escalera == true)
-        {
-            break;
-        }
-        else
-        {
-            sumaPuntaje(maximoPorRonda, puntajeTotal);
-            interfas_fin_ronda(ronda, maximoPorRonda, puntajeTotal);
-            ronda++;
-        }
+
+        sumaPuntaje(maximoPorRonda, puntajeTotal);
+        interfas_fin_ronda(ronda, maximoPorRonda, puntajeTotal);
+        ronda++;
 
     }
     cout << "TERMINO LA PARTIDA! " << endl;

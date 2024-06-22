@@ -26,19 +26,6 @@ void actualizaRanking (string vec[], string n, int p)
 }
 
 
-//int stringToInt(string s)
-//{
-//    int num=0;
-//    num = charToInt(s[0])*100 + charToInt(s[1])*10 + charToInt(s[2]);
-//    return num;
-//}
-//
-//int charToInt(char c)
-//{
-//    int respuesta=c-48;
-//    return respuesta;
-//}
-
 string intToString(int n) //182  1+8+2=182
 {
 

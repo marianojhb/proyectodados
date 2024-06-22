@@ -5,20 +5,25 @@
 using namespace std;
 #include "funciones.h"
 
-void cargarVectorAleatorio(int vec[], int tam){
+void cargarVectorAleatorio(int vec[], int tam)
+{
     int i;
-    for (i=0;i<tam ;i++ ){
+    for (i=0; i<tam ; i++ )
+    {
         vec[i]=rand()%6+1;
     }
 //    cout<<"Vector correctamente cargado con numeros aleatorios..."<<endl;
 }
 
-void cargarVectorManual(int vec[],int tam ){
+void cargarVectorManual(int vec[],int tam )
+{
     int i;
-    for (i=0;i<tam ;i++ ){
+    for (i=0; i<tam ; i++ )
+    {
         cout<<"Ingrese el elemento "<<i+1<<" del vector: ";
         cin>>vec[i];
-        while (vec[i]>6){
+        while (vec[i]>6)
+        {
             cout << "Ingrese un nuevo numero: ";
             cin >> vec[i];
         }
@@ -26,25 +31,31 @@ void cargarVectorManual(int vec[],int tam ){
     cout<<"Vector correctamente cargado..."<<endl;
 }
 
-void ponerVectorEn0(int vec[],int tam ){
+void ponerVectorEn0(int vec[],int tam )
+{
     int i;
-    for (i=0;i<tam ;i++ ){
+    for (i=0; i<tam ; i++ )
+    {
         vec[i]=0;
     }
 //    cout<<"Vector correctamente seteado en 0..."<<endl;
 }
 
-int sumaVector(int vec[], int tam){
+int sumaVector(int vec[], int tam)
+{
     int i;
     int suma=0;
-    for (i=0;i<tam;i++) {
+    for (i=0; i<tam; i++)
+    {
         suma += vec[i];
     }
     return suma;
 }
-void mostrarVector(int vec[],int tam ){
+void mostrarVector(int vec[],int tam )
+{
     int i;
-    for (i=0;i<tam ;i++ ){
+    for (i=0; i<tam ; i++ )
+    {
         cout << vec[i] <<  " ";
     }
     cout << endl;
@@ -54,26 +65,26 @@ void mostrarVector(int vec[],int tam ){
 
 void ponerVectorEnVacio(std::string vec[], int n)
 {
-    for (int i=0;i<n;i++)
+    for (int i=0; i<n; i++)
     {
         vec[i]="000 Vacio";
     }
 }
 
-void mostrarVectorString(std::string vec[],int tam ){
+void mostrarVectorString(std::string vec[],int tam, int cursorx, int cursory)
+{
     int i;
-    cout << endl;
-    for (i=0;i<tam ;i++ ){
-        cout << "           " <<  vec[i] <<  " " << endl;
+    for (i=0; i<tam ; i++ )
+    {
+        rlutil::locate(cursorx,cursory+i);
+        cout << i+1 << ". ..... "<< vec[i];
     }
-    cout << endl;
-    rlutil::anykey();
 }
 
 int maximoVectorIndice(int vec[], int tam)
 {
     int maximo;
-    for (int i=0; i<tam;i++)
+    for (int i=0; i<tam; i++)
     {
         if (i==0)
         {
