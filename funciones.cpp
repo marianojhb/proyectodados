@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 #include "rlutil.h"
-using namespace std;
 #include "funciones.h"
+using namespace std;
 
-void mostrarUltimasPartidas(string ultimaPartida)
+void mostrarUltimasPartidas(std::string ultimaPartida)
 {
 
     cout << "Partidas anteriores: " << endl;
@@ -14,7 +14,7 @@ void mostrarUltimasPartidas(string ultimaPartida)
 //    rlutil::anykey();
 }
 
-void cargarNombre(string &nombre)
+void cargarNombre(std::string &nombre)
 {
     rlutil::cls();
     cout << endl;

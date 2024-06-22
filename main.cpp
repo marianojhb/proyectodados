@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include "rlutil.h"
-using namespace std;
 #include "funciones.h"
+using namespace std;
 
 int main()
 {
@@ -20,7 +20,8 @@ int main()
     // KEY , RETORNA LO QUE DEVUELVE Y
     // Y , NOS VA A SERVIR, PARA PODER MOVERNOS EN EL MENU
     int key;
-    int y=0; // variables del menu
+    int offset_y=0;
+//    int cantidad_opciones = 7;
     // Ranking
     int ranking_len = 11; // extensión del ranking
     string ranking_lista[ranking_len]; // la lista de ranking
@@ -33,7 +34,7 @@ int main()
 
         //COLOCAMOS LA FIGURA " >> " EN LA OPCION 1:
 
-        rlutil::locate(22,7+y);
+        rlutil::locate(22,7+offset_y);
         //CASTEAMOS EL DATO "(char)175", ES DECIR , LO INTERPRETAMOS COMO SI FUERA UN CARACTER.
         cout << (char)175 << (char)175 << endl;
         key = rlutil::getkey();
@@ -42,30 +43,32 @@ int main()
         {
           case 14: // ARRIBA
             //BORRAMOS EL CURSOS ANTERIOR
-            rlutil::locate(22,7+y);
+            rlutil::locate(22,7+offset_y);
              cout << "  " << endl;;
-            y--;
+            offset_y--;
             // PONEMOS LIMITE SUPERIOR A LA FIGURA " << "
-            if ( y < 0)
+            if ( offset_y < 0)
             {
-              y = 0;
+                offset_y = 6;
+                 rlutil::locate(22,7+offset_y);
             }
           break;
           case 15: // ABAJO
             //BORRAMOS EL CURSOS ANTERIOR
-            rlutil::locate(22,7+y);
+            rlutil::locate(22,7+offset_y);
             cout << "  " << endl;
-            y++;
+            offset_y++;
             // PONEMOS LIMITE INFERIOR A LA FIGURA " << "
-            if ( y > 6 )
+            if ( offset_y > 6 )
             {
-              y = 6;
+              offset_y = 0;
+              rlutil::locate(22,7+offset_y);
             }
           break;
           case 1: //ENTER
             //TENEMOS QUE ANALIZAR A Y
 
-            switch (y)
+            switch (offset_y)
             {
               case 0: modoSolitario(simulado, ranking_lista);
                 break;

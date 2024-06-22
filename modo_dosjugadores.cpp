@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <time.h>
 #include "rlutil.h"
-using namespace std;
 #include "funciones.h"
+using namespace std;
 
 void dosjugadores(bool simulado, std::string r[])
 {
 
-    string nombre_1, nombre_2;
+    std::string nombre_1, nombre_2;
     cargarNombre(nombre_1);
     cargarNombre(nombre_2);
 

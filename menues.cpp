@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include "rlutil.h"
-using namespace std;
 #include "funciones.h"
+using namespace std;
 
 
 // MENU PRINCIPAL
@@ -35,7 +35,7 @@ void mostrarMenu(bool simulado)
 
 // SUBMENU JUEGO SOLITARIO
 void menuJuegoSolitario(int puntajeTotal,
-                        string nombre,
+                        std::string nombre,
                         int ronda,
                         int lanzamiento,
                         int maximoPorRonda,
@@ -53,7 +53,7 @@ void menuJuegoSolitario(int puntajeTotal,
 
 // SUBMENU JUEGO MULTIJUADOR
 void menuJuegoMultijugador(int puntajeTotal,
-                           string jugador,
+                           std::string jugador,
                            int ronda,
                            int lanzamiento,
                            int maximoPorRonda,

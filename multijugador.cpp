@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include "rlutil.h"
-using namespace std;
 #include "funciones.h"
+using namespace std;
 
 void multijugador(bool simulado, std::string r[])
 {
