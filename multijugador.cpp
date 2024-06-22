@@ -5,7 +5,7 @@
 using namespace std;
 #include "funciones.h"
 
-void multijugador(bool simulado, string r[])
+void multijugador(bool simulado, std::string r[])
 {
     // CON VECTORES
 

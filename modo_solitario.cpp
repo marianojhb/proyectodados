@@ -5,7 +5,7 @@
 using namespace std;
 #include "funciones.h"
 
-void modoSolitario(bool simulado, string r[])
+void modoSolitario(bool simulado, std::string r[])
 {
     string jugador1;
     cargarNombre(jugador1);

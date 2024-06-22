@@ -13,13 +13,13 @@ void dibujo_cuadrado();
 void creditos();
 
 // modo_solitario.cpp
-void modoSolitario(bool simulado, string r[]);
+void modoSolitario(bool simulado, std::string r[]);
 
 // modo_dosjugadores.cpp
-void dosjugadores(bool simulado, string r[]);
+void dosjugadores(bool simulado, std::string r[]);
 
 // multijugador.cpp
-void multijugador(bool simulado, string r[]);
+void multijugador(bool simulado, std::string r[]);
 
 // vectores.cpp
 void mostrarVector(int vec[], int tam);
@@ -27,8 +27,8 @@ void cargarVectorManual(int vec[], int tam);
 void cargarVectorAleatorio(int vec[], int tam);
 void ponerVectorEn0(int vec[], int tam);
 int sumaVector(int vec[], int tam);
-void ponerVectorEnVacio(string vec[], int n);
-void mostrarVectorString(string vec[],int tam );
+void ponerVectorEnVacio(std::string vec[], int n);
+void mostrarVectorString(std::string vec[],int tam );
 int maximoVectorIndice(int vec[], int tam);
 
 // funciones.cpp
@@ -50,7 +50,7 @@ void seisSeis(int &puntaje, int &puntajeTotal);
 void generala(int vec[], int tam, int &puntaje);
 
 // ranking.cpp
-void actualizaRanking(string r[], string n, int p); // graba el ranking y advierte record
+void actualizaRanking(std::string r[], string n, int p); // graba el ranking y advierte record
 int stringToInt(string s);
 int charToInt(char c);
 string intToString(int n);

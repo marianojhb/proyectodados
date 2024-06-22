@@ -5,7 +5,7 @@
 using namespace std;
 #include "funciones.h"
 
-void dosjugadores(bool simulado, string r[])
+void dosjugadores(bool simulado, std::string r[])
 {
 
     string nombre_1, nombre_2;
