@@ -11,18 +11,18 @@ void mostrarUltimasPartidas(string ultimaPartida)
     cout << "Partidas anteriores: " << endl;
     string partidasAnteriores = "";
     partidasAnteriores += ultimaPartida;
-//    system("pause");
+//    rlutil::anykey();
 }
 
 void cargarNombre(string &nombre)
 {
     rlutil::cls();
-//    system("cls");
+//    rlutil::cls();
 
     cout << endl;
     cout << "INGRESE SU NOMBRE: ";
     cin >> nombre;
-    system("cls");
+    rlutil::cls();
     cout << endl;
     cout << endl;
     cout << endl;
@@ -48,8 +48,8 @@ void cargarNombre(string &nombre)
     cout << endl;
     cout << endl;
 
-    system("pause");
-    system("cls");
+    rlutil::anykey();
+    rlutil::cls();
 }
 
 int sumaPuntaje (int puntaje, int &puntajeTotal)
@@ -63,7 +63,7 @@ void lanzar2(bool simulado, int dados[], int tam)
     if (simulado==false)
     {
         cout << endl << endl << "                         LANZAR LOS DADOS" << endl << endl;
-        system("pause");
+        rlutil::anykey();
         cargarVectorAleatorio(dados, tam); // carga el vector aleatorio en memoria
     }
     else
@@ -111,7 +111,7 @@ int tirar_sumar_mostrar_dados ( int v[], int tam)
     cout << endl;
     cout << "SUMASTE: " << puntaje << endl;
     cout << endl;
-    system("pause");
+    rlutil::anykey();
     system ("cls");
     return puntaje;
 

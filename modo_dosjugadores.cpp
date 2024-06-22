@@ -128,7 +128,7 @@ void dosjugadores(bool simulado, string r[])
         cout << "CON: " << puntajeTotal_2 << endl;
         actualizaRanking(r,nombre_2,puntajeTotal_2);
     }
-    system("pause");
+    rlutil::anykey();
 //
-//  system("cls");
+//  rlutil::cls();
 }

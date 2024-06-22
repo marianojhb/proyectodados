@@ -54,7 +54,7 @@ void modoSolitario(bool simulado, string r[])
                 escalera=true;
                 cout << "Saco escalera y GANO EL JUEGO!!" << endl;
                 actualizaRanking(r,jugador1,100);
-                system("pause");
+                rlutil::anykey();
                 break;
             }
             else
@@ -71,7 +71,7 @@ void modoSolitario(bool simulado, string r[])
             }
 
 
-            system("pause");
+            rlutil::anykey();
         }
 
         // Cartel fin de ronda:
@@ -91,5 +91,5 @@ void modoSolitario(bool simulado, string r[])
     cout << jugador1 << ", hiciste " << puntajeTotal << " puntos en " << ronda-1<< " rondas" << endl << endl;
     actualizaRanking(r, jugador1, puntajeTotal);
 
-    system("pause");
+    rlutil::anykey();
 };

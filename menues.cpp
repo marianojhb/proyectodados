@@ -80,8 +80,8 @@ void interfas_entre_turnos( int ronda, string proxTurno, string antTurno, int pu
     cout << "PUNTAJE " << proxTurno << ": "<< puntajeTotal_prox << endl;
     cout << endl;
     rlutil::locate(38,12);
-    system("pause");
-    system("cls");
+    rlutil::anykey();
+    rlutil::cls();
 }
 // INTERFAS_FIN_RONDA.
 void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal)
@@ -92,8 +92,9 @@ void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal)
     cout << "FIN DE DE LA RONDA " << ronda << endl;
     cout << "SUMASTE: " << maxPuntajeRonda << " PUNTOS." << endl;
     cout << "PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS." << endl;
-    system("pause");
-    system("cls");
+    rlutil::anykey();
+    rlutil::cls();
+
 }
 
 void interfas_parteUP ( int ronda, string nombre, int puntajeTotal)
@@ -108,9 +109,9 @@ void interfas_parteMiD(int lanzamiento, int maxPuntajeRonda)
     cout << "MAXIMO PUNTAJE DE LA RONDA: " << maxPuntajeRonda << " PUNTOS" << endl;
     cout << "LAMZAMIENTO N" <<  (char)248 << " " << lanzamiento << endl;
     cout << "---------------------------------------------------------------------------------" << endl;
-    system("pause");
+    rlutil::anykey();
     //BORRA LO QUE VENGA POR DEBAJO:
-    // system("cls");
+    // rlutil::cls();
 }
 
 

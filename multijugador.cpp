@@ -58,7 +58,7 @@ void multijugador(bool simulado, string r[])
                 {
                     escalera=true;
                     cout << "Saco escalera y GANO EL JUEGO!!" << endl;
-                    system("pause");
+                    rlutil::anykey();
                     actualizaRanking(r,jugador[i],100);
                     return;
                 }
@@ -71,7 +71,7 @@ void multijugador(bool simulado, string r[])
                 }
 
                 mostrarPuntaje(puntaje);
-                system("pause");
+                rlutil::anykey();
                 if(puntaje>maximoPorRonda)
                 {
                     maximoPorRonda=puntaje;
@@ -86,7 +86,7 @@ void multijugador(bool simulado, string r[])
                 cout << endl;
                 cout << "Turno de " << jugador[i+1] << endl;
             }
-            system("pause");
+            rlutil::anykey();
         }
         for(int i=0; i<cantidadJugadores; i++)
         {
@@ -114,7 +114,7 @@ void multijugador(bool simulado, string r[])
 
             cout << "Proximo turno de " << jugador[0] << endl;
 
-            system("pause");
+            rlutil::anykey();
         }
         ronda++;
 
@@ -133,7 +133,7 @@ void multijugador(bool simulado, string r[])
 
     actualizaRanking(r,jugador[jugadorGanador],puntajeTotal[jugadorGanador]);
 
-    system("pause");
+    rlutil::anykey();
     rlutil::cls();
 
 }

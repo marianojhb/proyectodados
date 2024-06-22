@@ -43,7 +43,7 @@ void mostrarVector(int vec[],int tam ){
         cout << vec[i] <<  " ";
     }
     cout << endl;
-//    system("pause");
+//    rlutil::anykey();
 }
 
 
@@ -62,7 +62,7 @@ void mostrarVectorString(string vec[],int tam ){
         cout << "           " <<  vec[i] <<  " " << endl;
     }
     cout << endl;
-    system("pause");
+    rlutil::anykey();
 }
 
 int maximoVectorIndice(int vec[], int tam)
