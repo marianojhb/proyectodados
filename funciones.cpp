@@ -16,11 +16,11 @@ void mostrarUltimasPartidas(string ultimaPartida)
 
 void cargarNombre(string &nombre)
 {
-
-    system("cls");
+    rlutil::cls();
+//    system("cls");
 
     cout << endl;
-    cout << "INGRESE SU NONBRE: ";
+    cout << "INGRESE SU NOMBRE: ";
     cin >> nombre;
     system("cls");
     cout << endl;
@@ -94,7 +94,7 @@ string labelSimulado(bool simulado)
 {
     if (simulado)
     {
-        return "ON";
+        return "ON ";
     }
     else
     {

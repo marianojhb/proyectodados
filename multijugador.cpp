@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
+#include "rlutil.h"
 using namespace std;
 #include "funciones.h"
 
@@ -9,6 +10,7 @@ void multijugador(bool simulado, string r[])
     // CON VECTORES
 
     int cantidadJugadores; // cantidad de jugadores
+    rlutil::cls();
     cout << endl << "INGRESE LA CANTIDAD DE JUGADORES ";
     cin >> cantidadJugadores;
 
@@ -100,7 +102,7 @@ void multijugador(bool simulado, string r[])
         else
         {
             // proxima ronda
-            system("cls");
+            rlutil::cls();
             cout << "Fin de la ronda." << endl;
 
             cout << "Puntaje hasta el momento: "<< endl;
@@ -117,7 +119,7 @@ void multijugador(bool simulado, string r[])
         ronda++;
 
     }
-    system("cls");
+    rlutil::cls();
     cout << "Resultado final: "<< endl;
     for(int i=0; i<cantidadJugadores; i++)
     {
@@ -132,4 +134,6 @@ void multijugador(bool simulado, string r[])
     actualizaRanking(r,jugador[jugadorGanador],puntajeTotal[jugadorGanador]);
 
     system("pause");
+    rlutil::cls();
+
 }

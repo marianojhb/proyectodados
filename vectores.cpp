@@ -5,7 +5,6 @@ using namespace std;
 #include "funciones.h"
 
 void cargarVectorAleatorio(int vec[], int tam){
-    srand(time(NULL));
     int i;
     for (i=0;i<tam ;i++ ){
         vec[i]=rand()%6+1;
