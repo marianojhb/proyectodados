@@ -90,7 +90,7 @@ void multijugador(bool simulado, std::string r[])
         }
         for(int i=0; i<cantidadJugadores; i++)
         {
-            if (puntajeTotal[i]>100)
+            if (puntajeTotal[i]>=100)
             {
                 alcanzo100 = true;
             }
