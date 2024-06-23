@@ -54,3 +54,6 @@ void actualizaRanking(std::string r[], std::string n, int p); // graba el rankin
 int stringToInt(std::string s);
 int charToInt(char c);
 std::string intToString(int n);
+
+// graficosDados.cpp
+void mostrarDado(int dado, int x, int y);

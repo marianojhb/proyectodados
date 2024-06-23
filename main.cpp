@@ -8,7 +8,6 @@ using namespace std;
 int main()
 {
     srand(time(NULL));
-
     //CAMBIAMOS EL COLOR DE LA CONSOLA:
     rlutil::setBackgroundColor(rlutil::LIGHTMAGENTA);
     rlutil::cls();
@@ -26,6 +25,8 @@ int main()
     string ranking_lista[ranking_len]; // la lista de ranking
     ponerVectorEnVacio(ranking_lista,ranking_len); // inicializo el ranking
 
+    rlutil::locate(21,2);
+    cout << "* * * *   B I E N V E N I D O S   * * * *" << endl;
 
     while(true)
     {

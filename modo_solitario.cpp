@@ -33,9 +33,30 @@ void modoSolitario(bool simulado, std::string r[])
 
             lanzar2(simulado,dados,tam);
 
-            cout << endl << endl << endl;
-            cout << "                           ";
-            mostrarVector(dados, tam); // muestra el resultado en pantalla
+            // VECTOR COMUN
+//            rlutil::locate(25,10);
+//            mostrarVector(dados, tam); // muestra el resultado en pantalla
+
+            // GRAFICO DADO
+            mostrarDado(dados[0],1,14);
+
+            // GRAFICO DADO
+            mostrarDado(dados[1],15,14);
+
+            // GRAFICO DADO
+            mostrarDado(dados[2],29,14);
+
+            // GRAFICO DADO
+            mostrarDado(dados[3],43,14);
+
+            // GRAFICO DADO            mostrarDado(dados[4],57,14);
+
+            // GRAFICO DADO
+            mostrarDado(dados[5],71,14);
+
+
+            // CARTEL PUNTOS QUE SUMO EL VECTOR
+
             puntaje=sumaVector(dados, tam); // suma el los valores del vector en la variable puntaje
 
             // ESCALERA
@@ -54,6 +75,7 @@ void modoSolitario(bool simulado, std::string r[])
                 generala(dados,tam,puntaje);
                 // Generala de 6: vuelve a 0 el puntaje total
                 seisSeis(puntaje,puntajeTotal);
+
                 mostrarPuntaje(puntaje);
                 if (puntaje>maximoPorRonda)
                 {

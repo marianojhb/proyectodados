@@ -40,7 +40,8 @@ void lanzar2(bool simulado, int dados[], int tam)
 {
     if (simulado==false)
     {
-        cout << endl << endl << "                        " << (char)175 << (char)175 << " LANZAR LOS DADOS" << endl << endl;
+        rlutil::locate(32,12);
+        cout << (char)175 << (char)175 << " LANZAR LOS DADOS";
         rlutil::anykey();
         rlutil::msleep(400);
         cargarVectorAleatorio(dados, tam); // carga el vector aleatorio en memoria
@@ -55,13 +56,10 @@ void lanzar2(bool simulado, int dados[], int tam)
 
 void mostrarPuntaje(int puntaje)
 {
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << "                            ";
-    cout << endl;
+
+    rlutil::locate(35,20);
     cout << "Sumo " << puntaje << " puntos." << endl;
-    cout << endl;
+
 }
 
 void toggleSimulado(bool &simulado)
