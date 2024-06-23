@@ -24,7 +24,7 @@ void cargarNombre(std::string &nombre)
     cin >> nombre;
     rlutil::hidecursor();
     rlutil::cls();
-    rlutil::locate(33,10);
+    rlutil::locate(32,12);
     cout << "Hola, " << nombre << "!!!"<<endl;
     rlutil::anykey();
     rlutil::cls();
@@ -40,7 +40,7 @@ void lanzar2(bool simulado, int dados[], int tam)
 {
     if (simulado==false)
     {
-        rlutil::locate(32,12);
+        rlutil::locate(28,9);
         cout << (char)175 << (char)175 << " LANZAR LOS DADOS";
         rlutil::anykey();
         rlutil::msleep(400);
@@ -57,8 +57,8 @@ void lanzar2(bool simulado, int dados[], int tam)
 void mostrarPuntaje(int puntaje)
 {
 
-    rlutil::locate(35,20);
-    cout << "Sumo " << puntaje << " puntos." << endl;
+    rlutil::locate(25,20);
+    cout << "Sumatoria de los dados " << puntaje << " puntos." << endl;
 
 }
 

@@ -74,17 +74,14 @@ void menuJuegoMultijugador(int puntajeTotal,
 void interfas_entre_turnos( int ronda, string proxTurno, string antTurno, int puntajeTotal_ant, int puntajeTotal_prox )
 {
     dibujo_cuadrado();
-    rlutil::locate(30,6);
+    rlutil::locate(35,6);
     cout << "RONDA N" << (char)248 << " " << ronda << endl;
-    rlutil::locate(23,7);
-    cout << "PROXIMO TURNO: " << proxTurno << endl;
-    cout << endl;
-    rlutil::locate(23,9);
+    rlutil::locate(30,9);
     cout << "PUNTAJE " << antTurno << ": "<< puntajeTotal_ant << endl;
-    rlutil::locate(23,10);
+    rlutil::locate(30,10);
     cout << "PUNTAJE " << proxTurno << ": "<< puntajeTotal_prox << endl;
-    cout << endl;
-    rlutil::locate(18,12);
+    rlutil::locate(30,12);
+    cout << "PROXIMO TURNO: " << proxTurno << endl;
     rlutil::anykey();
     rlutil::cls();
 }
@@ -92,10 +89,12 @@ void interfas_entre_turnos( int ronda, string proxTurno, string antTurno, int pu
 void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal)
 {
     rlutil::cls();
-
-    cout << endl;
+    dibujo_cuadrado();
+    rlutil::locate(30,8);
     cout << "FIN DE DE LA RONDA " << ronda << endl;
+    rlutil::locate(30,9);
     cout << "SUMASTE: " << maxPuntajeRonda << " PUNTOS." << endl;
+    rlutil::locate(30,10);
     cout << "PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS." << endl;
     rlutil::anykey();
     rlutil::cls();

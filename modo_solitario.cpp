@@ -21,10 +21,17 @@ void modoSolitario(bool simulado, std::string r[])
     int puntaje;
     bool escalera = false;
 
-    while(puntajeTotal < 100 && escalera == false )
+    while(puntajeTotal < 100)
     {
         puntaje = 0; // por lanzamiento
         maximoPorRonda = 0;
+
+        // INICIO RONDA
+        rlutil::locate(35,9);
+        cout << "RONDA N" << (char)248 << " " << ronda;
+        dibujo_cuadrado();
+        rlutil::anykey();
+        rlutil::cls();
 
         // Lanzamientos:
         for ( lanzamiento = 1 ; lanzamiento <= 3; lanzamiento++)
@@ -32,10 +39,6 @@ void modoSolitario(bool simulado, std::string r[])
             menuJuegoSolitario(puntajeTotal, jugador1, ronda, lanzamiento, maximoPorRonda, simulado);
 
             lanzar2(simulado,dados,tam);
-
-            // VECTOR COMUN
-//            rlutil::locate(25,10);
-//            mostrarVector(dados, tam); // muestra el resultado en pantalla
 
             // GRAFICO DADO
             mostrarDado(dados[0],1,14);
@@ -63,6 +66,7 @@ void modoSolitario(bool simulado, std::string r[])
             if (esEscalera(dados,tam, puntaje))
             {
                 escalera=true;
+                rlutil::locate(25,24);
                 cout << "Saco escalera y GANO EL JUEGO!!" << endl;
                 actualizaRanking(r,jugador1,100);
                 rlutil::anykey();
@@ -94,10 +98,13 @@ void modoSolitario(bool simulado, std::string r[])
         ronda++;
 
     }
-    cout << "TERMINO LA PARTIDA! " << endl;
+    rlutil::cls();
+    dibujo_cuadrado();
+    rlutil::locate(30,8);
+    cout << "TERMINO LA PARTIDA!";
+    rlutil::locate(22,10);
     cout << jugador1 << ", hiciste " << puntajeTotal << " puntos en " << ronda-1<< " rondas" << endl << endl;
     actualizaRanking(r, jugador1, puntajeTotal);
-
     rlutil::anykey();
     rlutil::cls();
 };
