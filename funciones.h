@@ -19,7 +19,7 @@ void modoSolitario(bool simulado, std::string r[]);
 void dosjugadores(bool simulado, std::string r[]);
 
 // multijugador.cpp
-void multijugador(bool simulado, std::string r[]);
+void multijugador(bool simulado, std::string r[], int cantidadJugadores);
 
 // vectores.cpp
 void mostrarVector(int vec[], int tam);

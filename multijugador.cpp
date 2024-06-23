@@ -5,29 +5,36 @@
 #include "funciones.h"
 using namespace std;
 
-void multijugador(bool simulado, std::string r[])
+void multijugador(bool simulado, std::string r[], int cantidadJugadores)
 {
     // CON VECTORES
 
-    int cantidadJugadores; // cantidad de jugadores
-    rlutil::cls();
-    rlutil::locate(25, 8);
-    cout << "INGRESE LA CANTIDAD DE JUGADORES ";
-    rlutil::showcursor();
+//    int cantidadJugadores; // cantidad de jugadores
 
-    rlutil::locate(40, 10);
-    cin >> cantidadJugadores;
-    rlutil::hidecursor();
 
+    // PREGUNTA CANTIDAD DE JUGADORES
+    if (cantidadJugadores==0)
+    {
+        rlutil::cls();
+        rlutil::locate(25, 8);
+        cout << "INGRESE LA CANTIDAD DE JUGADORES ";
+        rlutil::showcursor();
+
+        rlutil::locate(40, 10);
+        cin >> cantidadJugadores;
+        rlutil::hidecursor();
+    }
+
+    // CARGO LOS NOMBRES
     string jugador[cantidadJugadores];
 
     for (int i=0; i<cantidadJugadores; i++)
     {
-
-        rlutil::locate(20, 12+i);
-        cout << "Ingrese el nombre del jugador " << i+1 << ": ";
+        rlutil::cls();
+        rlutil::locate(20, 12);
+        cout << "INGRESE EL NOMBRE DEL JUGADOR  " << i+1 << ": ";
         rlutil::showcursor();
-        rlutil::locate(54, 12+i);
+        rlutil::locate(54, 12);
         cin >> jugador[i];
         rlutil::hidecursor();
 
@@ -66,7 +73,7 @@ void multijugador(bool simulado, std::string r[])
             // TURNO DE
 
             rlutil::cls();
-            rlutil::locate(35,9);
+            rlutil::locate(33,9);
             cout << "TURNO DE " << jugador[i];
             dibujo_cuadrado();
             rlutil::anykey();
@@ -97,6 +104,7 @@ void multijugador(bool simulado, std::string r[])
 
                 // GRAFICO DADO
                 mostrarDado(dados[5],71,14);
+
 
 
                 // CARTEL PUNTOS QUE SUMO EL VECTOR
@@ -135,8 +143,11 @@ void multijugador(bool simulado, std::string r[])
                 else
                 {
                     mostrarPuntaje(puntaje);
-                    rlutil::locate(35,22);
-                    cout << "SUMO " << maximoPorRonda << " EN LA RONDA";
+                    rlutil::anykey();
+                    rlutil::cls();
+                    dibujo_cuadrado();
+                    rlutil::locate(27,9);
+                    cout << jugador[i] << " SUMO " << maximoPorRonda << " EN LA RONDA";
                     sumaPuntaje(maximoPorRonda, puntajeTotal[i]);
                     rlutil::anykey();
                 }
@@ -154,11 +165,11 @@ void multijugador(bool simulado, std::string r[])
 
             rlutil::cls();
             dibujo_cuadrado();
-            rlutil::locate(25,6);
+            rlutil::locate(30,6);
             cout << "RESULTADO FINAL: ";
             for(int i=0; i<cantidadJugadores; i++)
             {
-                rlutil::locate(25,8+i);
+                rlutil::locate(30,8+i);
                 cout << jugador[i] << " " << puntajeTotal[i] << " PUNTOS" << endl;
             }
             rlutil::anykey();

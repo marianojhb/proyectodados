@@ -87,10 +87,10 @@ int main()
                 modoSolitario(simulado, ranking_lista);
                 break;
             case 1:
-                dosjugadores(simulado, ranking_lista);
+                multijugador(simulado, ranking_lista, 2);
                 break;
             case 2:
-                multijugador(simulado, ranking_lista);
+                multijugador(simulado, ranking_lista, 0);
                 break;
             case 3:
                 menuRanking(ranking_lista, ranking_len);
