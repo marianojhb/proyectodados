@@ -67,7 +67,7 @@ void ponerVectorEnVacio(std::string vec[], int n)
 {
     for (int i=0; i<n; i++)
     {
-        vec[i]="000 Vacio";
+        vec[i]="";
     }
 }
 
@@ -76,8 +76,22 @@ void mostrarVectorString(std::string vec[],int tam, int cursorx, int cursory)
     int i;
     for (i=0; i<tam ; i++ )
     {
-        rlutil::locate(cursorx,cursory+i);
-        cout << i+1 << ". ..... "<< vec[i];
+        if (vec[i]!="")
+        {
+            if(i<9)
+            {
+                rlutil::locate(cursorx,cursory+i);
+                cout << i+1 << ". ..... "<< vec[i];
+            }
+            else
+            {
+                rlutil::locate(cursorx,cursory+i);
+                cout << i+1 << ". .... "<< vec[i];
+
+            }
+
+
+        }
     }
 }
 

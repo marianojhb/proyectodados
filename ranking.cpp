@@ -1,12 +1,13 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
-using namespace std;
 #include "funciones.h"
+
+using namespace std;
 
 void actualizaRanking (string vec[], string n, int p)
 {
-    string ultimaPartida = intToString(p) + " " + n;
+    string ultimaPartida = intToString(p) + " pts  " + n;
     vec[10] = ultimaPartida;
 
     // ORDENAR UN VECTOR CON METODO BURBUJA

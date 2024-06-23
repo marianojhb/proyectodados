@@ -24,31 +24,8 @@ void cargarNombre(std::string &nombre)
     cin >> nombre;
     rlutil::hidecursor();
     rlutil::cls();
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << "                          Hola, " << nombre << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-
+    rlutil::locate(33,10);
+    cout << "Hola, " << nombre << "!!!"<<endl;
     rlutil::anykey();
     rlutil::cls();
 }

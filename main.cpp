@@ -21,7 +21,6 @@ int main()
     // Y , NOS VA A SERVIR, PARA PODER MOVERNOS EN EL MENU
     int key;
     int offset_y=0;
-//    int cantidad_opciones = 7;
     // Ranking
     int ranking_len = 11; // extensión del ranking
     string ranking_lista[ranking_len]; // la lista de ranking
@@ -33,71 +32,84 @@ int main()
         mostrarMenu(simulado);
 
         //COLOCAMOS LA FIGURA " >> " EN LA OPCION 1:
-
         rlutil::locate(22,7+offset_y);
+
         //CASTEAMOS EL DATO "(char)175", ES DECIR , LO INTERPRETAMOS COMO SI FUERA UN CARACTER.
         cout << (char)175 << (char)175 << endl;
         key = rlutil::getkey();
 
+        // SWITCH PARA NAVEGAR HACIA ARRIBA Y ABAJO CON LAS FLECHAS (TECLAS CODIGO 14 Y 15)
         switch (key)
         {
-          case 14: // ARRIBA
-            //BORRAMOS EL CURSOS ANTERIOR
+
+        case 14: // FLECHA-ARRIBA
+
             rlutil::locate(22,7+offset_y);
-             cout << "  " << endl;;
+
+            //BORRAMOS EL CURSOS ANTERIOR
+            cout << "  " << endl;;
             offset_y--;
+
             // PONEMOS LIMITE SUPERIOR A LA FIGURA " << "
             if ( offset_y < 0)
             {
+                // PARAMETROS PARA HACER UN BUCLE INFINITO DEL MENU
                 offset_y = 6;
-                 rlutil::locate(22,7+offset_y);
+                rlutil::locate(22,7+offset_y);
             }
-          break;
-          case 15: // ABAJO
-            //BORRAMOS EL CURSOS ANTERIOR
+            break;
+
+        case 15: // FLECHA-ABAJO
+
             rlutil::locate(22,7+offset_y);
+
+            //BORRAMOS EL CURSOS ANTERIOR
             cout << "  " << endl;
             offset_y++;
+
             // PONEMOS LIMITE INFERIOR A LA FIGURA " << "
             if ( offset_y > 6 )
             {
-              offset_y = 0;
-              rlutil::locate(22,7+offset_y);
+                // PARAMETROS PARA HACER UN BUCLE INFINITO DEL MENU
+                offset_y = 0;
+                rlutil::locate(22,7+offset_y);
             }
-          break;
-          case 1: //ENTER
-            //TENEMOS QUE ANALIZAR A Y
+            break;
 
+        // PARA ELEGIR LA OPCION DEL MENU PRESIONAMOS ENTER (TECLA CODIGO 1)
+        case 1:
+
+            //TENEMOS QUE ANALIZAR A offset_y QUE CORRESPONDE CON LA OPCION ELEGIDA
             switch (offset_y)
             {
-              case 0: modoSolitario(simulado, ranking_lista);
+            case 0:
+                modoSolitario(simulado, ranking_lista);
                 break;
-              case 1: dosjugadores(simulado, ranking_lista);
+            case 1:
+                dosjugadores(simulado, ranking_lista);
                 break;
-              case 2: multijugador(simulado, ranking_lista);
+            case 2:
+                multijugador(simulado, ranking_lista);
                 break;
-              case 3: menuRanking(ranking_lista, ranking_len);
-               // -1 porque el vector es de 11 pero solo muestro los 10 primeros
+            case 3:
+                menuRanking(ranking_lista, ranking_len);
                 break;
-              case 4: toggleSimulado(simulado);
+            case 4:
+                toggleSimulado(simulado);
                 break;
-              case 5: creditos();
+            case 5:
+                creditos();
                 break;
-              case 6: return 0;
+            case 6:
+                rlutil::cls();
+                return 0;
                 break;
-              default:
+            default:
                 break;
             }
-          break;
         default:
             break;
         }
     }
-
-//
-//  cout << " " << endl;
-//  cout << " " << endl;
-//  cout << " " << endl;
-//  rlutil::locate(42,25);
-  return 0;
+    return 0;
 }

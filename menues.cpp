@@ -211,7 +211,7 @@ void menuRanking(std::string vec[], int tam)
 //    dibujo_cuadrado();
     rlutil::locate(25,6);
     cout << "RANKING ULTIMAS 10 PARTIDAS" << endl;
-    mostrarVectorString(vec, tam-1,30,8);
+    mostrarVectorString(vec, tam-1,25,8);
     rlutil::anykey();
     rlutil::cls();
 }
