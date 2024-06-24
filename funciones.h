@@ -19,7 +19,7 @@ void modoSolitario(bool simulado, std::string r[]);
 void dosjugadores(bool simulado, std::string r[]);
 
 // multijugador.cpp
-void multijugador(bool simulado, std::string r[], int cantidadJugadores);
+void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadores, bool rondasPredeterminadas);
 
 // vectores.cpp
 void mostrarVector(int vec[], int tam);
@@ -29,7 +29,7 @@ void ponerVectorEn0(int vec[], int tam);
 int sumaVector(int vec[], int tam);
 void ponerVectorEnVacio(std::string vec[], int n);
 void mostrarVectorString(std::string vec[],int tam, int cursorx, int cursory);
-int maximoVectorIndice(int vec[], int tam);
+int maximoVectorIndice(int vec[], int tam, int vec_desempate[]);
 
 // funciones.cpp
 void mostrarUltimasPartidas(std::string ultimaPartida);

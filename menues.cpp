@@ -22,14 +22,16 @@ void mostrarMenu(bool simulado)
     rlutil::locate(alineacion_menu,8);
     cout << "COMENZAR DOS JUGADORES" << endl;
     rlutil::locate(alineacion_menu,9);
-    cout << "COMENZAR MULTIJUGADOR " << endl;
+    cout << "COMENZAR DOS JUGADORES RONDAS FIJAS" << endl;
     rlutil::locate(alineacion_menu,10);
-    cout << "RANKING" << endl;
+    cout << "COMENZAR MULTIJUGADOR" << endl;
     rlutil::locate(alineacion_menu,11);
-    cout << "MODO SIMULADO " << labelSimulado(simulado) << endl;
+    cout << "RANKING" << endl;
     rlutil::locate(alineacion_menu,12);
-    cout << "CREDITOS" << endl;
+    cout << "MODO SIMULADO " << labelSimulado(simulado) << endl;
     rlutil::locate(alineacion_menu,13);
+    cout << "CREDITOS" << endl;
+    rlutil::locate(alineacion_menu,14);
     cout << "SALIR" << endl;
 }
 
@@ -132,7 +134,7 @@ void dibujo_cuadrado()
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " ;
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " ";
     // LINEA INFERIOS: X1=30  X2=82 | Y = 15
-    rlutil::locate(columna_izquierda,15);
+    rlutil::locate(columna_izquierda,16);
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " ";
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " ;
     cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " ";
@@ -157,6 +159,8 @@ void dibujo_cuadrado()
     cout << (char)223;
     rlutil::locate(columna_izquierda,14);
     cout << (char)223;
+    rlutil::locate(columna_izquierda,15);
+    cout << (char)223;
     //LINEA VERTICAL DERECHA:
     rlutil::locate(columna_derecha,5);
     cout << (char)223;
@@ -177,6 +181,8 @@ void dibujo_cuadrado()
     rlutil::locate(columna_derecha,13);
     cout << (char)223;
     rlutil::locate(columna_derecha,14);
+    cout << (char)223;
+    rlutil::locate(columna_derecha,15);
     cout << (char)223;
 }
 

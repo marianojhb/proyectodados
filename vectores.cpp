@@ -95,24 +95,28 @@ void mostrarVectorString(std::string vec[],int tam, int cursorx, int cursory)
     }
 }
 
-int maximoVectorIndice(int vec[], int tam)
+int maximoVectorIndice(int vec[], int tam, int vec_desempate[])
 {
     int maximo;
     for (int i=0; i<tam; i++)
     {
         if (i==0)
         {
-            maximo = 0;
+            maximo = 0; // MAXIMO ES JUGADOR 1
         }
         else
         {
-            if (vec[i]>vec[i-1])
+            if (vec[i] > vec[i-1])
             {
                 maximo = i;
             }
+            // SI EMPATAN EN PUNTAJE VEMOS QUIEN LANZO EL MAYOR TIRO ANTES:
             else if ( vec[i] == vec[i-1])
             {
-
+                if (vec_desempate[i] > vec_desempate[i-1]) // 240 > 340
+                {
+                    maximo = i;
+                }
             }
         }
     }

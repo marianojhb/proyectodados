@@ -5,7 +5,7 @@
 #include "funciones.h"
 using namespace std;
 
-void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadores)
+void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadores, bool rondasPredeterminadas)
 {
 
   // PREGUNTA CANTIDAD DE JUGADORES
@@ -59,8 +59,9 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
     bool escalera = false; // INDICADOR PARA VERIFICAR SI SACO ESCALERA.
     bool alcanzo100 = false; // INDICADOR PARA VERICAR QUIEN LLEGO A CIEN.
     int jugadorGanador; // VA A CONTENER EL PUNTAJE DEL GANADOR DEL PARTIDO.
+    int rondaPredeterminada = 1; // VA A CONTENER LA CANTIDAD DE RONDAS PREDEFINIDAS
 
-    while (alcanzo100 == false)
+    while ( (alcanzo100 == false) && ( (rondasPredeterminadas == true) && (ronda <= rondaPredeterminada) ) )// ALCANZO 100 O ES POR RONDA FIJA (BOOL) +
     {
     //INICIO RONDA
       //DIBUJO EL CUADRADO PARA QUE VA A CONTENER EL MENSAJE.
@@ -123,7 +124,7 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
                   //GENERALA DE 6, VUELVE A 0 EL PUNTAJE TOTAL
                     seisSeis(puntaje,puntajeTotal[i]);
                 }
-                //UNA VEZ FINALIZADO LAS 3 RONDAS, ACTUALIZAMOS EL MAXIMOS POR RONDA
+                //UNA VEZ FINALIZADOS LOS 3 LANZAMIENTOS, ACTUALIZAMOS LOS MAXIMOS POR RONDA
                 if(puntaje>maximoPorRonda)
                 {
                     maximoPorRonda=puntaje;
@@ -155,8 +156,8 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
                     rlutil::anykey();
                     rlutil::cls();
                     dibujo_cuadrado();
-                    rlutil::locate(27,9);
-                    cout << jugador[i] << " SUMO " << maximoPorRonda << " PUNTOS, EN LA RONDA";
+                    rlutil::locate(25,9);
+                    cout << jugador[i] << " SUMO " << maximoPorRonda << " PUNTOS EN LA RONDA " << ronda;
                     sumaPuntaje(maximoPorRonda, puntajeTotal[i]);
                     rlutil::anykey();
                 }
@@ -164,6 +165,7 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
 
         }// FIN DEL TURNO DE CADA JUGADOR
 
+         // ALCANZO 100 , FIN DEL PARTIDO, CHEQUEO PUNTAJES PARA AVERIGUAR
         for(int i=0; i<cantidadJugadores; i++)
         {
             if (puntajeTotal[i]>=100)
@@ -172,9 +174,10 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
             }
         }
 
-        if (alcanzo100)
+        // FIN DE LA PARTIDA CUANDO ALCANZA 100 O SON RONDAS PREDEFINIDAS
+        if ((alcanzo100) && ((ronda == rondaPredeterminada) && (rondasPredeterminadas==true)))
         {
-        // ALCANZO 100 , FIN DEL PARTIDO:
+
             rlutil::cls();
             dibujo_cuadrado();
             rlutil::locate(30,6);
@@ -187,7 +190,10 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
             }
             rlutil::anykey();
             //OBTENEMOS LA POSICION EN EL VECTOR DEL MAXIMO PUNTAJE
-            jugadorGanador = maximoVectorIndice(puntajeTotal, cantidadJugadores);
+            jugadorGanador = maximoVectorIndice(puntajeTotal, cantidadJugadores, vec_desempate);
+
+
+
 
             rlutil::cls();
             dibujo_cuadrado();
