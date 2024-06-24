@@ -8,6 +8,13 @@ using namespace std;
 
 void mostrarDado(int dado, int x, int y)
 {
+  rlutil::setColor(rlutil::COLOR::WHITE);
+  /*
+    CHAR:
+      -218 , LINEA SIMPLE ESQUINA , PARECIDO A UNA r
+      -196, LINEA SIMPLE HORIZONTAL , -
+      -191,
+  */
     switch(dado)
     {
     case 1:

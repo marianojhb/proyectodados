@@ -12,7 +12,6 @@ void cargarVectorAleatorio(int vec[], int tam)
     {
         vec[i]=rand()%6+1;
     }
-//    cout<<"Vector correctamente cargado con numeros aleatorios..."<<endl;
 }
 
 void cargarVectorManual(int vec[],int tam )
@@ -20,15 +19,16 @@ void cargarVectorManual(int vec[],int tam )
     int i;
     for (i=0; i<tam ; i++ )
     {
-        cout<<"Ingrese el elemento "<<i+1<<" del vector: ";
+        cout<<"INGRESE EL DADO N" << (char)248 << " "<< i+1 << " : ";
         cin>>vec[i];
+        // SI EL DATO INGRESAO ES MAYOR A 6, SE REPITE LA INSTRUCCION.
         while (vec[i]>6)
         {
-            cout << "Ingrese un nuevo numero: ";
+            cout<<"INGRESE EL DADO N" << (char)248 << " "<< i+1 << " : ";
             cin >> vec[i];
         }
     }
-    cout<<"Vector correctamente cargado..."<<endl;
+    // cout<<"Vector correctamente cargado..."<<endl;
 }
 
 void ponerVectorEn0(int vec[],int tam )

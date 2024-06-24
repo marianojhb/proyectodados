@@ -5,9 +5,10 @@
 
 using namespace std;
 
-void actualizaRanking (string vec[], string n, int p)
+void actualizaRanking (std::string vec[],std::string nombre, int puntaje)
 {
-    string ultimaPartida = intToString(p) + " pts  " + n;
+
+    string ultimaPartida = intToString(puntaje) + " pts  " + nombre;
     vec[10] = ultimaPartida;
 
     // ORDENAR UN VECTOR CON METODO BURBUJA

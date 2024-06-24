@@ -8,7 +8,7 @@ using namespace std;
 void mostrarUltimasPartidas(std::string ultimaPartida)
 {
 
-    cout << "Partidas anteriores: " << endl;
+    cout << "PARTIDAS ANTERIORES: " << endl;
     string partidasAnteriores = "";
     partidasAnteriores += ultimaPartida;
 //    rlutil::anykey();
@@ -24,9 +24,11 @@ void cargarNombre(std::string &nombre)
     cin >> nombre;
     rlutil::hidecursor();
     rlutil::cls();
+    /*
     rlutil::locate(32,12);
     cout << "Hola, " << nombre << "!!!"<<endl;
     rlutil::anykey();
+    */
     rlutil::cls();
 }
 
@@ -43,6 +45,7 @@ void lanzar2(bool simulado, int dados[], int tam)
         rlutil::locate(28,9);
         cout << (char)175 << (char)175 << " LANZAR LOS DADOS";
         rlutil::anykey();
+      //DEMORA EN MILISEGUNDOS DE LA EJECUCIONS DE LA SIGUIENTE LINEA.
         rlutil::msleep(400);
         cargarVectorAleatorio(dados, tam); // carga el vector aleatorio en memoria
     }
@@ -58,7 +61,7 @@ void mostrarPuntaje(int puntaje)
 {
 
     rlutil::locate(25,20);
-    cout << "Sumatoria de los dados " << puntaje << " puntos." << endl;
+    cout << "SUMATORIA DE LOS DADOS " << puntaje << " PUNTOS" << endl;
 
 }
 

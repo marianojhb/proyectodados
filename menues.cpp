@@ -63,10 +63,10 @@ void menuJuegoMultijugador(int puntajeTotal,
     rlutil::cls();
     cout << "---------------------------------------------------------------------------------" << endl;
     cout << "TURNO DE: " << jugador << " | MODO DE JUEGO SIMULADO: " << labelSimulado(simulado) << endl;
-    cout << "JUEGO MULTIJUGADOR | RONDA No "<< ronda <<" | PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS" << endl;
+    cout << "JUEGO MULTIJUGADOR | RONDA N" <<(char)248<< ronda <<" | PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS" << endl;
     cout << "---------------------------------------------------------------------------------" << endl;
     cout << "MAXIMO PUNTAJE DE LA RONDA: "<< maximoPorRonda <<"  PUNTOS" << endl;
-    cout << "LANZAMIENTO No " << lanzamiento << endl;
+    cout << "LANZAMIENTO N" << (char)248 << lanzamiento << endl;
     cout << "---------------------------------------------------------------------------------" << endl;
 }
 
@@ -120,6 +120,7 @@ void interfas_parteMiD(int lanzamiento, int maxPuntajeRonda)
 // FONDO DEL MENU PRINCIPAL
 void dibujo_cuadrado()
 {
+    // ELEJIMOS EL COLOR DE LOS CARACTERES
     rlutil::setColor(rlutil::COLOR::WHITE);
 
     //DIBUJANDO EL CUADRADO
@@ -198,7 +199,7 @@ void creditos()
     rlutil::locate(32,12);
     cout << "BIBLIOTECA:" << endl;
     rlutil::locate(32,13);
-    cout << "RUTIL - TAPIO VIERROS" << endl;
+    cout << "RLUTIL - TAPIO VIERROS" << endl;
     rlutil::anykey();
     rlutil::cls();
 }
