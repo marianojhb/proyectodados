@@ -59,7 +59,7 @@ int main()
             if ( offset_y < 0)
             {
                 // PARAMETROS PARA HACER UN BUCLE INFINITO DEL MENU
-                offset_y = 7;
+                offset_y = 6;
                 rlutil::locate(22,7+offset_y);
             }
             break;
@@ -73,7 +73,7 @@ int main()
             offset_y++;
 
             // PONEMOS LIMITE INFERIOR A LA FIGURA " << "
-            if ( offset_y > 7 )
+            if ( offset_y > 6 )
             {
                 // PARAMETROS PARA HACER UN BUCLE INFINITO DEL MENU
                 offset_y = 0;
@@ -94,24 +94,20 @@ int main()
                 multijugador(simulado, ranking_lista, 2);
                 break;
             case 2:
-                multijugador(simulado, ranking_lista, 2);
-                break;
-            case 3:
                  multijugador(simulado, ranking_lista,0);
                 break;
-            case 4:
+            case 3:
                 menuRanking(ranking_lista, ranking_len);
                 break;
-            case 5:
+            case 4:
                 toggleSimulado(simulado);
                 break;
-            case 6:
+            case 5:
                 creditos();
                 break;
-            case 7:
+            case 6:
                 rlutil::cls();
                 return 0;
-                break;
             default:
                 break;
             }

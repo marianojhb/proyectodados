@@ -67,7 +67,7 @@ void modoSolitario(bool simulado, std::string r[])
             {
                 escalera=true;
                 rlutil::locate(25,24);
-                cout << "Saco escalera y GANO EL JUEGO!!" << endl;
+                cout << "SACO ESCALERA Y GANO EL JUEGO!" << endl;
                 actualizaRanking(r,jugador1,100);
                 rlutil::anykey();
                 rlutil::cls();
@@ -100,10 +100,10 @@ void modoSolitario(bool simulado, std::string r[])
     }
     rlutil::cls();
     dibujo_cuadrado();
-    rlutil::locate(30,8);
+    rlutil::locate(32,8);
     cout << "TERMINO LA PARTIDA!";
     rlutil::locate(22,10);
-    cout << jugador1 << ", hiciste " << puntajeTotal << " puntos en " << ronda-1<< " rondas" << endl << endl;
+    cout << jugador1 << ", HICISTE " << puntajeTotal << " PUNTOS EN " << ronda-1<< " RONDAS" << endl << endl;
     actualizaRanking(r, jugador1, puntajeTotal);
     rlutil::anykey();
     rlutil::cls();

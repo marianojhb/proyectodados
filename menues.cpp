@@ -22,16 +22,14 @@ void mostrarMenu(bool simulado)
     rlutil::locate(alineacion_menu,8);
     cout << "COMENZAR DOS JUGADORES" << endl;
     rlutil::locate(alineacion_menu,9);
-    cout << "COMENZAR DOS JUGADORES RONDAS FIJAS" << endl;
-    rlutil::locate(alineacion_menu,10);
     cout << "COMENZAR MULTIJUGADOR" << endl;
-    rlutil::locate(alineacion_menu,11);
+    rlutil::locate(alineacion_menu,10);
     cout << "RANKING" << endl;
-    rlutil::locate(alineacion_menu,12);
+    rlutil::locate(alineacion_menu,11);
     cout << "MODO SIMULADO " << labelSimulado(simulado) << endl;
-    rlutil::locate(alineacion_menu,13);
+    rlutil::locate(alineacion_menu,12);
     cout << "CREDITOS" << endl;
-    rlutil::locate(alineacion_menu,14);
+    rlutil::locate(alineacion_menu,13);
     cout << "SALIR" << endl;
 }
 
@@ -46,7 +44,7 @@ void menuJuegoSolitario(int puntajeTotal,
     rlutil::cls();
     cout << "---------------------------------------------------------------------------------" << endl;
     cout << "JUGADOR: " << nombre << " | MODO DE JUEGO SIMULADO: " << labelSimulado(simulado) << endl;
-    cout << "JUEGO SOLITARIO | RONDA No "<< ronda <<" | PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS" << endl;
+    cout << "JUEGO SOLITARIO | RONDA N" << (char)248 << ronda <<" | PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS" << endl;
     cout << "---------------------------------------------------------------------------------" << endl;
     cout << "MAXIMO PUNTAJE DE LA RONDA: "<< maximoPorRonda <<"  PUNTOS" << endl;
     cout << "LANZAMIENTO No " << lanzamiento << endl;
@@ -72,21 +70,7 @@ void menuJuegoMultijugador(int puntajeTotal,
     cout << "---------------------------------------------------------------------------------" << endl;
 }
 
-// PANTALLA ENTRE TURNOS
-void interfas_entre_turnos( int ronda, string proxTurno, string antTurno, int puntajeTotal_ant, int puntajeTotal_prox )
-{
-    dibujo_cuadrado();
-    rlutil::locate(35,6);
-    cout << "RONDA N" << (char)248 << " " << ronda << endl;
-    rlutil::locate(30,9);
-    cout << "PUNTAJE " << antTurno << ": "<< puntajeTotal_ant << endl;
-    rlutil::locate(30,10);
-    cout << "PUNTAJE " << proxTurno << ": "<< puntajeTotal_prox << endl;
-    rlutil::locate(30,12);
-    cout << "PROXIMO TURNO: " << proxTurno << endl;
-    rlutil::anykey();
-    rlutil::cls();
-}
+
 // PANTALLA FIN RONDA
 void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal)
 {
@@ -103,12 +87,6 @@ void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal)
 
 }
 
-// PANTALLA CAMBIO DE TURNO
-void interfas_parteUP ( int ronda, string nombre, int puntajeTotal)
-{
-
-    cout << "TURNO DE " << nombre << " | RONDA N" << (char)248 << ronda << " | PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS" << endl;
-}
 
 void interfas_parteMiD(int lanzamiento, int maxPuntajeRonda)
 {
@@ -130,15 +108,15 @@ void subMenu_rondas_prederminadas ( bool &rondas)
     bool finWhile = true;
     while(finWhile)
     {
-      rlutil::locate(25,10);
+      rlutil::locate(25,8);
       cout << " JUGAR CON RONDAS PREDERMINADAS: ";
-      rlutil::locate(25,11);
+      rlutil::locate(38,10);
       cout << " NO" << endl;
-      rlutil::locate(25,12);
+      rlutil::locate(38,11);
       cout << " SI" << endl;
 
       //COLOCAMOS LA FIGURA " >> " EN LA OPCION SI:
-      rlutil::locate(22,11+offset_y);
+      rlutil::locate(35,10+offset_y);
       cout << (char)175 << (char)175 << endl;
       key = rlutil::getkey();
 
@@ -146,7 +124,7 @@ void subMenu_rondas_prederminadas ( bool &rondas)
       {
         case 14: // FLECHA PARA ARRIBA
 
-              rlutil::locate(22,11+offset_y);
+              rlutil::locate(35,10+offset_y);
 
               //BORRAMOS EL CURSOS ANTERIOR
               cout << "  " << endl;;
@@ -157,12 +135,12 @@ void subMenu_rondas_prederminadas ( bool &rondas)
               {
                   // PARAMETROS PARA HACER UN BUCLE INFINITO DEL MENU
                   offset_y = 1;
-                  rlutil::locate(22,11+offset_y);
+                  rlutil::locate(35,10+offset_y);
               }
             break;
          case 15: // FLECHA-ABAJO
 
-              rlutil::locate(22,11+offset_y);
+              rlutil::locate(35,10+offset_y);
 
               //BORRAMOS EL CURSOS ANTERIOR
               cout << "  " << endl;
@@ -173,7 +151,7 @@ void subMenu_rondas_prederminadas ( bool &rondas)
               {
                   // PARAMETROS PARA HACER UN BUCLE INFINITO DEL MENU
                   offset_y = 0;
-                  rlutil::locate(22,7+offset_y);
+                  rlutil::locate(35,10+offset_y);
               }
             break;
          case 1:
