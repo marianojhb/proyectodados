@@ -119,6 +119,92 @@ void interfas_parteMiD(int lanzamiento, int maxPuntajeRonda)
     rlutil::anykey();
 }
 
+void subMenu_rondas_prederminadas ( bool &rondas)
+{
+
+    rlutil::setColor(rlutil::COLOR::WHITE);
+    dibujo_cuadrado();
+    int key;
+    int offset_y =0;
+
+    bool finWhile = true;
+    while(finWhile)
+    {
+      rlutil::locate(25,10);
+      cout << " JUGAR CON RONDAS PREDERMINADAS: ";
+      rlutil::locate(25,11);
+      cout << " NO" << endl;
+      rlutil::locate(25,12);
+      cout << " SI" << endl;
+
+      //COLOCAMOS LA FIGURA " >> " EN LA OPCION SI:
+      rlutil::locate(22,11+offset_y);
+      cout << (char)175 << (char)175 << endl;
+      key = rlutil::getkey();
+
+      switch(key)
+      {
+        case 14: // FLECHA PARA ARRIBA
+
+              rlutil::locate(22,11+offset_y);
+
+              //BORRAMOS EL CURSOS ANTERIOR
+              cout << "  " << endl;;
+              offset_y--;
+
+              // PONEMOS LIMITE SUPERIOR A LA FIGURA " << "
+              if ( offset_y < 0)
+              {
+                  // PARAMETROS PARA HACER UN BUCLE INFINITO DEL MENU
+                  offset_y = 1;
+                  rlutil::locate(22,11+offset_y);
+              }
+            break;
+         case 15: // FLECHA-ABAJO
+
+              rlutil::locate(22,11+offset_y);
+
+              //BORRAMOS EL CURSOS ANTERIOR
+              cout << "  " << endl;
+              offset_y++;
+
+              // PONEMOS LIMITE INFERIOR A LA FIGURA " << "
+              if ( offset_y > 1 )
+              {
+                  // PARAMETROS PARA HACER UN BUCLE INFINITO DEL MENU
+                  offset_y = 0;
+                  rlutil::locate(22,7+offset_y);
+              }
+            break;
+         case 1:
+            //TENEMOS QUE ANALIZAR A offset_y QUE CORRESPONDE CON LA OPCION ELEGIDA
+              switch (offset_y)
+              {
+                case 0:
+                  // SE ELIJIO UNA OPCION
+                    finWhile = false;
+                    rlutil::cls();
+                    rondas = false;
+                    break;
+                case 1:
+                   // SE ELIJIO UNA OPCION
+                    finWhile = false;
+                    rlutil::cls();
+                    rondas = true;
+                  break;
+                default:
+                  break;
+              }
+
+          break;
+          default:
+          break;
+
+      } // FIN DE KEY
+
+    }
+
+}
 // FONDO DEL MENU PRINCIPAL
 void dibujo_cuadrado()
 {
@@ -221,3 +307,4 @@ void menuRanking(std::string vec[], int tam)
     rlutil::anykey();
     rlutil::cls();
 }
+

@@ -11,6 +11,7 @@ void interfas_parteMiD(int lanzamiento, int maxPuntajeRonda);
 void dibujo_cuadrado();
 void creditos();
 void menuRanking(std::string vec[], int tam);
+void subMenu_rondas_prederminadas ( bool &rondas);
 
 // modo_solitario.cpp
 void modoSolitario(bool simulado, std::string r[]);
@@ -19,7 +20,7 @@ void modoSolitario(bool simulado, std::string r[]);
 void dosjugadores(bool simulado, std::string r[]);
 
 // multijugador.cpp
-void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadores, bool rondasPredeterminadas);
+void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadores);
 
 // vectores.cpp
 void mostrarVector(int vec[], int tam);

@@ -20,10 +20,12 @@ int main()
     // Y , NOS VA A SERVIR, PARA PODER MOVERNOS EN EL MENU
     int key;
     int offset_y =0;
+
     // Ranking
     int const ranking_len = 11; // LONGITUD DEL TAMAÑO DEL VECTOR.
     string ranking_lista[ranking_len]; // VECTOR DE STRING, LISTA DE RANKING
-    ponerVectorEnVacio(ranking_lista,ranking_len); // inicializo el ranking
+    ponerVectorEnVacio(ranking_lista,ranking_len); // INICIALIZO EL RANKING
+
 
     // INICIO PROGRAMA . . .
     rlutil::setColor(rlutil::COLOR::WHITE);
@@ -89,13 +91,13 @@ int main()
                 modoSolitario(simulado, ranking_lista);
                 break;
             case 1:
-                multijugador(simulado, ranking_lista, 2, false);
+                multijugador(simulado, ranking_lista, 2);
                 break;
             case 2:
-                multijugador(simulado, ranking_lista, 2, true);
+                multijugador(simulado, ranking_lista, 2);
                 break;
             case 3:
-                 multijugador(simulado, ranking_lista, 0, false);
+                 multijugador(simulado, ranking_lista,0);
                 break;
             case 4:
                 menuRanking(ranking_lista, ranking_len);

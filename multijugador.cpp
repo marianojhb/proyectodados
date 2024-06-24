@@ -5,7 +5,7 @@
 #include "funciones.h"
 using namespace std;
 
-void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadores, bool rondasPredeterminadas)
+void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadores)
 {
 
   // PREGUNTA CANTIDAD DE JUGADORES
@@ -61,7 +61,11 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
     int jugadorGanador; // VA A CONTENER EL PUNTAJE DEL GANADOR DEL PARTIDO.
     int rondaPredeterminada; // VA A CONTENER LA CANTIDAD DE RONDAS PREDEFINIDAS
 
+   //INDICADOR DE RONDAS
+    bool rondasPredeterminadas;
   // PREGUNTA CANTIDAD DE PARTIDAS
+    subMenu_rondas_prederminadas(rondasPredeterminadas);
+
     if (rondasPredeterminadas == true)
     {
       //LIMPIAMOS LA PANTALLA
@@ -75,173 +79,344 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
       //OCULTAMOS EL CURSOR
         rlutil::hidecursor();
 
-    }
 
-    while ( (alcanzo100 == false) && ( (rondasPredeterminadas == true) && (ronda <= rondaPredeterminada) ) )// ALCANZO 100 O ES POR RONDA FIJA (BOOL) +
-    {
-    //INICIO RONDA
-      //DIBUJO EL CUADRADO PARA QUE VA A CONTENER EL MENSAJE.
-        rlutil::cls();
-        dibujo_cuadrado();
-        rlutil::locate(35,9);
-        cout << "RONDA N" << (char)248 << " " << ronda;
-      //ESPERAMOS CUALQUIER TECAL PARA CONTINUAR
-        rlutil::anykey();
-      //LIMPIAMOS CONSOLA
-        rlutil::cls();
-
-      //TURNO DE JUGADORES
-        for(int i=0; i<cantidadJugadores; i++)
+        while ( (alcanzo100 == false) && ( (rondasPredeterminadas == true) && (ronda <= rondaPredeterminada) ) )// ALCANZO 100 O ES POR RONDA FIJA (BOOL) +
         {
-            maximoPorRonda = 0;
-
-          //TURNO DEL JUGADOR
+        //INICIO RONDA
+          //DIBUJO EL CUADRADO PARA QUE VA A CONTENER EL MENSAJE.
             rlutil::cls();
             dibujo_cuadrado();
-            rlutil::locate(33,9);
-            cout << "TURNO DE " << jugador[i];
+            rlutil::locate(35,9);
+            cout << "RONDA N" << (char)248 << " " << ronda;
+          //ESPERAMOS CUALQUIER TECAL PARA CONTINUAR
             rlutil::anykey();
+          //LIMPIAMOS CONSOLA
             rlutil::cls();
 
-            // LANZAMIENTOS
-            for(lanzamiento=1; lanzamiento<=3; lanzamiento++)
+          //TURNO DE JUGADORES
+            for(int i=0; i<cantidadJugadores; i++)
             {
-                menuJuegoMultijugador(puntajeTotal[i], jugador[i], ronda, lanzamiento, maximoPorRonda, simulado);
-                lanzar2(simulado,dados,tam);
+                maximoPorRonda = 0;
 
-              //GRAFICAMOS LOS DADOS, RECORRES MANUALMENTE CADA POSICION DEL VECTOR Y
-              //GRAFICAMOS SU VALOR.
-                mostrarDado(dados[0],1,14);
-                mostrarDado(dados[1],15,14);
-                mostrarDado(dados[2],29,14);
-                mostrarDado(dados[3],43,14);
-                mostrarDado(dados[4],57,14);
-                mostrarDado(dados[5],71,14);
+              //TURNO DEL JUGADOR
+                rlutil::cls();
+                dibujo_cuadrado();
+                rlutil::locate(33,9);
+                cout << "TURNO DE " << jugador[i];
+                rlutil::anykey();
+                rlutil::cls();
 
-              //SUMA LOS VALORES DEL VECTOS, Y LO GUARDAMOS EN LA VARIABLE PUNTJE
-                puntaje=sumaVector(dados, tam);
-
-              //VERIFICAMOS LAS CONDICIONES
-                if (esEscalera(dados,tam,puntaje))
+                // LANZAMIENTOS
+                for(lanzamiento=1; lanzamiento<=3; lanzamiento++)
                 {
-                  //SI ENTRAMOS A LA CONDICION, ES ESCALERA
-                    escalera=true;
-                    rlutil::locate(25,22);
-                    cout << "Saco escalera y GANO EL JUEGO!!" << endl;
-                    rlutil::anykey();
-                  //ACTUALIZAMOS EL RANKING
-                    actualizaRanking(vec_ranking,jugador[i],100);
-                    rlutil::cls();
-                    return;
-                }
-                else
-                {
-                  //GENERALA DE 1-5, MULTIPLICA VALOR DEL DADO X 10
-                    generala(dados,tam,puntaje);
-                  //GENERALA DE 6, VUELVE A 0 EL PUNTAJE TOTAL
-                    seisSeis(puntaje,puntajeTotal[i]);
-                }
-                //UNA VEZ FINALIZADOS LOS 3 LANZAMIENTOS, ACTUALIZAMOS LOS MAXIMOS POR RONDA
+                    menuJuegoMultijugador(puntajeTotal[i], jugador[i], ronda, lanzamiento, maximoPorRonda, simulado);
+                    lanzar2(simulado,dados,tam);
 
-                if(puntaje>maximoPorRonda)
-                {
-                    maximoPorRonda=puntaje;
+                  //GRAFICAMOS LOS DADOS, RECORRES MANUALMENTE CADA POSICION DEL VECTOR Y
+                  //GRAFICAMOS SU VALOR.
+                    mostrarDado(dados[0],1,14);
+                    mostrarDado(dados[1],15,14);
+                    mostrarDado(dados[2],29,14);
+                    mostrarDado(dados[3],43,14);
+                    mostrarDado(dados[4],57,14);
+                    mostrarDado(dados[5],71,14);
 
-                    if (lanzamiento == 1 )
+                  //SUMA LOS VALORES DEL VECTOS, Y LO GUARDAMOS EN LA VARIABLE PUNTJE
+                    puntaje=sumaVector(dados, tam);
+
+                  //VERIFICAMOS LAS CONDICIONES
+                    if (esEscalera(dados,tam,puntaje))
                     {
-                      vec_desempate[i] = maximoPorRonda + 300;
-                    }
-                    else if ( lanzamiento == 2)
-                    {
-                      vec_desempate[i] = maximoPorRonda + 200;
+                      //SI ENTRAMOS A LA CONDICION, ES ESCALERA
+                        escalera=true;
+                        rlutil::locate(25,22);
+                        cout << "Saco escalera y GANO EL JUEGO!!" << endl;
+                        rlutil::anykey();
+                      //ACTUALIZAMOS EL RANKING
+                        actualizaRanking(vec_ranking,jugador[i],100);
+                        rlutil::cls();
+                        return;
                     }
                     else
                     {
-                      vec_desempate[i] = maximoPorRonda + 100;
+                      //GENERALA DE 1-5, MULTIPLICA VALOR DEL DADO X 10
+                        generala(dados,tam,puntaje);
+                      //GENERALA DE 6, VUELVE A 0 EL PUNTAJE TOTAL
+                        seisSeis(puntaje,puntajeTotal[i]);
                     }
-                }
-                //SI EL LANZAMIENTO NO ES 3
-                if(lanzamiento!=3)
-                {
-                    mostrarPuntaje(puntaje);
-                    rlutil::anykey();
+                    //UNA VEZ FINALIZADOS LOS 3 LANZAMIENTOS, ACTUALIZAMOS LOS MAXIMOS POR RONDA
 
-                }
-                else
-                {
-                  //FIN DE LA RONDA
-                    mostrarPuntaje(puntaje);
-                    rlutil::anykey();
-                    rlutil::cls();
-                    dibujo_cuadrado();
-                    rlutil::locate(25,9);
-                    cout << jugador[i] << " SUMO " << maximoPorRonda << " PUNTOS EN LA RONDA " << ronda;
-                    sumaPuntaje(maximoPorRonda, puntajeTotal[i]);
-                    rlutil::anykey();
-                }
-            }// FIN DE LOS LANZAMIENTOS
+                    if(puntaje>maximoPorRonda)
+                    {
+                        maximoPorRonda=puntaje;
 
-        }// FIN DEL TURNO DE CADA JUGADOR
+                        if (lanzamiento == 1 )
+                        {
+                          vec_desempate[i] = maximoPorRonda + 300;
+                        }
+                        else if ( lanzamiento == 2)
+                        {
+                          vec_desempate[i] = maximoPorRonda + 200;
+                        }
+                        else
+                        {
+                          vec_desempate[i] = maximoPorRonda + 100;
+                        }
+                    }
+                    //SI EL LANZAMIENTO NO ES 3
+                    if(lanzamiento!=3)
+                    {
+                        mostrarPuntaje(puntaje);
+                        rlutil::anykey();
 
-         // ALCANZO 100 , FIN DEL PARTIDO, CHEQUEO PUNTAJES PARA AVERIGUAR
-        for(int i=0; i<cantidadJugadores; i++)
-        {
-            if (puntajeTotal[i]>=100)
-            {
-                alcanzo100 = true;
-            }
-        }
+                    }
+                    else
+                    {
+                      //FIN DE LA RONDA
+                        mostrarPuntaje(puntaje);
+                        rlutil::anykey();
+                        rlutil::cls();
+                        dibujo_cuadrado();
+                        rlutil::locate(25,9);
+                        cout << jugador[i] << " SUMO " << maximoPorRonda << " PUNTOS EN LA RONDA " << ronda;
+                        sumaPuntaje(maximoPorRonda, puntajeTotal[i]);
+                        rlutil::anykey();
+                    }
+                }// FIN DE LOS LANZAMIENTOS
 
-        // FIN DE LA PARTIDA CUANDO ALCANZA 100 O SON RONDAS PREDEFINIDAS
-        if ((alcanzo100) || ((ronda == rondaPredeterminada) && (rondasPredeterminadas==true)))
-        {
+            }// FIN DEL TURNO DE CADA JUGADOR
 
-            rlutil::cls();
-            dibujo_cuadrado();
-            rlutil::locate(30,6);
-            cout << "RESULTADO FINAL: ";
-            // MOSTRAMOS LOS PUNTOS FINALES DE LOS JUGADORES DE LA PARTIDA:
+             // ALCANZO 100 , FIN DEL PARTIDO, CHEQUEO PUNTAJES PARA AVERIGUAR
             for(int i=0; i<cantidadJugadores; i++)
             {
-                rlutil::locate(30,8+i);
-                cout << jugador[i] << " " << puntajeTotal[i] << " PUNTOS" << endl;
+                if (puntajeTotal[i]>=100)
+                {
+                    alcanzo100 = true;
+                }
             }
-            rlutil::anykey();
-            //OBTENEMOS LA POSICION EN EL VECTOR DEL MAXIMO PUNTAJE
-            jugadorGanador = maximoVectorIndice(puntajeTotal, cantidadJugadores, vec_desempate);
+
+            // FIN DE LA PARTIDA CUANDO ALCANZA 100 O SON RONDAS PREDEFINIDAS
+            if ((alcanzo100) || ((ronda == rondaPredeterminada) && (rondasPredeterminadas==true)))
+            {
+
+                rlutil::cls();
+                dibujo_cuadrado();
+                rlutil::locate(30,6);
+                cout << "RESULTADO FINAL: ";
+                // MOSTRAMOS LOS PUNTOS FINALES DE LOS JUGADORES DE LA PARTIDA:
+                for(int i=0; i<cantidadJugadores; i++)
+                {
+                    rlutil::locate(30,8+i);
+                    cout << jugador[i] << " " << puntajeTotal[i] << " PUNTOS" << endl;
+                }
+                rlutil::anykey();
+                //OBTENEMOS LA POSICION EN EL VECTOR DEL MAXIMO PUNTAJE
+                jugadorGanador = maximoVectorIndice(puntajeTotal, cantidadJugadores, vec_desempate);
 
 
 
 
-            rlutil::cls();
-            dibujo_cuadrado();
-            rlutil::locate(24,10);
-            cout << "EL GANADOR ES " << jugador[jugadorGanador] << " CON " << puntajeTotal[jugadorGanador] << " PUNTOS"<< endl;
+                rlutil::cls();
+                dibujo_cuadrado();
+                rlutil::locate(24,10);
+                cout << "EL GANADOR ES " << jugador[jugadorGanador] << " CON " << puntajeTotal[jugadorGanador] << " PUNTOS"<< endl;
 
-            actualizaRanking(vec_ranking,jugador[jugadorGanador],puntajeTotal[jugadorGanador]);
+                actualizaRanking(vec_ranking,jugador[jugadorGanador],puntajeTotal[jugadorGanador]);
 
-            rlutil::anykey();
-            rlutil::cls();
-        }
-        else
+                rlutil::anykey();
+                rlutil::cls();
+            }
+            else
+            {
+
+                // RONDA SIGUIENTE
+                rlutil::cls();
+                dibujo_cuadrado();
+                rlutil::locate(30,7);
+                cout << "FIN DE DE LA RONDA " << ronda << endl;
+                rlutil::locate(30,9);
+                cout << "PUNTAJES: "<< endl;
+                for(int i=0; i<cantidadJugadores; i++)
+                {
+                    rlutil::locate(30,10+i);
+                    cout << jugador[i] << " " << puntajeTotal[i] << " PUNTOS";
+                }
+                rlutil::anykey();
+                rlutil::cls();
+            }
+            ronda++;
+
+        } // FIN DEL WHILE
+
+    }
+    else if  (rondasPredeterminadas == false)
+    {
+
+        while ( !alcanzo100 )//
         {
-
-            // RONDA SIGUIENTE
+        //INICIO RONDA
+          //DIBUJO EL CUADRADO PARA QUE VA A CONTENER EL MENSAJE.
             rlutil::cls();
             dibujo_cuadrado();
-            rlutil::locate(30,7);
-            cout << "FIN DE DE LA RONDA " << ronda << endl;
-            rlutil::locate(30,9);
-            cout << "PUNTAJES: "<< endl;
+            rlutil::locate(35,9);
+            cout << "RONDA N" << (char)248 << " " << ronda;
+          //ESPERAMOS CUALQUIER TECAL PARA CONTINUAR
+            rlutil::anykey();
+          //LIMPIAMOS CONSOLA
+            rlutil::cls();
+
+          //TURNO DE JUGADORES
             for(int i=0; i<cantidadJugadores; i++)
             {
-                rlutil::locate(30,10+i);
-                cout << jugador[i] << " " << puntajeTotal[i] << " PUNTOS";
+                maximoPorRonda = 0;
+
+              //TURNO DEL JUGADOR
+                rlutil::cls();
+                dibujo_cuadrado();
+                rlutil::locate(33,9);
+                cout << "TURNO DE " << jugador[i];
+                rlutil::anykey();
+                rlutil::cls();
+
+                // LANZAMIENTOS
+                for(lanzamiento=1; lanzamiento<=3; lanzamiento++)
+                {
+                    menuJuegoMultijugador(puntajeTotal[i], jugador[i], ronda, lanzamiento, maximoPorRonda, simulado);
+                    lanzar2(simulado,dados,tam);
+
+                  //GRAFICAMOS LOS DADOS, RECORRES MANUALMENTE CADA POSICION DEL VECTOR Y
+                  //GRAFICAMOS SU VALOR.
+                    mostrarDado(dados[0],1,14);
+                    mostrarDado(dados[1],15,14);
+                    mostrarDado(dados[2],29,14);
+                    mostrarDado(dados[3],43,14);
+                    mostrarDado(dados[4],57,14);
+                    mostrarDado(dados[5],71,14);
+
+                  //SUMA LOS VALORES DEL VECTOS, Y LO GUARDAMOS EN LA VARIABLE PUNTJE
+                    puntaje=sumaVector(dados, tam);
+
+                  //VERIFICAMOS LAS CONDICIONES
+                    if (esEscalera(dados,tam,puntaje))
+                    {
+                      //SI ENTRAMOS A LA CONDICION, ES ESCALERA
+                        escalera=true;
+                        rlutil::locate(25,22);
+                        cout << "Saco escalera y GANO EL JUEGO!!" << endl;
+                        rlutil::anykey();
+                      //ACTUALIZAMOS EL RANKING
+                        actualizaRanking(vec_ranking,jugador[i],100);
+                        rlutil::cls();
+                        return;
+                    }
+                    else
+                    {
+                      //GENERALA DE 1-5, MULTIPLICA VALOR DEL DADO X 10
+                        generala(dados,tam,puntaje);
+                      //GENERALA DE 6, VUELVE A 0 EL PUNTAJE TOTAL
+                        seisSeis(puntaje,puntajeTotal[i]);
+                    }
+                    //UNA VEZ FINALIZADOS LOS 3 LANZAMIENTOS, ACTUALIZAMOS LOS MAXIMOS POR RONDA
+
+                    if(puntaje>maximoPorRonda)
+                    {
+                        maximoPorRonda=puntaje;
+
+                        if (lanzamiento == 1 )
+                        {
+                          vec_desempate[i] = maximoPorRonda + 300;
+                        }
+                        else if ( lanzamiento == 2)
+                        {
+                          vec_desempate[i] = maximoPorRonda + 200;
+                        }
+                        else
+                        {
+                          vec_desempate[i] = maximoPorRonda + 100;
+                        }
+                    }
+                    //SI EL LANZAMIENTO NO ES 3
+                    if(lanzamiento!=3)
+                    {
+                        mostrarPuntaje(puntaje);
+                        rlutil::anykey();
+
+                    }
+                    else
+                    {
+                      //FIN DE LA RONDA
+                        mostrarPuntaje(puntaje);
+                        rlutil::anykey();
+                        rlutil::cls();
+                        dibujo_cuadrado();
+                        rlutil::locate(25,9);
+                        cout << jugador[i] << " SUMO " << maximoPorRonda << " PUNTOS EN LA RONDA " << ronda;
+                        sumaPuntaje(maximoPorRonda, puntajeTotal[i]);
+                        rlutil::anykey();
+                    }
+                }// FIN DE LOS LANZAMIENTOS
+
+            }// FIN DEL TURNO DE CADA JUGADOR
+
+             // ALCANZO 100 , FIN DEL PARTIDO, CHEQUEO PUNTAJES PARA AVERIGUAR
+            for(int i=0; i<cantidadJugadores; i++)
+            {
+                if (puntajeTotal[i]>=100)
+                {
+                    alcanzo100 = true;
+                }
             }
-            rlutil::anykey();
-            rlutil::cls();
-        }
-        ronda++;
+
+            // FIN DE LA PARTIDA CUANDO ALCANZA 100
+            if (alcanzo100)
+            {
+
+                rlutil::cls();
+                dibujo_cuadrado();
+                rlutil::locate(30,6);
+                cout << "RESULTADO FINAL: ";
+                // MOSTRAMOS LOS PUNTOS FINALES DE LOS JUGADORES DE LA PARTIDA:
+                for(int i=0; i<cantidadJugadores; i++)
+                {
+                    rlutil::locate(30,8+i);
+                    cout << jugador[i] << " " << puntajeTotal[i] << " PUNTOS" << endl;
+                }
+                rlutil::anykey();
+                //OBTENEMOS LA POSICION EN EL VECTOR DEL MAXIMO PUNTAJE
+                jugadorGanador = maximoVectorIndice(puntajeTotal, cantidadJugadores, vec_desempate);
+
+
+                rlutil::cls();
+                dibujo_cuadrado();
+                rlutil::locate(24,10);
+                cout << "EL GANADOR ES " << jugador[jugadorGanador] << " CON " << puntajeTotal[jugadorGanador] << " PUNTOS"<< endl;
+
+                actualizaRanking(vec_ranking,jugador[jugadorGanador],puntajeTotal[jugadorGanador]);
+
+                rlutil::anykey();
+                rlutil::cls();
+            }
+            else
+            {
+
+                // RONDA SIGUIENTE
+                rlutil::cls();
+                dibujo_cuadrado();
+                rlutil::locate(30,7);
+                cout << "FIN DE DE LA RONDA " << ronda << endl;
+                rlutil::locate(30,9);
+                cout << "PUNTAJES: "<< endl;
+                for(int i=0; i<cantidadJugadores; i++)
+                {
+                    rlutil::locate(30,10+i);
+                    cout << jugador[i] << " " << puntajeTotal[i] << " PUNTOS";
+                }
+                rlutil::anykey();
+                rlutil::cls();
+            }
+            ronda++;
+
+        } // FIN DEL WHILE
 
     }
 
