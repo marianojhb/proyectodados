@@ -23,7 +23,11 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
         rlutil::hidecursor();
     }
 
-    // VECTOR QUE VA A CONTENER LOS NOMBRES DE LOS JUGADORES
+  // DECLARAMOS UN VECTOR DE DESEMPATE
+    int vec_desempate[cantidadJugadores];
+    ponerVectorEn0(vec_desempate, cantidadJugadores);
+
+  //VECTOR QUE VA A CONTENER LOS NOMBRES DE LOS JUGADORES
     string jugador[cantidadJugadores];
 
     for (int i=0; i<cantidadJugadores; i++)
@@ -123,6 +127,19 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
                 if(puntaje>maximoPorRonda)
                 {
                     maximoPorRonda=puntaje;
+
+                    if (lanzamiento == 1 )
+                    {
+                      vec_desempate[i] = maximoPorRonda + 300;
+                    }
+                    else if ( lanzamiento == 2)
+                    {
+                      vec_desempate[i] = maximoPorRonda + 200;
+                    }
+                    else
+                    {
+                      vec_desempate[i] = maximoPorRonda + 100;
+                    }
                 }
                 //SI EL LANZAMIENTO NO ES 3
                 if(lanzamiento!=3)

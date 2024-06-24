@@ -110,7 +110,12 @@ int maximoVectorIndice(int vec[], int tam)
             {
                 maximo = i;
             }
+            else if ( vec[i] == vec[i-1])
+            {
+
+            }
         }
     }
     return maximo;
 }
+
