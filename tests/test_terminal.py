@@ -13,6 +13,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 ANSI = re.compile(r"\x1b\[[0-9;?]*[A-Za-z]")
+INSTRUCTIONS_FOOTER = "←/→: páginas | Enter/Esc: menú".encode()
 
 
 def read_until(fd, marker, timeout=3):
@@ -137,12 +138,35 @@ int main(int argc, char **argv) {
                         output = read_until(master, "»»".encode())
                         self.assertIn(f"\x1b[{row};22H»»".encode(), output)
                     os.write(master, b"\n")
-                    output = read_until(master, "Enter o Esc: volver al menú principal.".encode())
+                    output = read_until(master, INSTRUCTIONS_FOOTER)
                     text = output.decode("utf-8")
                     self.assertIn("Flechas arriba/abajo", text)
                     self.assertIn("Enter: seleccionar", text)
                     self.assertIn("q: salir inmediatamente en menús y pausas.", text)
-                    self.assertIn("Objetivo: llegar a 100 puntos", text)
+                    self.assertIn("CONTROLES (1/3)", text)
+                    self.check_instruction_bounds(text)
+                    os.write(master, b"\x1b[C")
+                    text = read_until(master, INSTRUCTIONS_FOOTER).decode("utf-8")
+                    self.assertIn("CÓMO JUGAR (2/3)", text)
+                    self.assertIn("Llegá a 100 puntos", text)
+                    self.assertIn("UNA RONDA, TRES INTENTOS", text)
+                    self.assertIn("CADA DADO CUENTA", text)
+                    self.check_instruction_bounds(text)
+                    os.write(master, b"\x1b[C")
+                    text = read_until(master, INSTRUCTIONS_FOOTER).decode("utf-8")
+                    self.assertIn("COMBINACIONES (3/3)", text)
+                    self.assertIn("Seis cincos, por ejemplo, valen 50 puntos.", text)
+                    self.assertIn("el mejor de la ronda y se suma al terminarla.", text)
+                    self.assertIn("¡ganás al instante!", text)
+                    self.check_instruction_bounds(text)
+                    # Wrap in both directions, then verify back navigation.
+                    for key, title in [(b"\x1b[C", "CONTROLES (1/3)"),
+                                       (b"\x1b[D", "COMBINACIONES (3/3)"),
+                                       (b"\x1b[D", "CÓMO JUGAR (2/3)")]:
+                        os.write(master, key)
+                        text = read_until(master, INSTRUCTIONS_FOOTER).decode("utf-8")
+                        self.assertIn(title, text)
+                        self.check_instruction_bounds(text)
                     os.write(master, back)
                     output = read_until(master, "»»".encode())
                     self.assertIn(b"COMENZAR UN JUGADOR", output)
@@ -161,7 +185,7 @@ int main(int argc, char **argv) {
         if not game.is_file():
             self.skipTest("Build the game in cmake-build-debug first")
         cases = [(3, b"RANKING ULTIMAS 10 PARTIDAS"),
-                 (5, "Enter o Esc: volver al menú principal.".encode()),
+                 (5, INSTRUCTIONS_FOOTER),
                  (6, b"RLUTIL - TAPIO VIERROS"),
                  (0, b"RONDA N")]
         for index, marker in cases:
@@ -179,6 +203,11 @@ int main(int argc, char **argv) {
                         read_until(master, b"INGRESE SU NOMBRE:")
                         os.write(master, b"quique\n")
                     read_until(master, marker)
+                    if index == 5:
+                        # q must also work from the last instructions page.
+                        for _ in range(2):
+                            os.write(master, b"\x1b[C")
+                            read_until(master, INSTRUCTIONS_FOOTER)
                     os.write(master, b"q")
                     process.wait(timeout=3)
                     self.assertEqual(process.returncode, 0)
@@ -188,6 +217,17 @@ int main(int argc, char **argv) {
                         process.wait()
                     os.close(master)
                     os.close(slave)
+
+    def check_instruction_bounds(self, text):
+        for match in re.finditer(r"\x1b\[(\d+);(\d+)H([^\x1b]*)", text):
+            row, column = int(match[1]), int(match[2])
+            if column not in (18, 25):
+                continue  # The frame itself uses columns 15 and 67.
+            for line in match[3].splitlines():
+                self.assertGreaterEqual(row, 5)
+                self.assertLessEqual(row, 15)
+                self.assertLessEqual(column + len(line), 67,
+                                     f"Text crosses right border: {line!r}")
 
     def test_dice_are_utf8_and_keep_their_dimensions(self):
         for face in range(1, 7):

@@ -251,28 +251,58 @@ void dibujo_cuadrado()
 // SUBMENU INSTRUCCIONES
 void instrucciones()
 {
-    rlutil::cls();
-    dibujo_cuadrado();
-    rlutil::locate(32,6);
-    cout << "INSTRUCCIONES" << endl;
-    rlutil::locate(18,8);
-    cout << "Flechas arriba/abajo: navegar por los menús." << endl;
-    rlutil::locate(18,9);
-    cout << "Enter: seleccionar una opción." << endl;
-    rlutil::locate(18,10);
-    cout << "q: salir inmediatamente en menús y pausas." << endl;
-    rlutil::locate(18,11);
-    cout << "En las pausas, otra tecla continúa." << endl;
-    rlutil::locate(18,12);
-    cout << "Objetivo: llegar a 100 puntos o sacar 1-2-3-4-5-6." << endl;
-    rlutil::locate(18,13);
-    cout << "Modo simulado: ingresar los dados manualmente." << endl;
-    rlutil::locate(18,15);
-    cout << "Enter o Esc: volver al menú principal." << endl;
-
+    // Interior: columnas 16–66, filas 5–15. Texto desde la columna 18:
+    // como máximo 47 caracteres por línea para no pisar el borde derecho.
+    const char* titulos[] = {
+        "CONTROLES (1/3)", "CÓMO JUGAR (2/3)", "COMBINACIONES (3/3)"
+    };
+    const char* paginas[3][9] = {
+        {
+            "", "Flechas arriba/abajo: navegar por los menús.",
+            "Enter: seleccionar una opción.",
+            "q: salir inmediatamente en menús y pausas.",
+            "En las pausas, otra tecla continúa.", "",
+            "Modo simulado: ingresar los dados manualmente.",
+            "", "Izquierda/derecha: más instrucciones."
+        },
+        {
+            "Llegá a 100 puntos o conseguí una escalera",
+            "para ganar.", "",
+            "UNA RONDA, TRES INTENTOS",
+            "Lanzás los seis dados tres veces. Solo el mayor",
+            "puntaje de esa ronda se suma a tu total.", "",
+            "CADA DADO CUENTA",
+            "Tirada común: suma de los seis dados."
+        },
+        {
+            "SEIS IGUALES",
+            "Del 1 al 5, el valor se multiplica por 10.",
+            "Seis cincos, por ejemplo, valen 50 puntos.",
+            "OJO CON LOS SEIS",
+            "Seis 6 reinician tu total a cero. Se conserva",
+            "el mejor de la ronda y se suma al terminarla.",
+            "LA ESCALERA GANA",
+            "Un 1, 2, 3, 4, 5 y 6, en cualquier orden:",
+            "¡ganás al instante!"
+        }
+    };
+    int pagina = 0;
     int key;
     do {
+        rlutil::cls();
+        dibujo_cuadrado();
+        rlutil::locate(25,5);
+        cout << titulos[pagina];
+        for (int linea = 0; linea < 9; linea++)
+        {
+            rlutil::locate(18,6+linea);
+            cout << paginas[pagina][linea];
+        }
+        rlutil::locate(18,15);
+        cout << "←/→: páginas | Enter/Esc: menú" << endl;
         key = leerTecla();
+        if (key == rlutil::KEY_RIGHT) pagina = (pagina + 1) % 3;
+        if (key == rlutil::KEY_LEFT) pagina = (pagina + 2) % 3;
     } while (key != rlutil::KEY_ENTER && key != rlutil::KEY_ESCAPE);
     rlutil::cls();
 }

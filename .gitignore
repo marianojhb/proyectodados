@@ -51,3 +51,9 @@ cmake-build-release/
 # Compilados
 bin/
 obj/
+tests/test_terminal.py
+.gitignore
+web/
+
+# Tests
+test/
