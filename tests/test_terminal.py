@@ -120,6 +120,75 @@ int main(int argc, char **argv) {
             os.close(master)
             os.close(slave)
 
+    def test_instructions_and_return_to_main_menu(self):
+        game = ROOT / "cmake-build-debug" / "proyectodados"
+        if not game.is_file():
+            self.skipTest("Build the game in cmake-build-debug first")
+        for back in (b"\n", b"\x1b"):
+            with self.subTest(back=back):
+                master, slave = pty.openpty()
+                process = subprocess.Popen([str(game)], stdin=slave, stdout=slave,
+                                           stderr=slave)
+                try:
+                    read_until(master, "»»".encode())
+                    # Up wraps to Exit, then Credits, then Instructions.
+                    for row in (14, 13, 12):
+                        os.write(master, b"\x1b[A")
+                        output = read_until(master, "»»".encode())
+                        self.assertIn(f"\x1b[{row};22H»»".encode(), output)
+                    os.write(master, b"\n")
+                    output = read_until(master, "Enter o Esc: volver al menú principal.".encode())
+                    text = output.decode("utf-8")
+                    self.assertIn("Flechas arriba/abajo", text)
+                    self.assertIn("Enter: seleccionar", text)
+                    self.assertIn("q: salir inmediatamente en menús y pausas.", text)
+                    self.assertIn("Objetivo: llegar a 100 puntos", text)
+                    os.write(master, back)
+                    output = read_until(master, "»»".encode())
+                    self.assertIn(b"COMENZAR UN JUGADOR", output)
+                    os.write(master, b"q")
+                    process.wait(timeout=3)
+                    self.assertEqual(process.returncode, 0)
+                finally:
+                    if process.poll() is None:
+                        process.kill()
+                        process.wait()
+                    os.close(master)
+                    os.close(slave)
+
+    def test_q_exits_from_other_screens(self):
+        game = ROOT / "cmake-build-debug" / "proyectodados"
+        if not game.is_file():
+            self.skipTest("Build the game in cmake-build-debug first")
+        cases = [(3, b"RANKING ULTIMAS 10 PARTIDAS"),
+                 (5, "Enter o Esc: volver al menú principal.".encode()),
+                 (6, b"RLUTIL - TAPIO VIERROS"),
+                 (0, b"RONDA N")]
+        for index, marker in cases:
+            with self.subTest(index=index):
+                master, slave = pty.openpty()
+                process = subprocess.Popen([str(game)], stdin=slave, stdout=slave,
+                                           stderr=slave)
+                try:
+                    read_until(master, "»»".encode())
+                    for _ in range(index):
+                        os.write(master, b"\x1b[B")
+                        read_until(master, "»»".encode())
+                    os.write(master, b"\n")
+                    if index == 0:
+                        read_until(master, b"INGRESE SU NOMBRE:")
+                        os.write(master, b"quique\n")
+                    read_until(master, marker)
+                    os.write(master, b"q")
+                    process.wait(timeout=3)
+                    self.assertEqual(process.returncode, 0)
+                finally:
+                    if process.poll() is None:
+                        process.kill()
+                        process.wait()
+                    os.close(master)
+                    os.close(slave)
+
     def test_dice_are_utf8_and_keep_their_dimensions(self):
         for face in range(1, 7):
             with self.subTest(face=face):

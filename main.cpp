@@ -44,16 +44,11 @@ int main()
 
         // UTF-8: dos indicadores, cada uno ocupa una columna.
         cout << "»»" << endl;
-        key = rlutil::getkey();
+        key = leerTecla();
 
         // SWITCH PARA NAVEGAR HACIA ARRIBA Y ABAJO CON LAS FLECHAS (TECLAS CODIGO 14 Y 15)
         switch (key)
         {
-
-        case 'q':
-            rlutil::cls();
-            rlutil::showcursor();
-            return 0;
 
         case 14: // FLECHA-ARRIBA
 
@@ -67,7 +62,7 @@ int main()
             if ( offset_y < 0)
             {
                 // PARAMETROS PARA HACER UN BUCLE INFINITO DEL MENU
-                offset_y = 6;
+                offset_y = 7;
                 rlutil::locate(22,7+offset_y);
             }
             break;
@@ -81,7 +76,7 @@ int main()
             offset_y++;
 
             // PONEMOS LIMITE INFERIOR A LA FIGURA " << "
-            if ( offset_y > 6 )
+            if ( offset_y > 7 )
             {
                 // PARAMETROS PARA HACER UN BUCLE INFINITO DEL MENU
                 offset_y = 0;
@@ -111,10 +106,14 @@ int main()
                 toggleSimulado(simulado);
                 break;
             case 5:
-                creditos();
+                instrucciones();
                 break;
             case 6:
+                creditos();
+                break;
+            case 7:
                 rlutil::cls();
+                rlutil::showcursor();
                 return 0;
             default:
                 break;

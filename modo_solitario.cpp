@@ -30,7 +30,7 @@ void modoSolitario(bool simulado, std::string r[])
         rlutil::locate(35,9);
         cout << "RONDA N° " << ronda;
         dibujo_cuadrado();
-        rlutil::anykey();
+        esperarTecla();
         rlutil::cls();
 
         // Lanzamientos:
@@ -69,7 +69,7 @@ void modoSolitario(bool simulado, std::string r[])
                 rlutil::locate(25,24);
                 cout << "SACO ESCALERA Y GANO EL JUEGO!" << endl;
                 actualizaRanking(r,jugador1,100);
-                rlutil::anykey();
+                esperarTecla();
                 rlutil::cls();
                 return;
             }
@@ -88,7 +88,7 @@ void modoSolitario(bool simulado, std::string r[])
             }
 
 
-            rlutil::anykey();
+            esperarTecla();
         }
 
         // Cartel fin de ronda:
@@ -105,6 +105,6 @@ void modoSolitario(bool simulado, std::string r[])
     rlutil::locate(22,10);
     cout << jugador1 << ", HICISTE " << puntajeTotal << " PUNTOS EN " << ronda-1<< " RONDAS" << endl << endl;
     actualizaRanking(r, jugador1, puntajeTotal);
-    rlutil::anykey();
+    esperarTecla();
     rlutil::cls();
 };

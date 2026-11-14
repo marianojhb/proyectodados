@@ -5,6 +5,24 @@
 #include "funciones.h"
 using namespace std;
 
+int leerTecla()
+{
+    cout.flush();
+    int key = rlutil::getkey();
+    if (key == 'q')
+    {
+        rlutil::cls();
+        rlutil::showcursor();
+        exit(EXIT_SUCCESS);
+    }
+    return key;
+}
+
+void esperarTecla()
+{
+    leerTecla();
+}
+
 void mostrarUltimasPartidas(std::string ultimaPartida)
 {
 
@@ -42,8 +60,8 @@ void lanzar2(bool simulado, int dados[], int tam)
     if (simulado==false)
     {
         rlutil::locate(28,9);
-        cout << "»» LANZAR LOS DADOS";
-        rlutil::anykey();
+        cout << "»» LANZAR LOS DADOS (presione una tecla)";
+        esperarTecla();
       //DEMORA EN MILISEGUNDOS DE LA EJECUCIONS DE LA SIGUIENTE LINEA.
         rlutil::msleep(400);
         cargarVectorAleatorio(dados, tam); // carga el vector aleatorio en memoria

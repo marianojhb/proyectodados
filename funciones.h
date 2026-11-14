@@ -7,6 +7,7 @@ void menuJuegoMultijugador(int puntajeTotal, std::string jugador, int ronda, int
 void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal);
 void dibujo_cuadrado();
 void creditos();
+void instrucciones();
 void menuRanking(std::string vec[], int tam);
 void subMenu_rondas_prederminadas ( bool &rondas);
 
@@ -27,6 +28,8 @@ void mostrarVectorString(std::string vec[],int tam, int cursorx, int cursory);
 int maximoVectorIndice(int vec[], int tam, int vec_desempate[]);
 
 // funciones.cpp
+int leerTecla();
+void esperarTecla();
 void mostrarUltimasPartidas(std::string ultimaPartida);
 void cargarNombre(std::string &nombre);
 int sumaPuntaje (int puntaje, int &puntajeTotal);

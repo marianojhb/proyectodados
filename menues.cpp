@@ -28,8 +28,10 @@ void mostrarMenu(bool simulado)
     rlutil::locate(alineacion_menu,11);
     cout << "MODO SIMULADO " << labelSimulado(simulado) << endl;
     rlutil::locate(alineacion_menu,12);
-    cout << "CREDITOS" << endl;
+    cout << "INSTRUCCIONES" << endl;
     rlutil::locate(alineacion_menu,13);
+    cout << "CREDITOS" << endl;
+    rlutil::locate(alineacion_menu,14);
     cout << "SALIR (q)" << endl;
 }
 
@@ -82,7 +84,7 @@ void interfas_fin_ronda( int ronda, int maxPuntajeRonda, int puntajeTotal)
     cout << "SUMASTE: " << maxPuntajeRonda << " PUNTOS." << endl;
     rlutil::locate(30,10);
     cout << "PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS." << endl;
-    rlutil::anykey();
+    esperarTecla();
     rlutil::cls();
 
 }
@@ -94,7 +96,7 @@ void interfas_parteMiD(int lanzamiento, int maxPuntajeRonda)
     cout << "MAXIMO PUNTAJE DE LA RONDA: " << maxPuntajeRonda << " PUNTOS" << endl;
     cout << "LAMZAMIENTO N° " << lanzamiento << endl;
     cout << "---------------------------------------------------------------------------------" << endl;
-    rlutil::anykey();
+    esperarTecla();
 }
 
 void subMenu_rondas_prederminadas ( bool &rondas)
@@ -118,7 +120,7 @@ void subMenu_rondas_prederminadas ( bool &rondas)
       //COLOCAMOS LA FIGURA " >> " EN LA OPCION SI:
       rlutil::locate(35,10+offset_y);
       cout << "»»" << endl;
-      key = rlutil::getkey();
+      key = leerTecla();
 
       switch(key)
       {
@@ -246,6 +248,35 @@ void dibujo_cuadrado()
     cout << "▀";
 }
 
+// SUBMENU INSTRUCCIONES
+void instrucciones()
+{
+    rlutil::cls();
+    dibujo_cuadrado();
+    rlutil::locate(32,6);
+    cout << "INSTRUCCIONES" << endl;
+    rlutil::locate(18,8);
+    cout << "Flechas arriba/abajo: navegar por los menús." << endl;
+    rlutil::locate(18,9);
+    cout << "Enter: seleccionar una opción." << endl;
+    rlutil::locate(18,10);
+    cout << "q: salir inmediatamente en menús y pausas." << endl;
+    rlutil::locate(18,11);
+    cout << "En las pausas, otra tecla continúa." << endl;
+    rlutil::locate(18,12);
+    cout << "Objetivo: llegar a 100 puntos o sacar 1-2-3-4-5-6." << endl;
+    rlutil::locate(18,13);
+    cout << "Modo simulado: ingresar los dados manualmente." << endl;
+    rlutil::locate(18,15);
+    cout << "Enter o Esc: volver al menú principal." << endl;
+
+    int key;
+    do {
+        key = leerTecla();
+    } while (key != rlutil::KEY_ENTER && key != rlutil::KEY_ESCAPE);
+    rlutil::cls();
+}
+
 // SUBMENU CREDITOS
 void creditos()
 {
@@ -266,7 +297,7 @@ void creditos()
     cout << "BIBLIOTECA:" << endl;
     rlutil::locate(32,13);
     cout << "RLUTIL - TAPIO VIERROS" << endl;
-    rlutil::anykey();
+    esperarTecla();
     rlutil::cls();
 }
 
@@ -278,7 +309,7 @@ void menuRanking(std::string vec[], int tam)
     rlutil::locate(25,6);
     cout << "RANKING ULTIMAS 10 PARTIDAS" << endl;
     mostrarVectorString(vec, tam-1,25,8);
-    rlutil::anykey();
+    esperarTecla();
     rlutil::cls();
 }
 

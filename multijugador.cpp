@@ -93,7 +93,7 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
             rlutil::locate(33,9);
             cout << "RONDA N° " << ronda;
           //ESPERAMOS CUALQUIER TECAL PARA CONTINUAR
-            rlutil::anykey();
+            esperarTecla();
           //LIMPIAMOS CONSOLA
             rlutil::cls();
 
@@ -107,7 +107,7 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
                 dibujo_cuadrado();
                 rlutil::locate(33,9);
                 cout << "TURNO DE " << jugador[i];
-                rlutil::anykey();
+                esperarTecla();
                 rlutil::cls();
 
                 // LANZAMIENTOS
@@ -138,7 +138,7 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
                         escalera=true;
                         rlutil::locate(25,22);
                         cout << "SACO ESCALERA Y GANO EL JUEGO!!" << endl;
-                        rlutil::anykey();
+                        esperarTecla();
 
                       //ACTUALIZAMOS EL RANKING
                         actualizaRanking(vec_ranking,jugador[i],100);
@@ -176,20 +176,20 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
                     {
                         // CARTEL PUNTAJE DE CADA LANZAMIENTO
                         mostrarPuntaje(puntaje);
-                        rlutil::anykey();
+                        esperarTecla();
 
                     }
                     else
                     {
                       //FIN DE LA RONDA
                         mostrarPuntaje(puntaje);
-                        rlutil::anykey();
+                        esperarTecla();
                         rlutil::cls();
                         dibujo_cuadrado();
                         rlutil::locate(25,9);
                         cout << jugador[i] << " SUMO " << maximoPorRonda << " PUNTOS EN LA RONDA " << ronda;
                         sumaPuntaje(maximoPorRonda, puntajeTotal[i]);
-                        rlutil::anykey();
+                        esperarTecla();
                     }
                 }// FIN DE LOS LANZAMIENTOS
 
@@ -228,7 +228,7 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
                     rlutil::locate(30,8+i);
                     cout << jugador[i] << " " << puntajeTotal[i] << " PUNTOS" << endl;
                 }
-                rlutil::anykey();
+                esperarTecla();
                 // OBTENEMOS EL INDICE DEL JUGADOR GANADOR
                 jugadorGanador = maximoVectorIndice(puntajeTotal, cantidadJugadores, vec_desempate);
 
@@ -243,7 +243,7 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
                 // ACTUALIZA EL RANKING
                 actualizaRanking(vec_ranking,jugador[jugadorGanador],puntajeTotal[jugadorGanador]);
 
-                rlutil::anykey();
+                esperarTecla();
                 rlutil::cls();
             }
             else
@@ -262,7 +262,7 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
                     rlutil::locate(30,10+i);
                     cout << jugador[i] << " " << puntajeTotal[i] << " PUNTOS";
                 }
-                rlutil::anykey();
+                esperarTecla();
                 rlutil::cls();
             }
 
