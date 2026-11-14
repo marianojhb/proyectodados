@@ -196,9 +196,11 @@ int main(int argc, char **argv) {
                 lines = ANSI.sub("", output.decode("utf-8")).splitlines()
                 self.assertEqual(len(lines), 5)
                 self.assertTrue(all(len(line) == 11 for line in lines))
-                self.assertEqual(lines[0], "┌─────────┐")
-                self.assertEqual(lines[-1], "└─────────┘")
-                self.assertEqual(sum(line.count("·") for line in lines), face)
+                self.assertEqual(lines[0], "┏━━━━━━━━━┓")
+                self.assertEqual(lines[-1], "┗━━━━━━━━━┛")
+                self.assertTrue(all(line.startswith("┃") and line.endswith("┃")
+                                    for line in lines[1:-1]))
+                self.assertEqual(sum(line.count("●") for line in lines), face)
 
 
 if __name__ == "__main__":

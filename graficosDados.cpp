@@ -19,75 +19,75 @@ void mostrarDado(int dado, int x, int y)
     {
     case 1:
         rlutil::locate(x,y);
-        cout << "┌─────────┐" << endl;
+        cout << "┏━━━━━━━━━┓" << endl;
         rlutil::locate(x,y+1);
-        cout << "│         │" << endl;
+        cout << "┃         ┃" << endl;
         rlutil::locate(x,y+2);
-        cout << "│    ·    │" << endl;
+        cout << "┃    ●    ┃" << endl;
         rlutil::locate(x,y+3);
-        cout << "│         │" << endl;
+        cout << "┃         ┃" << endl;
         rlutil::locate(x,y+4);
-        cout << "└─────────┘" << endl;
+        cout << "┗━━━━━━━━━┛" << endl;
         break;
     case 2:
         rlutil::locate(x,y);
-        cout << "┌─────────┐" << endl;
+        cout << "┏━━━━━━━━━┓" << endl;
         rlutil::locate(x,y+1);
-        cout << "│·        │" << endl;
+        cout << "┃●        ┃" << endl;
         rlutil::locate(x,y+2);
-        cout << "│         │" << endl;
+        cout << "┃         ┃" << endl;
         rlutil::locate(x,y+3);
-        cout << "│        ·│" << endl;
+        cout << "┃        ●┃" << endl;
         rlutil::locate(x,y+4);
-        cout << "└─────────┘" << endl;
+        cout << "┗━━━━━━━━━┛" << endl;
         break;
     case 3:
         rlutil::locate(x,y);
-        cout << "┌─────────┐" << endl;
+        cout << "┏━━━━━━━━━┓" << endl;
         rlutil::locate(x,y+1);
-        cout << "│·        │" << endl;
+        cout << "┃●        ┃" << endl;
         rlutil::locate(x,y+2);
-        cout << "│    ·    │" << endl;
+        cout << "┃    ●    ┃" << endl;
         rlutil::locate(x,y+3);
-        cout << "│        ·│" << endl;
+        cout << "┃        ●┃" << endl;
         rlutil::locate(x,y+4);
-        cout << "└─────────┘" << endl;
+        cout << "┗━━━━━━━━━┛" << endl;
         break;
     case 4:
         rlutil::locate(x,y);
-        cout << "┌─────────┐" << endl;
+        cout << "┏━━━━━━━━━┓" << endl;
         rlutil::locate(x,y+1);
-        cout << "│·       ·│" << endl;
+        cout << "┃●       ●┃" << endl;
         rlutil::locate(x,y+2);
-        cout << "│         │" << endl;
+        cout << "┃         ┃" << endl;
         rlutil::locate(x,y+3);
-        cout << "│·       ·│" << endl;
+        cout << "┃●       ●┃" << endl;
         rlutil::locate(x,y+4);
-        cout << "└─────────┘" << endl;
+        cout << "┗━━━━━━━━━┛" << endl;
         break;
     case 5:
         rlutil::locate(x,y);
-        cout << "┌─────────┐" << endl;
+        cout << "┏━━━━━━━━━┓" << endl;
         rlutil::locate(x,y+1);
-        cout << "│·       ·│" << endl;
+        cout << "┃●       ●┃" << endl;
         rlutil::locate(x,y+2);
-        cout << "│    ·    │" << endl;
+        cout << "┃    ●    ┃" << endl;
         rlutil::locate(x,y+3);
-        cout << "│·       ·│" << endl;
+        cout << "┃●       ●┃" << endl;
         rlutil::locate(x,y+4);
-        cout << "└─────────┘" << endl;
+        cout << "┗━━━━━━━━━┛" << endl;
         break;
     case 6:
         rlutil::locate(x,y);
-        cout << "┌─────────┐" << endl;
+        cout << "┏━━━━━━━━━┓" << endl;
         rlutil::locate(x,y+1);
-        cout << "│·       ·│" << endl;
+        cout << "┃●       ●┃" << endl;
         rlutil::locate(x,y+2);
-        cout << "│·       ·│" << endl;
+        cout << "┃●       ●┃" << endl;
         rlutil::locate(x,y+3);
-        cout << "│·       ·│" << endl;
+        cout << "┃●       ●┃" << endl;
         rlutil::locate(x,y+4);
-        cout << "└─────────┘" << endl;
+        cout << "┗━━━━━━━━━┛" << endl;
         break;
     }
 }
