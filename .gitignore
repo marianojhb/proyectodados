@@ -51,3 +51,8 @@ cmake-build-release/
 # Compilados
 bin/
 obj/
+
+# Browser port build artifacts
+web/build/
+web/build-native/
+web/node_modules/

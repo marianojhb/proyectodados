@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#472740">
+  <meta name="description" content="Seis dados. Tres intentos. Una escalera o cien puntos para ganar. Jugá en tu navegador.">
+  <title>Escalera o Cien — Juego de dados</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23472740'/%3E%3Ccircle cx='10' cy='10' r='3' fill='%23f7f2e8'/%3E%3Ccircle cx='22' cy='22' r='3' fill='%23f7f2e8'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="layout">
+    <header class="intro">
+      <a class="wordmark" href="#" id="brand" aria-label="Escalera o Cien, volver al inicio">E / C</a>
+      <div class="intro-copy">
+        <p class="eyebrow">EL JUEGO DE LOS SEIS DADOS</p>
+        <h1><span>Escalera</span> <span>o cien.</span></h1>
+        <p class="lede">Un poco de suerte.<br>Una buena tirada.<br>Y una ronda más.</p>
+      </div>
+      <p class="origin">Hecho en la UTN.<br>De la consola a tu navegador.</p>
+    </header>
+
+    <main id="main">
+      <div class="topbar"><span>EDICIÓN WEB · UN JUGADOR</span><button class="text-button" id="help" disabled>Cómo jugar <span aria-hidden="true">?</span></button></div>
+      <section id="menu" class="screen" aria-labelledby="menu-title">
+        <div class="section-heading"><p class="eyebrow">SENTATE A LA MESA</p><h2 id="menu-title" tabindex="-1">¿Una partida?</h2><p>Seis dados, tres lanzamientos por ronda.<br>El mejor resultado es el que cuenta.</p></div>
+        <div class="mini-dice" aria-hidden="true"><span>⚂</span><span>⚄</span><span>⚁</span></div>
+        <form id="start-form">
+          <label for="player-name">Tu nombre</label>
+          <input id="player-name" name="player" maxlength="24" autocomplete="nickname" placeholder="¿Cómo te llamás?" required>
+          <button class="primary" id="start" type="submit" disabled>Jugar una partida <span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="small" id="loading" role="status">Preparando la mesa…</p>
+      </section>
+
+      <section id="play" class="screen" aria-labelledby="play-title" hidden>
+        <div class="game-heading"><div><p class="eyebrow" id="player-label"></p><h2 id="play-title" tabindex="-1">Vamos con esa tirada.</h2></div><button class="text-button" id="leave">Salir <kbd>q</kbd></button></div>
+        <dl class="stats"><div><dt>Ronda</dt><dd id="round">01</dd></div><div><dt>Lanzamiento</dt><dd><span id="rolls">0</span><span class="denominator"> / 3</span></dd></div><div><dt>Tu total</dt><dd><span id="total">0</span><span class="denominator"> / 100</span></dd></div></dl>
+        <div class="dice-table"><canvas id="canvas" width="720" height="120" role="img" aria-label="Seis dados listos para lanzar" tabindex="-1"></canvas><p class="dice-caption" id="dice-caption">Tu próxima jugada está en estos seis dados.</p></div>
+        <div class="result" role="status" aria-live="polite" aria-atomic="true"><div><p class="eyebrow">ESTA TIRADA</p><p id="result">Todavía no lanzaste.</p></div><div class="round-best"><span>Mejor de la ronda</span><strong><span id="best">0</span> <small>pts</small></strong></div></div>
+        <button class="primary" id="roll" type="button">Lanzar dados <span aria-hidden="true">↗</span></button>
+        <p class="small">También podés usar <kbd>Espacio</kbd> o <kbd>Enter</kbd>.</p>
+      </section>
+
+      <section id="instructions" class="screen" aria-labelledby="instructions-title" hidden>
+        <p class="eyebrow">LO QUE NECESITÁS SABER</p><h2 id="instructions-title" tabindex="-1">Cómo jugar.</h2>
+        <p>Llegá a <strong>100 puntos</strong> o conseguí una escalera para ganar.</p>
+        <dl class="rules"><div><dt>Una ronda, tres intentos</dt><dd>Lanzás los seis dados tres veces. Solo el mayor puntaje de esa ronda se suma a tu total.</dd></div><div><dt>Cada dado cuenta</dt><dd>Una tirada común vale la suma de sus seis dados.</dd></div><div><dt>Seis iguales</dt><dd>Del 1 al 5, el valor se multiplica por 10. Seis cincos, por ejemplo, valen 50 puntos.</dd></div><div><dt>Ojo con los seis</dt><dd>Seis dados con 6 reinician tu total a cero. El mejor puntaje de la ronda se conserva y se suma al terminarla.</dd></div><div><dt>La escalera gana</dt><dd>Un 1, un 2, un 3, un 4, un 5 y un 6, en cualquier orden: ganás al instante.</dd></div></dl>
+        <p class="controls"><kbd>Espacio</kbd> / <kbd>Enter</kbd> lanzar o continuar · <kbd>q</kbd> salir inmediatamente, excepto al escribir tu nombre. <kbd>Esc</kbd> volver desde esta ayuda.</p>
+        <button class="primary" id="back">Volver <span aria-hidden="true">↩</span></button>
+      </section>
+
+      <section id="exit" class="screen end-screen" aria-labelledby="exit-title" hidden>
+        <p class="eyebrow">POR HOY, GUARDAMOS LOS DADOS</p><h2 id="exit-title" tabindex="-1">Partida cerrada.</h2><p>La mesa te espera cuando quieras volver.</p><button class="primary" id="return-menu">Volver al inicio <span aria-hidden="true">↩</span></button>
+      </section>
+      <footer><span>ESCALERA O CIEN</span><span>Sin descargas. Sin apuro.</span></footer>
+    </main>
+  </div>
+  <script>
+    var Module = {
+      canvas: document.getElementById('canvas'),
+      onRuntimeInitialized: function () { window.dadosReady = true; window.dispatchEvent(new Event('dados-ready')); },
+      onAbort: function () { window.dadosFailed = true; window.dispatchEvent(new Event('dados-error')); }
+    };
+  </script>
+  {{{ SCRIPT }}}
+</body>
+</html>

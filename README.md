@@ -2,6 +2,12 @@
 
 ## Overview
 
+### Browser edition
+
+The `web-port` branch includes an isolated C++/SDL2/Emscripten browser port.
+See [web/README.md](web/README.md) for building and running its first playable
+single-player slice. The original console build remains available unchanged.
+
 This is a command-line dice game implemented in **C** as a final project for the course **Programming I**, part of the **University Technical Degree in Programming** at **UTN (Universidad Tecnológica Nacional), Argentina**, during the **first semester of 2024**.
 
 The game is called **"CIEN" or "Escalera"**, and is designed for **multiple users**, supporting both **single-player** and **two-player** modes. The goal is to reach **100 points** in the fewest number of rounds or to get a **straight (1–6)** in a single roll, which results in an immediate win.
