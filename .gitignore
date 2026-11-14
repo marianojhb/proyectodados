@@ -36,3 +36,18 @@
 ./ProyectoDados.layout
 ProyectoDados.depend
 ProyectoDados.layout
+
+./cmake-build-debug
+# macOS
+.DS_Store
+
+# CLion / JetBrains
+.idea/
+
+# CMake
+cmake-build-debug/
+cmake-build-release/
+
+# Compilados
+bin/
+obj/
