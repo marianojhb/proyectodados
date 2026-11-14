@@ -7,6 +7,9 @@ using namespace std;
 
 int main()
 {
+#ifdef _WIN32
+    SetConsoleOutputCP(CP_UTF8);
+#endif
     srand(time(NULL));
     //CAMBIAMOS EL COLOR DE FONDO DE LA CONSOLA:
     rlutil::setBackgroundColor(rlutil::LIGHTMAGENTA);
@@ -39,13 +42,18 @@ int main()
         //COLOCAMOS LA FIGURA " >> " EN LA OPCION 1:
         rlutil::locate(22,7+offset_y);
 
-        //CASTEAMOS EL DATO "(char)175", ES DECIR , LO INTERPRETAMOS COMO SI FUERA UN CARACTER.
-        cout << (char)175 << (char)175 << endl;
+        // UTF-8: dos indicadores, cada uno ocupa una columna.
+        cout << "»»" << endl;
         key = rlutil::getkey();
 
         // SWITCH PARA NAVEGAR HACIA ARRIBA Y ABAJO CON LAS FLECHAS (TECLAS CODIGO 14 Y 15)
         switch (key)
         {
+
+        case 'q':
+            rlutil::cls();
+            rlutil::showcursor();
+            return 0;
 
         case 14: // FLECHA-ARRIBA
 

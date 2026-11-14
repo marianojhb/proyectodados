@@ -3,6 +3,11 @@ project(proyectodados)
 
 set(CMAKE_CXX_STANDARD 14)
 
+# Source files and terminal output use UTF-8 on every platform.
+if(MSVC)
+    add_compile_options(/utf-8)
+endif()
+
 include_directories(.)
 
 add_executable(proyectodados

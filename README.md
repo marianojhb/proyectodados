@@ -34,6 +34,27 @@ The game is called **"CIEN" or "Escalera"**, and is designed for **multiple user
 
 ## Technical Requirements
 
+### Build and run with CMake
+
+Requires CMake 3.27+ and a C++ compiler (Apple Clang on macOS).
+
+```bash
+cmake -S . -B cmake-build-debug
+cmake --build cmake-build-debug
+./cmake-build-debug/proyectodados
+```
+
+Use a UTF-8 terminal with a monospaced font. Navigate menus with the arrow
+keys and select with Enter. Press `q` in the main menu to exit immediately.
+On macOS, use Terminal or CLion's terminal rather
+than its Run output console.
+
+Terminal regression tests on macOS/Linux (requires Python 3):
+
+```bash
+python3 tests/test_terminal.py
+```
+
 - Built using **Code::Blocks**
 - Written in **C**
 - **No global variables**

@@ -19,12 +19,12 @@ void cargarVectorManual(int vec[],int tam )
     int i;
     for (i=0; i<tam ; i++ )
     {
-        cout<<"INGRESE EL DADO N" << (char)248 << " "<< i+1 << " : ";
+        cout<<"INGRESE EL DADO N° "<< i+1 << " : ";
         cin>>vec[i];
         // SI EL DATO INGRESAO ES MAYOR A 6, SE REPITE LA INSTRUCCION.
         while (vec[i]>6)
         {
-            cout<<"INGRESE EL DADO N" << (char)248 << " "<< i+1 << " : ";
+            cout<<"INGRESE EL DADO N° "<< i+1 << " : ";
             cin >> vec[i];
         }
     }

@@ -42,7 +42,7 @@ void lanzar2(bool simulado, int dados[], int tam)
     if (simulado==false)
     {
         rlutil::locate(28,9);
-        cout << (char)175 << (char)175 << " LANZAR LOS DADOS";
+        cout << "»» LANZAR LOS DADOS";
         rlutil::anykey();
       //DEMORA EN MILISEGUNDOS DE LA EJECUCIONS DE LA SIGUIENTE LINEA.
         rlutil::msleep(400);

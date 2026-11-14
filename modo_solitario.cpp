@@ -28,7 +28,7 @@ void modoSolitario(bool simulado, std::string r[])
 
         // INICIO RONDA
         rlutil::locate(35,9);
-        cout << "RONDA N" << (char)248 << " " << ronda;
+        cout << "RONDA N° " << ronda;
         dibujo_cuadrado();
         rlutil::anykey();
         rlutil::cls();

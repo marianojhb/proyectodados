@@ -67,21 +67,31 @@
 	#include <sys/ioctl.h> // for getkey()
 	#include <sys/types.h> // for kbhit()
 	#include <sys/time.h> // for kbhit()
+	#include <errno.h>
 
 /// Function: getch
 /// Get character without waiting for Return to be pressed.
 /// Windows has this in conio.h
-RLUTIL_INLINE int getch(void) {
-	// Here be magic.
+// timeout is in tenths of a second; negative means wait indefinitely.
+RLUTIL_INLINE int getch_timeout(int timeout) {
 	struct termios oldt, newt;
-	int ch;
-	tcgetattr(STDIN_FILENO, &oldt);
+	unsigned char ch;
+	if (tcgetattr(STDIN_FILENO, &oldt) != 0) return getchar();
 	newt = oldt;
 	newt.c_lflag &= ~(ICANON | ECHO);
-	tcsetattr(STDIN_FILENO, TCSANOW, &newt);
-	ch = getchar();
+	newt.c_cc[VMIN] = timeout < 0 ? 1 : 0;
+	newt.c_cc[VTIME] = timeout < 0 ? 0 : timeout;
+	if (tcsetattr(STDIN_FILENO, TCSANOW, &newt) != 0) return EOF;
+	ssize_t count;
+	do {
+		count = read(STDIN_FILENO, &ch, 1);
+	} while (count < 0 && errno == EINTR);
 	tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-	return ch;
+	return count == 1 ? ch : EOF;
+}
+
+RLUTIL_INLINE int getch(void) {
+	return getch_timeout(-1);
 }
 
 /// Function: kbhit
@@ -346,9 +356,6 @@ enum {
 /// Note:
 /// Only Arrows, Esc, Enter and Space are currently working properly.
 RLUTIL_INLINE int getkey(void) {
-	#ifndef _WIN32
-	int cnt = kbhit(); // for ANSI escapes processing
-	#endif
 	int k = getch();
 	switch(k) {
 		case 0: {
@@ -381,6 +388,7 @@ RLUTIL_INLINE int getkey(void) {
 				case 83: return KEY_DELETE;
 				default: return kk-123+KEY_F1; // Function keys
 			}}
+		case 10:
 		case 13: return KEY_ENTER;
 #ifdef _WIN32
 		case 27: return KEY_ESCAPE;
@@ -388,14 +396,18 @@ RLUTIL_INLINE int getkey(void) {
 		case 155: // single-character CSI
 		case 27: {
 			// Process ANSI escape sequences
-			if (cnt >= 3 && getch() == '[') {
-				switch (k = getch()) {
+			// Wait up to 100 ms per byte: Escape may arrive before the
+			// rest of an arrow sequence. Also support application mode (SS3).
+			int prefix = getch_timeout(1);
+			if (prefix == '[' || prefix == 'O') {
+				switch (k = getch_timeout(1)) {
 					case 'A': return KEY_UP;
 					case 'B': return KEY_DOWN;
 					case 'C': return KEY_RIGHT;
 					case 'D': return KEY_LEFT;
 				}
-			} else return KEY_ESCAPE;
+			}
+			return KEY_ESCAPE;
 		}
 #endif // _WIN32
 		default: return k;

@@ -52,7 +52,7 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
     rlutil::cls();
 
   // VARIABLES JUEGO MULTIJUGADOR
-    int const tam = 6; // TAMA�O DEL VECTOR DADOS
+    int const tam = 6; // TAMAÑO DEL VECTOR DADOS
     int dados[tam]; // DECLARACION DEL VECTOR, PARA ALMACENAR LOS VALORES DE LOS DADOS
     int lanzamiento; // CONTADOR DE LANZAMIENTOS
     int ronda = 1; // CONTADOR DE RONDAS
@@ -91,7 +91,7 @@ void multijugador(bool simulado, std::string vec_ranking[], int cantidadJugadore
             rlutil::cls();
             dibujo_cuadrado();
             rlutil::locate(33,9);
-            cout << "RONDA N" << (char)248 << " " << ronda;
+            cout << "RONDA N° " << ronda;
           //ESPERAMOS CUALQUIER TECAL PARA CONTINUAR
             rlutil::anykey();
           //LIMPIAMOS CONSOLA

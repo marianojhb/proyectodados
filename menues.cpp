@@ -30,7 +30,7 @@ void mostrarMenu(bool simulado)
     rlutil::locate(alineacion_menu,12);
     cout << "CREDITOS" << endl;
     rlutil::locate(alineacion_menu,13);
-    cout << "SALIR" << endl;
+    cout << "SALIR (q)" << endl;
 }
 
 // SUBMENU JUEGO SOLITARIO
@@ -44,7 +44,7 @@ void menuJuegoSolitario(int puntajeTotal,
     rlutil::cls();
     cout << "---------------------------------------------------------------------------------" << endl;
     cout << "JUGADOR: " << nombre << " | MODO DE JUEGO SIMULADO: " << labelSimulado(simulado) << endl;
-    cout << "JUEGO SOLITARIO | RONDA N" << (char)248 << ronda <<" | PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS" << endl;
+    cout << "JUEGO SOLITARIO | RONDA N°" << ronda <<" | PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS" << endl;
     cout << "---------------------------------------------------------------------------------" << endl;
     cout << "MAXIMO PUNTAJE DE LA RONDA: "<< maximoPorRonda <<"  PUNTOS" << endl;
     cout << "LANZAMIENTO No " << lanzamiento << endl;
@@ -63,10 +63,10 @@ void menuJuegoMultijugador(int puntajeTotal,
     rlutil::cls();
     cout << "---------------------------------------------------------------------------------" << endl;
     cout << "TURNO DE: " << jugador << " | MODO DE JUEGO SIMULADO: " << labelSimulado(simulado) << endl;
-    cout << "JUEGO MULTIJUGADOR | RONDA N" <<(char)248<< ronda <<" | PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS" << endl;
+    cout << "JUEGO MULTIJUGADOR | RONDA N°" << ronda <<" | PUNTAJE TOTAL: " << puntajeTotal << " PUNTOS" << endl;
     cout << "---------------------------------------------------------------------------------" << endl;
     cout << "MAXIMO PUNTAJE DE LA RONDA: "<< maximoPorRonda <<"  PUNTOS" << endl;
-    cout << "LANZAMIENTO N" << (char)248 << lanzamiento << endl;
+    cout << "LANZAMIENTO N°" << lanzamiento << endl;
     cout << "---------------------------------------------------------------------------------" << endl;
 }
 
@@ -92,7 +92,7 @@ void interfas_parteMiD(int lanzamiento, int maxPuntajeRonda)
 {
     cout << "---------------------------------------------------------------------------------" << endl;
     cout << "MAXIMO PUNTAJE DE LA RONDA: " << maxPuntajeRonda << " PUNTOS" << endl;
-    cout << "LAMZAMIENTO N" <<  (char)248 << " " << lanzamiento << endl;
+    cout << "LAMZAMIENTO N° " << lanzamiento << endl;
     cout << "---------------------------------------------------------------------------------" << endl;
     rlutil::anykey();
 }
@@ -117,7 +117,7 @@ void subMenu_rondas_prederminadas ( bool &rondas)
 
       //COLOCAMOS LA FIGURA " >> " EN LA OPCION SI:
       rlutil::locate(35,10+offset_y);
-      cout << (char)175 << (char)175 << endl;
+      cout << "»»" << endl;
       key = rlutil::getkey();
 
       switch(key)
@@ -194,60 +194,56 @@ void dibujo_cuadrado()
     int columna_izquierda = 15;
     int columna_derecha = 67;
     rlutil::locate(columna_izquierda,4);
-    cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " ";
-    cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " ;
-    cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " ";
+    for (int i = 0; i < 27; i++) cout << "▀ ";
     // LINEA INFERIOS: X1=30  X2=82 | Y = 15
     rlutil::locate(columna_izquierda,16);
-    cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " ";
-    cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " ;
-    cout << (char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 <<  " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " " <<(char)223 << " ";
+    for (int i = 0; i < 27; i++) cout << "▀ ";
     //LINEA VERTICAL IZQUIERDA:
     rlutil::locate(columna_izquierda,5);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_izquierda,6);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_izquierda,7);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_izquierda,8);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_izquierda,9);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_izquierda,10);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_izquierda,11);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_izquierda,12);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_izquierda,13);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_izquierda,14);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_izquierda,15);
-    cout << (char)223;
+    cout << "▀";
     //LINEA VERTICAL DERECHA:
     rlutil::locate(columna_derecha,5);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_derecha,6);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_derecha,7);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_derecha,8);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_derecha,9);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_derecha,10);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_derecha,11);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_derecha,12);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_derecha,13);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_derecha,14);
-    cout << (char)223;
+    cout << "▀";
     rlutil::locate(columna_derecha,15);
-    cout << (char)223;
+    cout << "▀";
 }
 
 // SUBMENU CREDITOS
