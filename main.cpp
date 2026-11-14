@@ -22,7 +22,7 @@ int main()
     int offset_y =0;
 
     // Ranking
-    int const ranking_len = 11; // LONGITUD DEL TAMAÑO DEL VECTOR.
+    int const ranking_len = 11; // LONGITUD DEL TAMAï¿½O DEL VECTOR.
     string ranking_lista[ranking_len]; // VECTOR DE STRING, LISTA DE RANKING
     ponerVectorEnVacio(ranking_lista,ranking_len); // INICIALIZO EL RANKING
 
