@@ -83,6 +83,9 @@ EMSCRIPTEN_KEEPALIVE void game_columns(int count)
 
 int main()
 {
+    // SDL must not capture document-wide keys intended for HTML form controls.
+    // Browser gameplay shortcuts are handled separately by app.js.
+    SDL_SetHint(SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT, "#canvas");
     if (SDL_Init(SDL_INIT_VIDEO) != 0) return 1;
     window = SDL_CreateWindow("Escalera o Cien", 0, 0, 720, 120, 0);
     if (!window) return 1;

@@ -43,3 +43,7 @@ These are subsequent slices, not nonfunctional menu options.
   state, exit from help/gameplay, restart, and no horizontal overflow or errors.
 - Desktop CMake build and the six existing terminal regression tests still pass.
 - Changes to the console source files: none.
+- Keyboard-input regression: reproduced that SDL's document-wide listener blocked
+  real typing (programmatic field filling had missed it). SDL keyboard capture is
+  now scoped to the canvas. Browser tests use actual typing, q, Backspace and
+  Enter submission at both viewport sizes.

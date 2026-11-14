@@ -35,12 +35,16 @@ async function main() {
       await page.goto(`http://127.0.0.1:${server.address().port}/dados.html`);
       await page.locator('#start:enabled').waitFor();
       await page.screenshot({ path: path.join(screenshots, `menu-${width}.png`), fullPage: true });
-      await page.locator('#player-name').fill('quique');
+      await page.locator('#player-name').click();
+      await page.keyboard.type('quique');
+      assert.equal(await page.locator('#player-name').inputValue(), 'quique', 'real keyboard input must reach the name field');
       // q in text entry must not exit the game.
       await page.locator('#player-name').press('q');
       assert(await page.locator('#menu').isVisible());
-      await page.locator('#player-name').fill('quique');
-      await page.locator('#start').click();
+      assert.equal(await page.locator('#player-name').inputValue(), 'quiqueq');
+      await page.keyboard.press('Backspace');
+      assert.equal(await page.locator('#player-name').inputValue(), 'quique', 'editing keys must work');
+      await page.keyboard.press('Enter');
       assert(await page.locator('#play').isVisible());
       assert.equal(await page.locator('#total').textContent(), '0');
       const canvas = await page.locator('#canvas').boundingBox();
