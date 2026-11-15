@@ -1,0 +1,17 @@
+:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #171717; color: #ececec; }
+* { box-sizing: border-box; }
+body { margin: 0 auto; padding: 24px; max-width: 1000px; }
+header { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+h1 { font-size: 20px; margin: 0; }
+h1 span { display: block; font-size: 13px; font-weight: 400; color: #bcbcbc; margin-top: 4px; }
+#status, .help { color: #bcbcbc; font-size: 13px; line-height: 1.6; }
+.terminal-scroll { overflow-x: auto; padding: 10px; background: #ff55ff; border: 1px solid #747474; }
+#terminal { width: max-content; }
+nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+button { font: inherit; font-size: 14px; min-width: 44px; min-height: 44px; padding: 8px 14px; background: #2b2b2b; color: #fff; border: 1px solid #787878; border-radius: 4px; cursor: pointer; }
+button:hover { background: #3c3c3c; }
+button:focus-visible { outline: 3px solid #ff9cff; outline-offset: 3px; }
+button:disabled { opacity: .45; cursor: default; }
+[hidden] { display: none !important; }
+.help { max-width: 80ch; }
+@media (max-width: 600px) { body { padding: 16px; } h1 { font-size: 18px; } .terminal-scroll { padding: 6px; } }

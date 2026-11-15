@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="El juego original de Escalera o Cien, ejecutado en una terminal en tu navegador.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="xterm.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>Escalera o Cien — Consola original</title>
+</head>
+<body>
+  <header><h1>Escalera o Cien <span>Consola original</span></h1><button id="restart" hidden>Iniciar de nuevo</button></header>
+  <p id="status" role="status">Cargando el programa original…</p>
+  <main aria-label="Juego original en una terminal">
+    <div class="terminal-scroll"><div id="terminal" aria-label="Terminal interactiva"></div></div>
+    <nav aria-label="Teclas de la terminal">
+      <button data-key="up" aria-label="Flecha arriba">↑</button>
+      <button data-key="down" aria-label="Flecha abajo">↓</button>
+      <button data-key="left" aria-label="Página anterior">←</button>
+      <button data-key="right" aria-label="Página siguiente">→</button>
+      <button data-key="enter">Enter</button>
+      <button data-key="escape">Esc</button>
+      <button data-key="q">q · Salir</button>
+      <button id="keyboard">Escribir</button>
+    </nav>
+  </main>
+  <p class="help">Hacé clic en la terminal para usar el teclado. Flechas para navegar,
+    Enter para elegir. La tecla q sale desde menús y pausas; al escribir un nombre es texto normal.</p>
+  <script src="xterm.js"></script>
+  <script src="app.js"></script>
+  {{{ SCRIPT }}}
+</body>
+</html>

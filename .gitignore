@@ -57,3 +57,7 @@ web/
 
 # Tests
 test/
+
+# Original-console browser build and local dependencies
+web-terminal/build/
+web-terminal/node_modules/

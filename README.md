@@ -2,6 +2,13 @@
 
 ## Overview
 
+### Original console interface in a browser
+
+The `web-terminal` branch includes an Emscripten + xterm.js build of the
+original console game, preserving its text layout and game modes. See
+[web-terminal/README.md](web-terminal/README.md) for building and running it.
+This is separate from the redesigned graphical edition on `web-port`.
+
 This is a command-line dice game implemented in **C** as a final project for the course **Programming I**, part of the **University Technical Degree in Programming** at **UTN (Universidad Tecnológica Nacional), Argentina**, during the **first semester of 2024**.
 
 The game is called **"CIEN" or "Escalera"**, and is designed for **multiple users**, supporting both **single-player** and **two-player** modes. The goal is to reach **100 points** in the fewest number of rounds or to get a **straight (1–6)** in a single roll, which results in an immediate win.

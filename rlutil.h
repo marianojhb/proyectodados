@@ -62,6 +62,10 @@
 	#define getch _getch
 	#define kbhit _kbhit
 #else
+	#ifdef __EMSCRIPTEN__
+	#include <emscripten.h>
+	#include "web-terminal/terminal_io.h"
+	#endif
 	#include <termios.h> // for getch() and kbhit()
 	#include <unistd.h> // for getch(), kbhit() and (u)sleep()
 	#include <sys/ioctl.h> // for getkey()
@@ -74,6 +78,9 @@
 /// Windows has this in conio.h
 // timeout is in tenths of a second; negative means wait indefinitely.
 RLUTIL_INLINE int getch_timeout(int timeout) {
+#ifdef __EMSCRIPTEN__
+	return terminal_read_key(timeout);
+#else
 	struct termios oldt, newt;
 	unsigned char ch;
 	if (tcgetattr(STDIN_FILENO, &oldt) != 0) return getchar();
@@ -88,6 +95,7 @@ RLUTIL_INLINE int getch_timeout(int timeout) {
 	} while (count < 0 && errno == EINTR);
 	tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
 	return count == 1 ? ch : EOF;
+#endif
 }
 
 RLUTIL_INLINE int getch(void) {
@@ -98,6 +106,9 @@ RLUTIL_INLINE int getch(void) {
 /// Determines if keyboard has been hit.
 /// Windows has this in conio.h
 RLUTIL_INLINE int kbhit(void) {
+#ifdef __EMSCRIPTEN__
+	return terminal_key_count();
+#else
 	// Here be dragons.
 	static struct termios oldt, newt;
 	int cnt = 0;
@@ -116,6 +127,7 @@ RLUTIL_INLINE int kbhit(void) {
 	select(STDIN_FILENO+1, NULL, NULL, NULL, &tv); // A small time delay
 	tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
 	return cnt; // Return number of characters
+#endif
 }
 #endif // _WIN32
 
@@ -650,6 +662,8 @@ RLUTIL_INLINE void showcursor(void) {
 RLUTIL_INLINE void msleep(unsigned int ms) {
 #ifdef _WIN32
 	Sleep(ms);
+#elif defined(__EMSCRIPTEN__)
+	emscripten_sleep(ms);
 #else
 	// usleep argument must be under 1 000 000
 	if (ms > 1000) sleep(ms/1000000);
